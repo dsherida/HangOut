@@ -1,4 +1,5 @@
 HangOut
 =======
+Members: Doug Sheridan, Ian Ferreira Dos Santos
 
-Android app that helps you organize meetings with friends and locals.
+Description: Android app that helps you organize meetings with friends and locals.

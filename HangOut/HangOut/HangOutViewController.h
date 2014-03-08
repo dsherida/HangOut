@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
+#import <FacebookSDK/FacebookSDK.h>
 
-@interface HangOutViewController : UIViewController
+@interface HangOutViewController : UIViewController <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
 
+- (IBAction)logOutButtonPressed:(UIButton *)sender;
+- (void)viewDidAppear:(BOOL)animated;
 @end

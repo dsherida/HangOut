@@ -14,10 +14,44 @@
 
 @implementation HangOutViewController
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+- (IBAction)logOutButtonPressed:(UIButton *)sender {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Log out" message:@"Logging out..." delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
+    [alert show];
+    [PFUser logOut];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    if (![PFUser currentUser]) { // No user logged in
+        PFLogInViewController *login = [[PFLogInViewController alloc] init];
+        login.fields = PFLogInFieldsUsernameAndPassword | PFLogInFieldsLogInButton | PFLogInFieldsFacebook
+        | PFLogInFieldsSignUpButton | PFLogInFieldsPasswordForgotten;
+        login.delegate = self;
+        login.signUpController.delegate = self;
+        [self presentViewController:login animated:YES completion:nil];
+    }
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
+    // Return Yes for supported orientations
+    return (self.interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)logInViewControllerDidCancelLogIn:(PFLogInViewController *)logInController {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)signUpViewControllerDidCancelSignUp:(PFSignUpViewController *)signUpController {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning

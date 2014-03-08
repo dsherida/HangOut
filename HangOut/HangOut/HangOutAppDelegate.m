@@ -12,9 +12,32 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+    // Parse initialization
+    [Parse setApplicationId:@"aKgiFXpgCls4fAnPDJV2qJWN0ciYs0Etkv2JXXuO"
+                  clientKey:@"BvWeN8gu0hjdxR2BzsA1QWdeMN8nTR3qkB7hSKmC"];
+    
+    // Track statistics around application opens
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
+    // Facebook initialization
+    [PFFacebookUtils initializeFacebook];
+    
     // Override point for customization after application launch.
     return YES;
 }
+
+
+// Single sign-on feature for Facebook SDK
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation {
+    return [FBAppCall handleOpenURL:url
+                  sourceApplication:sourceApplication
+                        withSession:[PFFacebookUtils session]];
+}
+
 							
 - (void)applicationWillResignActive:(UIApplication *)application
 {
@@ -35,6 +58,9 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
+    // More Facebook initialization
+    [FBAppCall handleDidBecomeActiveWithSession:[PFFacebookUtils session]];
+    
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
 

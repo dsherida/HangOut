@@ -20,8 +20,25 @@
 	<string>1.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb239363932918381</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
+	<key>FacebookAppID</key>
+	<string>239363932918381</string>
+	<key>FacebookDisplayName</key>
+	<string>HangOut</string>
+	<key>UILaunchImageFile</key>
+	<string>MyLaunchImage</string>
+	<key>CFBundleIconFile</key>
+	<string>AppIcon</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIMainStoryboardFile</key>

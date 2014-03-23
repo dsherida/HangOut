@@ -18,10 +18,6 @@
 		931BB7CC18BC0DA70001AF27 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 931BB7CA18BC0DA70001AF27 /* InfoPlist.strings */; };
 		931BB7CE18BC0DA70001AF27 /* HangOutTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 931BB7CD18BC0DA70001AF27 /* HangOutTests.m */; };
 		9339EEF718C8224600EF4020 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9339EEF618C8224600EF4020 /* SystemConfiguration.framework */; };
-		9366131818C82CB800612F92 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9366131718C82CB800612F92 /* FacebookSDK.framework */; };
-		9366131918C82CB800612F92 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9366131718C82CB800612F92 /* FacebookSDK.framework */; };
-		9366131B18C82CC300612F92 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9366131A18C82CC300612F92 /* Parse.framework */; };
-		9366131C18C82CC400612F92 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9366131A18C82CC300612F92 /* Parse.framework */; };
 		9366131E18C82D8200612F92 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9366131D18C82D8200612F92 /* AudioToolbox.framework */; };
 		9366132018C82D8800612F92 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9366131F18C82D8800612F92 /* CFNetwork.framework */; };
 		9366132218C82D9000612F92 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9366132118C82D9000612F92 /* CoreGraphics.framework */; };
@@ -30,8 +26,8 @@
 		9366132818C82DA400612F92 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9366132718C82DA400612F92 /* MobileCoreServices.framework */; };
 		9366132A18C82DAF00612F92 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9366132918C82DAF00612F92 /* QuartzCore.framework */; };
 		9366132C18C82DB700612F92 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9366132B18C82DB700612F92 /* Security.framework */; };
-		FBC4188418CEA79E00737545 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBC4188318CEA79E00737545 /* Parse.framework */; };
-		FBC4188618CEA7B000737545 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBC4188518CEA7B000737545 /* FacebookSDK.framework */; };
+		9F0C3C3C18DE51580020471C /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F0C3C3A18DE51580020471C /* FacebookSDK.framework */; };
+		9F0C3C3D18DE51580020471C /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F0C3C3B18DE51580020471C /* Parse.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,8 +58,6 @@
 		931BB7CB18BC0DA70001AF27 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		931BB7CD18BC0DA70001AF27 /* HangOutTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HangOutTests.m; sourceTree = "<group>"; };
 		9339EEF618C8224600EF4020 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		9366131718C82CB800612F92 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
-		9366131A18C82CC300612F92 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = ../../../Frameworks/Parse.framework; sourceTree = "<group>"; };
 		9366131D18C82D8200612F92 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		9366131F18C82D8800612F92 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		9366132118C82D9000612F92 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -72,8 +66,8 @@
 		9366132718C82DA400612F92 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		9366132918C82DAF00612F92 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		9366132B18C82DB700612F92 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		FBC4188318CEA79E00737545 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
-		FBC4188518CEA7B000737545 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		9F0C3C3A18DE51580020471C /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		9F0C3C3B18DE51580020471C /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,14 +81,12 @@
 				9366132818C82DA400612F92 /* MobileCoreServices.framework in Frameworks */,
 				9366132618C82D9E00612F92 /* libz.1.1.3.dylib in Frameworks */,
 				9366132418C82D9600612F92 /* CoreLocation.framework in Frameworks */,
-				FBC4188418CEA79E00737545 /* Parse.framework in Frameworks */,
 				9366132218C82D9000612F92 /* CoreGraphics.framework in Frameworks */,
 				9366132018C82D8800612F92 /* CFNetwork.framework in Frameworks */,
+				9F0C3C3C18DE51580020471C /* FacebookSDK.framework in Frameworks */,
 				9366131E18C82D8200612F92 /* AudioToolbox.framework in Frameworks */,
+				9F0C3C3D18DE51580020471C /* Parse.framework in Frameworks */,
 				931BB7A718BC0DA70001AF27 /* UIKit.framework in Frameworks */,
-				9366131B18C82CC300612F92 /* Parse.framework in Frameworks */,
-				9366131818C82CB800612F92 /* FacebookSDK.framework in Frameworks */,
-				FBC4188618CEA7B000737545 /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,8 +95,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				931BB7C418BC0DA70001AF27 /* UIKit.framework in Frameworks */,
-				9366131C18C82CC400612F92 /* Parse.framework in Frameworks */,
-				9366131918C82CB800612F92 /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,8 +123,8 @@
 		931BB7A118BC0DA70001AF27 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				FBC4188518CEA7B000737545 /* FacebookSDK.framework */,
-				FBC4188318CEA79E00737545 /* Parse.framework */,
+				9F0C3C3B18DE51580020471C /* Parse.framework */,
+				9F0C3C3A18DE51580020471C /* FacebookSDK.framework */,
 				9366132B18C82DB700612F92 /* Security.framework */,
 				9366132918C82DAF00612F92 /* QuartzCore.framework */,
 				9366132718C82DA400612F92 /* MobileCoreServices.framework */,
@@ -143,8 +133,6 @@
 				9366132118C82D9000612F92 /* CoreGraphics.framework */,
 				9366131F18C82D8800612F92 /* CFNetwork.framework */,
 				9366131D18C82D8200612F92 /* AudioToolbox.framework */,
-				9366131A18C82CC300612F92 /* Parse.framework */,
-				9366131718C82CB800612F92 /* FacebookSDK.framework */,
 				9339EEF618C8224600EF4020 /* SystemConfiguration.framework */,
 				931BB7A618BC0DA70001AF27 /* UIKit.framework */,
 			);
@@ -424,6 +412,7 @@
 					/Users/dsheridan/Documents/FacebookSDK,
 					/Users/dsheridan/Documents/Frameworks,
 					/Users/ASUuser/Desktop/doug/HangOut,
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HangOut/HangOut-Prefix.pch";
@@ -441,6 +430,7 @@
 					/Users/dsheridan/Documents/FacebookSDK,
 					/Users/dsheridan/Documents/Frameworks,
 					/Users/ASUuser/Desktop/doug/HangOut,
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HangOut/HangOut-Prefix.pch";

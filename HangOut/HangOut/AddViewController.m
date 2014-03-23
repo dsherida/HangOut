@@ -1,19 +1,18 @@
 //
-//  SettingsViewController.m
+//  AddViewController.m
 //  HangOut
 //
 //  Created by Ian Ferreira dos Santos on 3/22/14.
 //
 //
 
-#import "SettingsViewController.h"
-#
+#import "AddViewController.h"
 
-@interface SettingsViewController ()
+@interface AddViewController ()
 
 @end
 
-@implementation SettingsViewController
+@implementation AddViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -22,30 +21,6 @@
         // Custom initialization
     }
     return self;
-}
-
-- (IBAction)logOutButtonPressed:(UIButton *)sender {
-    
-    [PFUser logOut];
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
-    /*
-    PFLogInViewController *login = [[PFLogInViewController alloc] init];
-    login.fields = PFLogInFieldsUsernameAndPassword | PFLogInFieldsLogInButton | PFLogInFieldsFacebook
-    | PFLogInFieldsSignUpButton | PFLogInFieldsPasswordForgotten;
-    login.delegate = self;
-    login.signUpController.delegate = self;
-    [self presentViewController:login animated:YES completion:nil];
-     */
-}
-
-- (IBAction)okButtonPressed:(UIButton *)sender {
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
-
-}
-
-- (IBAction)test:(id)sender {
 }
 
 - (void)viewDidLoad

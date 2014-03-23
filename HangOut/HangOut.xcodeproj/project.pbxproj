@@ -29,6 +29,7 @@
 		9F0C3C3C18DE51580020471C /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F0C3C3A18DE51580020471C /* FacebookSDK.framework */; };
 		9F0C3C3D18DE51580020471C /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F0C3C3B18DE51580020471C /* Parse.framework */; };
 		9FA0BFEE18DE6AB200005283 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA0BFED18DE6AB200005283 /* SettingsViewController.m */; };
+		9FE1D5E118DEB7E500D44C41 /* AddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FE1D5E018DEB7E500D44C41 /* AddViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,8 @@
 		9F0C3C3B18DE51580020471C /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		9FA0BFEC18DE6AB200005283 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		9FA0BFED18DE6AB200005283 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		9FE1D5DF18DEB7E500D44C41 /* AddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddViewController.h; sourceTree = "<group>"; };
+		9FE1D5E018DEB7E500D44C41 /* AddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +151,8 @@
 				931BB7B118BC0DA70001AF27 /* HangOutAppDelegate.h */,
 				931BB7B218BC0DA70001AF27 /* HangOutAppDelegate.m */,
 				931BB7B418BC0DA70001AF27 /* Main.storyboard */,
+				9FE1D5DF18DEB7E500D44C41 /* AddViewController.h */,
+				9FE1D5E018DEB7E500D44C41 /* AddViewController.m */,
 				9FA0BFEC18DE6AB200005283 /* SettingsViewController.h */,
 				9FA0BFED18DE6AB200005283 /* SettingsViewController.m */,
 				931BB7B718BC0DA70001AF27 /* HangOutViewController.h */,
@@ -285,6 +290,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9FE1D5E118DEB7E500D44C41 /* AddViewController.m in Sources */,
 				931BB7B918BC0DA70001AF27 /* HangOutViewController.m in Sources */,
 				931BB7AF18BC0DA70001AF27 /* main.m in Sources */,
 				931BB7B318BC0DA70001AF27 /* HangOutAppDelegate.m in Sources */,

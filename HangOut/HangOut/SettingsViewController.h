@@ -12,7 +12,7 @@
 
 @interface SettingsViewController : UIViewController
 
-- (IBAction)logOutButtonPressed:(UIButton *)sender;
-- (IBAction)okButtonPressed:(UIButton *)sender;
+- (IBAction)logOutButtonPressed:(id)sender;
+- (IBAction)okButtonPressed:(id)sender;
 
 @end

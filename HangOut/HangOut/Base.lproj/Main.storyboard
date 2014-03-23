@@ -78,31 +78,15 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Settings" id="Dww-JX-ORJ">
-                                        <barButtonItem key="leftBarButtonItem" style="plain" id="ebS-AR-o2v">
-                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="TD9-BG-e5d">
-                                                <rect key="frame" x="16" y="5" width="71" height="33"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <state key="normal" title="OK">
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="okButtonPressed:" destination="XNl-JJ-Q1e" eventType="touchUpInside" id="IO9-0s-wIs"/>
-                                                </connections>
-                                            </button>
+                                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="save" id="ebS-AR-o2v">
+                                            <connections>
+                                                <action selector="okButtonPressed:" destination="XNl-JJ-Q1e" id="VDN-A3-Nmh"/>
+                                            </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" style="plain" id="yUj-R0-Svt">
-                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Hpp-27-5nw">
-                                                <rect key="frame" x="233" y="5" width="71" height="33"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <state key="normal" title="Logout">
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="logOutButtonPressed:" destination="XNl-JJ-Q1e" eventType="touchUpInside" id="EYk-KV-0zD"/>
-                                                </connections>
-                                            </button>
+                                        <barButtonItem key="rightBarButtonItem" title="Logout" style="plain" id="yUj-R0-Svt">
+                                            <connections>
+                                                <action selector="logOutButtonPressed:" destination="XNl-JJ-Q1e" id="ADm-IF-WV0"/>
+                                            </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
@@ -115,7 +99,28 @@
             </objects>
             <point key="canvasLocation" x="1348" y="-972"/>
         </scene>
-        <!--Hang Out View Controller - HangOut-->
+        <!--Add View Controller - Add-->
+        <scene sceneID="j9T-zt-wGq">
+            <objects>
+                <viewController id="KOm-ee-8hT" customClass="AddViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bKN-4u-QUg"/>
+                        <viewControllerLayoutGuide type="bottom" id="MQY-Wh-eS0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Gpc-nP-faW">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add" id="KyD-bS-vH8">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="JUe-RX-WuR"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z2D-U5-vsD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1791" y="-970"/>
+        </scene>
+        <!--Hang Out View Controller - Friends-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="HangOutViewController" sceneMemberID="viewController">
@@ -186,28 +191,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="HangOut" id="ryd-Ia-UT5">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="eIa-rr-e20">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="BUP-Y9-8dx">
-                                <rect key="frame" x="16" y="5" width="71" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="Settings">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="XNl-JJ-Q1e" kind="modal" modalTransitionStyle="coverVertical" id="TV0-J7-pVc"/>
-                                </connections>
-                            </button>
+                    <navigationItem key="navigationItem" title="Friends" id="ryd-Ia-UT5">
+                        <barButtonItem key="leftBarButtonItem" title="Settings" style="plain" id="eIa-rr-e20">
+                            <connections>
+                                <segue destination="XNl-JJ-Q1e" kind="modal" id="rIR-Es-oUT"/>
+                            </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="6CM-kj-kBR">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="zrv-Rg-VPR">
-                                <rect key="frame" x="233" y="5" width="71" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Add">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="z0m-uv-Ick">
+                            <connections>
+                                <segue destination="KOm-ee-8hT" kind="push" id="qTc-Kd-rLr"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </viewController>

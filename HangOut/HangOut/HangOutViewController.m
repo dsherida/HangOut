@@ -15,9 +15,15 @@
 @implementation HangOutViewController
 
 - (IBAction)logOutButtonPressed:(UIButton *)sender {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Log out" message:@"Logging out..." delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
-    [alert show];
+
     [PFUser logOut];
+    
+    PFLogInViewController *login = [[PFLogInViewController alloc] init];
+    login.fields = PFLogInFieldsUsernameAndPassword | PFLogInFieldsLogInButton | PFLogInFieldsFacebook
+    | PFLogInFieldsSignUpButton | PFLogInFieldsPasswordForgotten;
+    login.delegate = self;
+    login.signUpController.delegate = self;
+    [self presentViewController:login animated:YES completion:nil];
 }
 
 - (void)viewDidAppear:(BOOL)animated {

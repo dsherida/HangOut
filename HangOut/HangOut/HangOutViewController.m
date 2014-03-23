@@ -14,12 +14,6 @@
 
 @implementation HangOutViewController
 
-- (IBAction)logOutButtonPressed:(UIButton *)sender {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Log out" message:@"Logging out..." delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
-    [alert show];
-    [PFUser logOut];
-}
-
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     

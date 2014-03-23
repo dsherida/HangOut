@@ -12,6 +12,8 @@
 
 @interface HangOutViewController : UIViewController <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
 
-- (IBAction)logOutButtonPressed:(UIButton *)sender;
+
 - (void)viewDidAppear:(BOOL)animated;
+
+
 @end

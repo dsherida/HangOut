@@ -28,6 +28,10 @@
 		9366132C18C82DB700612F92 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9366132B18C82DB700612F92 /* Security.framework */; };
 		9F0C3C3C18DE51580020471C /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F0C3C3A18DE51580020471C /* FacebookSDK.framework */; };
 		9F0C3C3D18DE51580020471C /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F0C3C3B18DE51580020471C /* Parse.framework */; };
+		9FA0BFEE18DE6AB200005283 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA0BFED18DE6AB200005283 /* SettingsViewController.m */; };
+		9FE1D5E318DEBABA00D44C41 /* MyLaunchImage-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FE1D5E218DEBABA00D44C41 /* MyLaunchImage-568h@2x.png */; };
+		9FE1D5E618DFC18D00D44C41 /* AddForFriendsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FE1D5E518DFC18D00D44C41 /* AddForFriendsTableViewController.m */; };
+		9FE1D5E918DFCE4400D44C41 /* HangOutConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FE1D5E818DFCE4400D44C41 /* HangOutConstants.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +72,13 @@
 		9366132B18C82DB700612F92 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		9F0C3C3A18DE51580020471C /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		9F0C3C3B18DE51580020471C /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		9FA0BFEC18DE6AB200005283 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		9FA0BFED18DE6AB200005283 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		9FE1D5E218DEBABA00D44C41 /* MyLaunchImage-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MyLaunchImage-568h@2x.png"; sourceTree = "<group>"; };
+		9FE1D5E418DFC18D00D44C41 /* AddForFriendsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddForFriendsTableViewController.h; path = ../AddForFriendsTableViewController.h; sourceTree = "<group>"; };
+		9FE1D5E518DFC18D00D44C41 /* AddForFriendsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddForFriendsTableViewController.m; path = ../AddForFriendsTableViewController.m; sourceTree = "<group>"; };
+		9FE1D5E718DFCE4400D44C41 /* HangOutConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HangOutConstants.h; sourceTree = "<group>"; };
+		9FE1D5E818DFCE4400D44C41 /* HangOutConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HangOutConstants.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +115,7 @@
 		931BB79618BC0DA70001AF27 = {
 			isa = PBXGroup;
 			children = (
+				9FE1D5E218DEBABA00D44C41 /* MyLaunchImage-568h@2x.png */,
 				931BB7A818BC0DA70001AF27 /* HangOut */,
 				931BB7C718BC0DA70001AF27 /* HangOutTests */,
 				931BB7A118BC0DA70001AF27 /* Frameworks */,
@@ -142,9 +154,15 @@
 		931BB7A818BC0DA70001AF27 /* HangOut */ = {
 			isa = PBXGroup;
 			children = (
+				9FE1D5E418DFC18D00D44C41 /* AddForFriendsTableViewController.h */,
+				9FE1D5E518DFC18D00D44C41 /* AddForFriendsTableViewController.m */,
+				9FE1D5E718DFCE4400D44C41 /* HangOutConstants.h */,
+				9FE1D5E818DFCE4400D44C41 /* HangOutConstants.m */,
 				931BB7B118BC0DA70001AF27 /* HangOutAppDelegate.h */,
 				931BB7B218BC0DA70001AF27 /* HangOutAppDelegate.m */,
 				931BB7B418BC0DA70001AF27 /* Main.storyboard */,
+				9FA0BFEC18DE6AB200005283 /* SettingsViewController.h */,
+				9FA0BFED18DE6AB200005283 /* SettingsViewController.m */,
 				931BB7B718BC0DA70001AF27 /* HangOutViewController.h */,
 				931BB7B818BC0DA70001AF27 /* HangOutViewController.m */,
 				931BB7BA18BC0DA70001AF27 /* Images.xcassets */,
@@ -227,7 +245,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = HangOut;
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				TargetAttributes = {
 					931BB7BF18BC0DA70001AF27 = {
 						TestTargetID = 931BB79E18BC0DA70001AF27;
@@ -261,6 +279,7 @@
 			files = (
 				931BB7BB18BC0DA70001AF27 /* Images.xcassets in Resources */,
 				931BB7AD18BC0DA70001AF27 /* InfoPlist.strings in Resources */,
+				9FE1D5E318DEBABA00D44C41 /* MyLaunchImage-568h@2x.png in Resources */,
 				931BB7B618BC0DA70001AF27 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -283,6 +302,9 @@
 				931BB7B918BC0DA70001AF27 /* HangOutViewController.m in Sources */,
 				931BB7AF18BC0DA70001AF27 /* main.m in Sources */,
 				931BB7B318BC0DA70001AF27 /* HangOutAppDelegate.m in Sources */,
+				9FE1D5E618DFC18D00D44C41 /* AddForFriendsTableViewController.m in Sources */,
+				9FE1D5E918DFCE4400D44C41 /* HangOutConstants.m in Sources */,
+				9FA0BFEE18DE6AB200005283 /* SettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,7 +358,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -375,7 +396,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -443,7 +463,6 @@
 		931BB7D518BC0DA70001AF27 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/HangOut.app/HangOut";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -472,7 +491,6 @@
 		931BB7D618BC0DA70001AF27 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/HangOut.app/HangOut";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",

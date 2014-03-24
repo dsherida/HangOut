@@ -14,18 +14,6 @@
 
 @implementation HangOutViewController
 
-- (IBAction)logOutButtonPressed:(UIButton *)sender {
-
-    [PFUser logOut];
-    
-    PFLogInViewController *login = [[PFLogInViewController alloc] init];
-    login.fields = PFLogInFieldsUsernameAndPassword | PFLogInFieldsLogInButton | PFLogInFieldsFacebook
-    | PFLogInFieldsSignUpButton | PFLogInFieldsPasswordForgotten;
-    login.delegate = self;
-    login.signUpController.delegate = self;
-    [self presentViewController:login animated:YES completion:nil];
-}
-
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     

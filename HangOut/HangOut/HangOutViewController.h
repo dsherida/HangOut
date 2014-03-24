@@ -12,8 +12,8 @@
 
 @interface HangOutViewController : UIViewController <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
 
-@property (weak, nonatomic) IBOutlet UIButton *logoutButton;
 
-- (IBAction)logOutButtonPressed:(UIButton *)sender;
 - (void)viewDidAppear:(BOOL)animated;
+
+
 @end

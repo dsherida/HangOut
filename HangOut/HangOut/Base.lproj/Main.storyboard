@@ -23,6 +23,35 @@
             </objects>
             <point key="canvasLocation" x="1785" y="-282"/>
         </scene>
+        <!--Profile Table View Controller - Profile-->
+        <scene sceneID="uVN-Ct-q55">
+            <objects>
+                <tableViewController storyboardIdentifier="Profile" title="Profile" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fWs-Ut-9cN" customClass="ProfileTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="35" sectionHeaderHeight="22" sectionFooterHeight="22" id="vTq-7x-4QC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="35" id="dp4-I3-b84">
+                                <rect key="frame" x="0.0" y="22" width="320" height="35"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dp4-I3-b84" id="W3R-Hs-Oiz">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="34"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="fWs-Ut-9cN" id="ibQ-hX-VGI"/>
+                            <outlet property="delegate" destination="fWs-Ut-9cN" id="NhO-35-lkM"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Profile" id="suj-cL-lqh"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tBt-oa-lta" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="716" y="647"/>
+        </scene>
         <!--View Controller - Leaderboard-->
         <scene sceneID="8FG-Z4-bcz">
             <objects>
@@ -41,25 +70,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nRR-Ri-vJ5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1259" y="412"/>
-        </scene>
-        <!--View Controller - Profile-->
-        <scene sceneID="ker-26-wTj">
-            <objects>
-                <viewController id="yBo-4J-ypI" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Vmt-wh-izo"/>
-                        <viewControllerLayoutGuide type="bottom" id="v2s-oO-5ah"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="nnB-Ri-O0W">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Profile" id="gGv-lE-UdO"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pgp-IX-k0X" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="853" y="412"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="ulG-T7-GvW">
@@ -192,7 +202,7 @@
                                                         <!--2014-03-24 01:14:10 +0000-->
                                                     </date>
                                                     <timeZone key="timeZone" name="America/Los_Angeles">
-                                                        <mutableData key="data">
+                                                        <data key="data">
 VFppZgAAAAAAAAAAAAAAAAAAAAAAAAAEAAAABAAAAAAAAAC5AAAABAAAABCepkign7sVkKCGKqChmveQ
 y4kaoNIj9HDSYSYQ1v50INiArZDa/tGg28CQENzes6DdqayQ3r6VoN+JjpDgnneg4WlwkOJ+WaDjSVKQ
 5F47oOUpNJDmR1gg5xJREOgnOiDo8jMQ6gccIOrSFRDr5v4g7LH3EO3G4CDukdkQ76/8oPBxuxDxj96g
@@ -210,7 +220,7 @@ f5gqkAABAAECAwEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
 AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
 AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
 AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
-</mutableData>
+</data>
                                                     </timeZone>
                                                 </datePicker>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date &amp; Time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hb7-qu-BXS">
@@ -349,7 +359,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     <connections>
                         <segue destination="tS7-sb-7tE" kind="relationship" relationship="viewControllers" id="mJb-Ey-TRB"/>
                         <segue destination="jTr-qF-nGX" kind="relationship" relationship="viewControllers" id="nv9-BG-95h"/>
-                        <segue destination="yBo-4J-ypI" kind="relationship" relationship="viewControllers" id="vua-kI-usI"/>
+                        <segue destination="fWs-Ut-9cN" kind="relationship" relationship="viewControllers" id="xub-CD-iWV"/>
                         <segue destination="WAk-JN-Jxm" kind="relationship" relationship="viewControllers" id="W4t-Br-oPJ"/>
                     </connections>
                 </tabBarController>

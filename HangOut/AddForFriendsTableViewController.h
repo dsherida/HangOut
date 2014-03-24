@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UITextView *messageTextField;
 @property (weak, nonatomic) IBOutlet UITextField *placeTextField;
 @property (weak, nonatomic) IBOutlet UIDatePicker *dateTextField;
+@property (weak, nonatomic) IBOutlet UISwitch *privacySwitch;
 
 - (IBAction)doneButtonClicked:(id)sender;
 

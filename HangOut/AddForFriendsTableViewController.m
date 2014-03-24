@@ -83,6 +83,7 @@
     [wish setObject:self.messageTextField.text forKey:kWishInfoKey];
     [wish setObject:self.placeTextField.text forKey:kWishPlaceKey];
     [wish setObject:self.dateTextField.date forKey:kWishDateKey];
+    [wish setObject:[NSNumber numberWithBool:self.privacySwitch.on] forKey:kWishPrivacyKey];
     
     // Wishes are public, but only the creator can modify it
     PFACL *wishACL = [PFACL ACLWithUser:[PFUser currentUser]];

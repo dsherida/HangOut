@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
+#import "HangOutConstants.h"
 
 @interface AddForFriendsTableViewController : UITableViewController
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;

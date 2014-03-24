@@ -65,7 +65,31 @@
     NSLog(@"%@", self.placeTextField.text);
     NSLog(@"%@", self.dateTextField.date);
     
+    if (!self.titleTextField.hasText || !self.messageTextField.hasText || !self.placeTextField.hasText) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Couldn't post your wish"
+                                                        message:nil
+                                                       delegate:nil
+                                              cancelButtonTitle:nil
+                                              otherButtonTitles:@"Dismiss",nil];
+        [alert show];
+        return;
+    }
     
+    // Create Wish Object
+    PFObject *wish = [PFObject objectWithClassName:kWishClassKey];
+    
+    [wish setObject:[PFUser currentUser] forKey:kUserClassKey];
+    [wish setObject:self.titleTextField.text forKey:kWishTitleKey];
+    [wish setObject:self.messageTextField.text forKey:kWishInfoKey];
+    [wish setObject:self.placeTextField.text forKey:kWishPlaceKey];
+    [wish setObject:self.dateTextField.date forKey:kWishDateKey];
+    
+    // Wishes are public, but only the creator can modify it
+    PFACL *wishACL = [PFACL ACLWithUser:[PFUser currentUser]];
+    [wishACL setPublicReadAccess:YES];
+    wish.ACL = wishACL;
+    
+    [wish saveInBackground];
     
     [[self navigationController] popViewControllerAnimated:YES];
 }

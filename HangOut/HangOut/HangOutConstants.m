@@ -8,7 +8,7 @@
 
 #pragma mark - PFObject Activity Class
 // Class key
-NSString *const kActivityClassKey = @"Activity";
+NSString *const kActivityClassKey = @"activity";
 
 // Field keys
 NSString *const kActivityTypeKey = @"type";
@@ -37,12 +37,13 @@ NSString *const kUserAlreadyAutoFollowedFacebookFriendsKey;
 
 #pragma mark - PFObject Wish Class
 // Class key
-NSString *const kWishClassKey;
+NSString *const kWishClassKey = @"wish";
 
 // Field keys
-NSString *const kWishInfoKey;
-NSString *const kWishTitleKey;
-NSString *const kWishUserKey;
-NSString *const kWishPlaceKey;
-NSString *const kWishDateKey;
-NSString *const kWishTimeKey;
+NSString *const kWishInfoKey = @"info";
+NSString *const kWishTitleKey = @"title";
+NSString *const kWishUserKey = @"user";
+NSString *const kWishPlaceKey = @"place";
+NSString *const kWishDateKey = @"date";
+NSString *const kWishTimeKey = @"time";
+NSString *const kWishPrivacyKey = @"privacy";

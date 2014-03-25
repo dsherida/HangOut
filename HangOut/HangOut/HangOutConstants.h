@@ -23,6 +23,9 @@ extern NSString *const kActivityTypeComment;
 
 
 #pragma mark - PFObject User Class
+// Class key
+extern NSString *const kUserClassKey;
+
 // Field keys
 extern NSString *const kUserNameKey;
 extern NSString *const kUserFacebookIDKey;
@@ -43,3 +46,4 @@ extern NSString *const kWishUserKey;
 extern NSString *const kWishPlaceKey;
 extern NSString *const kWishDateKey;
 extern NSString *const kWishTimeKey;
+extern NSString *const kWishPrivacyKey;

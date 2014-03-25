@@ -17,6 +17,7 @@
 		931BB7C418BC0DA70001AF27 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 931BB7A618BC0DA70001AF27 /* UIKit.framework */; };
 		931BB7CC18BC0DA70001AF27 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 931BB7CA18BC0DA70001AF27 /* InfoPlist.strings */; };
 		931BB7CE18BC0DA70001AF27 /* HangOutTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 931BB7CD18BC0DA70001AF27 /* HangOutTests.m */; };
+		9321515218DFFF480054CAC0 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9321515118DFFF480054CAC0 /* ProfileViewController.m */; };
 		9339EEF718C8224600EF4020 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9339EEF618C8224600EF4020 /* SystemConfiguration.framework */; };
 		9366131E18C82D8200612F92 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9366131D18C82D8200612F92 /* AudioToolbox.framework */; };
 		9366132018C82D8800612F92 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9366131F18C82D8800612F92 /* CFNetwork.framework */; };
@@ -26,6 +27,7 @@
 		9366132818C82DA400612F92 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9366132718C82DA400612F92 /* MobileCoreServices.framework */; };
 		9366132A18C82DAF00612F92 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9366132918C82DAF00612F92 /* QuartzCore.framework */; };
 		9366132C18C82DB700612F92 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9366132B18C82DB700612F92 /* Security.framework */; };
+		93DCA2E118E1003E0001A4BF /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 93DCA2E018E1003E0001A4BF /* UserModel.m */; };
 		9F0C3C3C18DE51580020471C /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F0C3C3A18DE51580020471C /* FacebookSDK.framework */; };
 		9F0C3C3D18DE51580020471C /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F0C3C3B18DE51580020471C /* Parse.framework */; };
 		9F9F982B18E128DA00093545 /* FriendsTimelinePFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F9F982A18E128DA00093545 /* FriendsTimelinePFViewController.m */; };
@@ -62,6 +64,8 @@
 		931BB7C918BC0DA70001AF27 /* HangOutTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HangOutTests-Info.plist"; sourceTree = "<group>"; };
 		931BB7CB18BC0DA70001AF27 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		931BB7CD18BC0DA70001AF27 /* HangOutTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HangOutTests.m; sourceTree = "<group>"; };
+		9321515018DFFF480054CAC0 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		9321515118DFFF480054CAC0 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		9339EEF618C8224600EF4020 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		9366131D18C82D8200612F92 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		9366131F18C82D8800612F92 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -71,6 +75,8 @@
 		9366132718C82DA400612F92 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		9366132918C82DAF00612F92 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		9366132B18C82DB700612F92 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		93DCA2DF18E1003E0001A4BF /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
+		93DCA2E018E1003E0001A4BF /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
 		9F0C3C3A18DE51580020471C /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		9F0C3C3B18DE51580020471C /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		9F9F982918E128DA00093545 /* FriendsTimelinePFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FriendsTimelinePFViewController.h; path = ../FriendsTimelinePFViewController.h; sourceTree = "<group>"; };
@@ -170,6 +176,10 @@
 				9FA0BFED18DE6AB200005283 /* SettingsViewController.m */,
 				931BB7B718BC0DA70001AF27 /* HangOutViewController.h */,
 				931BB7B818BC0DA70001AF27 /* HangOutViewController.m */,
+				93DCA2DF18E1003E0001A4BF /* UserModel.h */,
+				93DCA2E018E1003E0001A4BF /* UserModel.m */,
+				9321515018DFFF480054CAC0 /* ProfileViewController.h */,
+				9321515118DFFF480054CAC0 /* ProfileViewController.m */,
 				931BB7BA18BC0DA70001AF27 /* Images.xcassets */,
 				931BB7A918BC0DA70001AF27 /* Supporting Files */,
 			);
@@ -308,8 +318,10 @@
 				9F9F982B18E128DA00093545 /* FriendsTimelinePFViewController.m in Sources */,
 				931BB7AF18BC0DA70001AF27 /* main.m in Sources */,
 				931BB7B318BC0DA70001AF27 /* HangOutAppDelegate.m in Sources */,
+				9321515218DFFF480054CAC0 /* ProfileViewController.m in Sources */,
 				9FE1D5E618DFC18D00D44C41 /* AddForFriendsTableViewController.m in Sources */,
 				9FE1D5E918DFCE4400D44C41 /* HangOutConstants.m in Sources */,
+				93DCA2E118E1003E0001A4BF /* UserModel.m in Sources */,
 				9FA0BFEE18DE6AB200005283 /* SettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

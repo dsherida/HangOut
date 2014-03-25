@@ -9,7 +9,8 @@
 #import <Parse/Parse.h>
 #import <FacebookSDK/FacebookSDK.h>
 
-@interface FriendsTimelinePFViewController : PFQueryTableViewController
+@interface FriendsTimelinePFViewController : PFQueryTableViewController <PFLogInViewControllerDelegate,
+PFSignUpViewControllerDelegate>
 
 @property (nonatomic,weak) NSString *wishTitle;
 @property (nonatomic,weak) NSString *message;

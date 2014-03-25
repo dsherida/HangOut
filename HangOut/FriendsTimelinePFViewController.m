@@ -83,9 +83,13 @@ UserModel *userModel; // singleton class UserModel
         [self presentViewController:login animated:YES completion:nil];
     }
     
-    NSLog(@"Setting up UserModel");
-    userModel = [UserModel sharedUserModel];
-    [userModel requestAndSetFacebookUserData];
+    BOOL isLinkedToFacebook = [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]];
+    
+    if (isLinkedToFacebook && (userModel.currentUser != [PFUser currentUser])) {
+        NSLog(@"Setting up UserModel");
+        userModel = [UserModel sharedUserModel];
+        [userModel requestAndSetFacebookUserData];
+    }
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
@@ -95,6 +99,9 @@ UserModel *userModel; // singleton class UserModel
 
 - (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user {
     [self dismissViewControllerAnimated:YES completion:nil];
+    NSLog(@"Setting up UserModel");
+    userModel = [UserModel sharedUserModel];
+    [userModel requestAndSetFacebookUserData];
 }
 
 - (void)logInViewControllerDidCancelLogIn:(PFLogInViewController *)logInController {

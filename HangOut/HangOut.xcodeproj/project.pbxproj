@@ -28,6 +28,7 @@
 		9366132C18C82DB700612F92 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9366132B18C82DB700612F92 /* Security.framework */; };
 		9F0C3C3C18DE51580020471C /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F0C3C3A18DE51580020471C /* FacebookSDK.framework */; };
 		9F0C3C3D18DE51580020471C /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F0C3C3B18DE51580020471C /* Parse.framework */; };
+		9F9F982B18E128DA00093545 /* FriendsTimelinePFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F9F982A18E128DA00093545 /* FriendsTimelinePFViewController.m */; };
 		9FA0BFEE18DE6AB200005283 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA0BFED18DE6AB200005283 /* SettingsViewController.m */; };
 		9FE1D5E318DEBABA00D44C41 /* MyLaunchImage-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FE1D5E218DEBABA00D44C41 /* MyLaunchImage-568h@2x.png */; };
 		9FE1D5E618DFC18D00D44C41 /* AddForFriendsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FE1D5E518DFC18D00D44C41 /* AddForFriendsTableViewController.m */; };
@@ -72,6 +73,8 @@
 		9366132B18C82DB700612F92 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		9F0C3C3A18DE51580020471C /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		9F0C3C3B18DE51580020471C /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		9F9F982918E128DA00093545 /* FriendsTimelinePFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FriendsTimelinePFViewController.h; path = ../FriendsTimelinePFViewController.h; sourceTree = "<group>"; };
+		9F9F982A18E128DA00093545 /* FriendsTimelinePFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FriendsTimelinePFViewController.m; path = ../FriendsTimelinePFViewController.m; sourceTree = "<group>"; };
 		9FA0BFEC18DE6AB200005283 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		9FA0BFED18DE6AB200005283 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		9FE1D5E218DEBABA00D44C41 /* MyLaunchImage-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MyLaunchImage-568h@2x.png"; sourceTree = "<group>"; };
@@ -154,6 +157,8 @@
 		931BB7A818BC0DA70001AF27 /* HangOut */ = {
 			isa = PBXGroup;
 			children = (
+				9F9F982918E128DA00093545 /* FriendsTimelinePFViewController.h */,
+				9F9F982A18E128DA00093545 /* FriendsTimelinePFViewController.m */,
 				9FE1D5E418DFC18D00D44C41 /* AddForFriendsTableViewController.h */,
 				9FE1D5E518DFC18D00D44C41 /* AddForFriendsTableViewController.m */,
 				9FE1D5E718DFCE4400D44C41 /* HangOutConstants.h */,
@@ -300,6 +305,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				931BB7B918BC0DA70001AF27 /* HangOutViewController.m in Sources */,
+				9F9F982B18E128DA00093545 /* FriendsTimelinePFViewController.m in Sources */,
 				931BB7AF18BC0DA70001AF27 /* main.m in Sources */,
 				931BB7B318BC0DA70001AF27 /* HangOutAppDelegate.m in Sources */,
 				9FE1D5E618DFC18D00D44C41 /* AddForFriendsTableViewController.m in Sources */,

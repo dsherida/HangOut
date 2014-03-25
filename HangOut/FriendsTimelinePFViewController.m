@@ -14,6 +14,9 @@
 
 @implementation FriendsTimelinePFViewController
 
+UserModel *userModel; // singleton class UserModel
+
+
 - (id)initWithCoder:(NSCoder *)aCoder {
     self = [super initWithCoder:aCoder];
     if (self) {
@@ -79,6 +82,10 @@
         login.signUpController.delegate = self;
         [self presentViewController:login animated:YES completion:nil];
     }
+    
+    NSLog(@"Setting up UserModel");
+    userModel = [UserModel sharedUserModel];
+    [userModel requestAndSetFacebookUserData];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {

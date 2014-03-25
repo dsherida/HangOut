@@ -50,6 +50,10 @@ NSArray *wishListNames;
 {
     [super viewDidLoad];
     userModel = [UserModel sharedUserModel];
+    
+    NSLog(@"Loaded Profile View");
+    NSLog(@"Username: %@", userModel.userName);
+    
     wishListNames = [NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut", @"Starbucks Coffee", @"Vegetable Curry", @"Instant Noodle with Egg", @"Noodle with BBQ Pork", @"Japanese Noodle with Pork", @"Green Tea", @"Thai Shrimp Cake", @"Angry Birds Cake", @"Ham and Cheese Panini", nil];
     
     UIImage *image = [UIImage imageWithData:userModel.profilePictureData];

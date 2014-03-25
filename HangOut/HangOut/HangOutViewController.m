@@ -14,6 +14,7 @@
 
 @implementation HangOutViewController
 
+UserModel *userModel;
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
@@ -26,6 +27,11 @@
         login.signUpController.delegate = self;
         [self presentViewController:login animated:YES completion:nil];
     }
+    
+    userModel = [UserModel sharedUserModel];
+    [userModel requestAndSetFacebookUserData];
+    //[userModel setCurrentUser];     // stores a pointer to the current user in the sharedUserModel
+    //[userModel setName];        // stores the name of the current user in the sharedUserModel
 }
 
 

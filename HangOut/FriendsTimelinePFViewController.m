@@ -165,6 +165,7 @@ UserModel *userModel; // singleton class UserModel
      UILabel *message = (UILabel *)[cell viewWithTag:3];
      message.text = [object objectForKey:self.message];
      
+     
      PFUser *theUser = [object objectForKey:@"User"];
 
      PFQuery *query = [PFQuery queryWithClassName:@"_User"];
@@ -173,10 +174,12 @@ UserModel *userModel; // singleton class UserModel
          UILabel *username = (UILabel *)[cell viewWithTag:20];
          username.text = [theUser objectForKey:@"username"];
          
-         UIImageView *image = (UIImageView *)[cell viewWithTag:2];
-         UIImage *profilePicture = [UIImage imageWithData:[theUser objectForKey:@"profilePic"]];
-         [image setImage:profilePicture];
+         PFImageView *image = (PFImageView *)[cell viewWithTag:2];
+         image.file = [theUser objectForKey:@"profilePic"];
+         [image loadInBackground];
      }];
+      
+      
  
  return cell;
  }

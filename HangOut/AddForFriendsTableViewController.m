@@ -77,13 +77,21 @@
     
     // Create Wish Object
     PFObject *wish = [PFObject objectWithClassName:kWishClassKey];
+    wish[@"User"] = [PFUser currentUser];
+    wish[kWishTitleKey] = self.titleTextField.text;
+    wish[kWishInfoKey] = self.messageTextField.text;
+    wish[kWishPlaceKey] = self.placeTextField.text;
+    wish[kWishDateKey] = self.dateTextField.date;
+    wish[kWishPrivacyKey] = [NSNumber numberWithBool:self.privacySwitch.on];
     
+    /*
     [wish setObject:[PFUser currentUser] forKey:kUserClassKey];
     [wish setObject:self.titleTextField.text forKey:kWishTitleKey];
     [wish setObject:self.messageTextField.text forKey:kWishInfoKey];
     [wish setObject:self.placeTextField.text forKey:kWishPlaceKey];
     [wish setObject:self.dateTextField.date forKey:kWishDateKey];
     [wish setObject:[NSNumber numberWithBool:self.privacySwitch.on] forKey:kWishPrivacyKey];
+     */
     
     // Wishes are public, but only the creator can modify it
     PFACL *wishACL = [PFACL ACLWithUser:[PFUser currentUser]];

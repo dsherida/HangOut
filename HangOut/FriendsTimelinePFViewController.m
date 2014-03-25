@@ -146,10 +146,11 @@
      UILabel *message = (UILabel *)[cell viewWithTag:3];
      message.text = [object objectForKey:self.message];
      
-
+     //PFObject *theUser = [PFObject objectWithClassName:@"User"];
+     //theUser = object.
      
      //UIImageView *image = (UIImageView *)[cell viewWithTag:2];
-     //image. = [object objectForKey:self.profilePic];
+     //image.image = [object objectForKey:self.profilePic];
      
  //cell.textLabel.text = [object objectForKey:self.textKey];
  //cell.imageView.file = [object objectForKey:self.imageKey];

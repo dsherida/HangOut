@@ -45,5 +45,4 @@ extern NSString *const kWishTitleKey;
 extern NSString *const kWishUserKey;
 extern NSString *const kWishPlaceKey;
 extern NSString *const kWishDateKey;
-extern NSString *const kWishTimeKey;
-extern NSString *const kWishPrivacyKey;
+extern NSString *const kWishPrivacyKey;extern NSString *const kWishTimeKey;

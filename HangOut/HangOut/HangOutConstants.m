@@ -24,12 +24,12 @@ NSString *const kActivityTypeComment = @"comment";
 
 #pragma mark - PFObject User Class
 // Class key
-NSString *const kUserClassKey = @"User";
+NSString *const kUserClassKey = @"_User";
 
 // Field keys
 NSString *const kUserNameKey = @"username";
 NSString *const kUserFacebookIDKey = @"authData";
-NSString *const kUserProfilePicSmallKey;
+NSString *const kUserProfilePicSmallKey = @"profilePic";
 NSString *const kUserProfilePicMediumKey = @"profilePic";
 NSString *const kUserFacebookFriendsKey = @"facebookFriends";
 NSString *const kUserAlreadyAutoFollowedFacebookFriendsKey;

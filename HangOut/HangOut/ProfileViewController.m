@@ -1,19 +1,20 @@
 //
-//  ProfileTableViewController.m
+//  ProfileViewController.m
 //  HangOut
 //
 //  Created by Doug Sheridan on 3/23/14.
 //
 //
 
-#import "ProfileTableViewController.h"
+#import "ProfileViewController.h"
 
-@interface ProfileTableViewController ()
+@interface ProfileViewController ()
 
 @end
 
-@implementation ProfileTableViewController
+@implementation ProfileViewController
 
+UserModel *userModel;
 NSArray *wishListNames;
 
 
@@ -36,22 +37,25 @@ NSArray *wishListNames;
 }
 
 
-- (id)initWithStyle:(UITableViewStyle)style {
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
+//- (id)initWithStyle:(UITableViewStyle)style {
+//    self = [super initWithStyle:style];
+//    if (self) {
+//        // Custom initialization
+//    }
+//    return self;
+//}
 
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    
-    
+    userModel = [UserModel sharedUserModel];
     wishListNames = [NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut", @"Starbucks Coffee", @"Vegetable Curry", @"Instant Noodle with Egg", @"Noodle with BBQ Pork", @"Japanese Noodle with Pork", @"Green Tea", @"Thai Shrimp Cake", @"Angry Birds Cake", @"Ham and Cheese Panini", nil];
+    
+    UIImage *image = [UIImage imageWithData:userModel.profilePictureData];
+    [_UIProfilePic setImage:image];
+    
+    [_UINameLabel setText:userModel.userName];
     //UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:url]]];
     
     //PFUser *user = [PFUser currentUser];

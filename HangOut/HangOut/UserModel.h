@@ -19,6 +19,7 @@
 @property (strong, nonatomic) NSString *userName;   // current user's facebook name or username
 @property (strong, nonatomic) NSString *facebookID; // current user's facebook ID
 @property (strong, nonatomic) NSMutableData *profilePictureData; // store the user's profile picture image data
+@property (strong, nonatomic) PFFile *profilePictureFile;   // store the PFFile that was created from the picture data
 
 + (UserModel *) sharedUserModel;
 - (void) requestAndSetFacebookUserData;

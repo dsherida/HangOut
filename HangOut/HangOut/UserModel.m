@@ -26,7 +26,7 @@
 
 - (id) init {
     if (self = [super init]) {
-        self.currentUser = nil;
+        self.currentUser = [PFUser currentUser];
         self.userName = nil;
     }
     return self;
@@ -85,8 +85,21 @@
 // Called when the entire image is finished downloading
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     // Upload the picture to our Parse DB
-    [self.currentUser setObject:self.profilePictureData forKey:kUserProfilePicMediumKey];
-    [self.currentUser save];
+    PFFile *newImageFile = [PFFile fileWithName:@"profilePic.png" data:self.profilePictureData];
+    self.profilePictureFile = newImageFile;
+    
+    PFQuery *query = [PFQuery queryWithClassName:kUserClassKey];
+    // Retrieve the object by id
+    [query getObjectInBackgroundWithId:self.currentUser.objectId block:^(PFObject *user, NSError *error) {
+        
+        // Now let's update it with some new data. In this case, only user's name
+        // will get sent to the cloud. anything else has changed
+        user[kUserProfilePicMediumKey] = newImageFile;
+        [user saveInBackground];
+        
+    }];
+    //[self.currentUser setObject:self.profilePictureData forKey:kUserProfilePicMediumKey];
+    //[self.currentUser saveInBackground];
     NSLog(@"Done downloading profile picture. Uploaded to Parse DB.");
 }
 
@@ -110,8 +123,20 @@
           stored in the SharedUserModel singleton
 */
 - (void) setName {
-    [self.currentUser setObject:self.userName forKey:kUserNameKey];
-    [self.currentUser save];
+    PFQuery *query = [PFQuery queryWithClassName:kUserClassKey];
+    // Retrieve the object by id
+    [query getObjectInBackgroundWithId:self.currentUser.objectId block:^(PFObject *user, NSError *error) {
+        
+        // Now let's update it with some new data. In this case, only user's name
+        // will get sent to the cloud. anything else has changed
+        user[@"username"] = self.userName;
+        [user saveInBackground];
+        
+    }];
+    
+    //[self.currentUser setObject:self.userName forKey:kUserNameKey];
+    //[self.currentUser saveInBackground];
+    NSLog(@"objectId: %@", self.currentUser.objectId);
     NSLog(@"setName: %@", self.userName);
 }
 

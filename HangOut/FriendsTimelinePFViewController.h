@@ -10,7 +10,8 @@
 #import <FacebookSDK/FacebookSDK.h>
 #import "UserModel.h"
 
-@interface FriendsTimelinePFViewController : PFQueryTableViewController
+@interface FriendsTimelinePFViewController : PFQueryTableViewController <PFLogInViewControllerDelegate,
+PFSignUpViewControllerDelegate>
 
 @property (nonatomic,weak) NSString *wishTitle;
 @property (nonatomic,weak) NSString *message;

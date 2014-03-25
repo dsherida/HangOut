@@ -172,14 +172,21 @@ UserModel *userModel; // singleton class UserModel
      UILabel *message = (UILabel *)[cell viewWithTag:3];
      message.text = [object objectForKey:self.message];
      
-     //PFObject *theUser = [PFObject objectWithClassName:@"User"];
-     //theUser = object.
      
-     //UIImageView *image = (UIImageView *)[cell viewWithTag:2];
-     //image.image = [object objectForKey:self.profilePic];
-     
- //cell.textLabel.text = [object objectForKey:self.textKey];
- //cell.imageView.file = [object objectForKey:self.imageKey];
+     PFUser *theUser = [object objectForKey:@"User"];
+
+     PFQuery *query = [PFQuery queryWithClassName:@"_User"];
+     [query getObjectInBackgroundWithId:[theUser objectId] block:^(PFObject *theUser, NSError *error) {
+         // Do something with the returned PFObject in the gameScore variable.
+         UILabel *username = (UILabel *)[cell viewWithTag:20];
+         username.text = [theUser objectForKey:@"username"];
+         
+         PFImageView *image = (PFImageView *)[cell viewWithTag:2];
+         image.file = [theUser objectForKey:@"profilePic"];
+         [image loadInBackground];
+     }];
+      
+      
  
  return cell;
  }

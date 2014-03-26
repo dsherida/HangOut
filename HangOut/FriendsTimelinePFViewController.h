@@ -9,6 +9,8 @@
 #import <Parse/Parse.h>
 #import <FacebookSDK/FacebookSDK.h>
 #import "UserModel.h"
+#import "HangOutConstants.h"
+#import "HangOutJoinButton.h"
 
 @interface FriendsTimelinePFViewController : PFQueryTableViewController <PFLogInViewControllerDelegate,
 PFSignUpViewControllerDelegate>

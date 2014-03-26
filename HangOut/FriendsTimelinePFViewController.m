@@ -166,7 +166,7 @@ UserModel *userModel; // singleton class UserModel
      message.text = [object objectForKey:self.message];
      
      
-     PFUser *theUser = [object objectForKey:@"User"];
+     PFObject *theUser = [object objectForKey:@"User"];
 
      PFQuery *query = [PFQuery queryWithClassName:@"_User"];
      [query getObjectInBackgroundWithId:[theUser objectId] block:^(PFObject *theUser, NSError *error) {
@@ -188,12 +188,34 @@ UserModel *userModel; // singleton class UserModel
          date.text = [NSDateFormatter localizedStringFromDate:theDate
                                                     dateStyle:NSDateFormatterShortStyle
                                                     timeStyle:NSDateFormatterFullStyle];
+         
+         HangOutJoinButton *join = (HangOutJoinButton *)[cell viewWithTag:4];
+         join.object = object;
+         [join addTarget:self action:@selector(joinButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+         
      }];
       
       
  
  return cell;
  }
+
+-(void)joinButtonClicked:(HangOutJoinButton*)sender
+{
+    // Create Wish Object
+    PFObject *activity = [PFObject objectWithClassName:kActivityClassKey];
+    activity[@"fromUser"] = [PFUser currentUser];
+    activity[@"toUser"] = [sender.object objectForKey:@"User"];
+    activity[@"type"] = @"going";
+    activity[@"wish"] = sender.object;
+
+    // Wishes are public, but only the creator can modify it
+    PFACL *activityACL = [PFACL ACLWithUser:[PFUser currentUser]];
+    [activityACL setPublicReadAccess:YES];
+    activity.ACL = activityACL;
+    
+    [activity saveInBackground];
+}
 
 /*
  // Override if you need to change the ordering of objects in the table.

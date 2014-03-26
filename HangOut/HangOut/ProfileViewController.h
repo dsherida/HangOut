@@ -11,9 +11,10 @@
 #import <FacebookSDK/FacebookSDK.h>
 #import "UserModel.h"
 
-@interface ProfileViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface ProfileViewController : UIViewController
 
 @property (strong, nonatomic) IBOutlet UIImageView *UIProfilePic;
 @property (strong, nonatomic) IBOutlet UILabel *UINameLabel;
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @end

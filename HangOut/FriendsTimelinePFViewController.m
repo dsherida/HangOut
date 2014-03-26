@@ -83,9 +83,13 @@ UserModel *userModel; // singleton class UserModel
         [self presentViewController:login animated:YES completion:nil];
     }
     
-    NSLog(@"Setting up UserModel");
-    userModel = [UserModel sharedUserModel];
-    [userModel requestAndSetFacebookUserData];
+    BOOL isLinkedToFacebook = [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]];
+    
+    if (isLinkedToFacebook && (userModel.currentUser != [PFUser currentUser])) {
+        NSLog(@"Setting up UserModel");
+        userModel = [UserModel sharedUserModel];
+        [userModel requestAndSetFacebookUserData];
+    }
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
@@ -95,6 +99,9 @@ UserModel *userModel; // singleton class UserModel
 
 - (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user {
     [self dismissViewControllerAnimated:YES completion:nil];
+    NSLog(@"Setting up UserModel");
+    userModel = [UserModel sharedUserModel];
+    [userModel requestAndSetFacebookUserData];
 }
 
 - (void)logInViewControllerDidCancelLogIn:(PFLogInViewController *)logInController {
@@ -151,16 +158,16 @@ UserModel *userModel; // singleton class UserModel
  // a UITableViewCellStyleDefault style cell with the label being the textKey in the object,
  // and the imageView being the imageKey in the object.
  - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object {
- static NSString *CellIdentifier = @"wishBox";
+     static NSString *CellIdentifier = @"wishBox";
  
- PFTableViewCell *cell = (PFTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
- if (cell == nil) {
- cell = [[PFTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
- }
+     PFTableViewCell *cell = (PFTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+     if (cell == nil) {
+         cell = [[PFTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+     }
  
- // Configure the cell
- UILabel *title = (UILabel *)[cell viewWithTag:10];
- title.text = [object objectForKey:self.wishTitle];
+     // Configure the cell
+     UILabel *title = (UILabel *)[cell viewWithTag:10];
+     title.text = [object objectForKey:self.wishTitle];
      
      UILabel *message = (UILabel *)[cell viewWithTag:3];
      message.text = [object objectForKey:self.message];

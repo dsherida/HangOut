@@ -208,8 +208,10 @@ UserModel *userModel; // singleton class UserModel
          [join addTarget:self action:@selector(joinButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
          
      }];
-      
-      
+     
+     cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cell.png"]];
+                            
+     
  
  return cell;
  }

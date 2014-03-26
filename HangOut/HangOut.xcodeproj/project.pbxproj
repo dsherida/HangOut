@@ -32,6 +32,7 @@
 		9F0C3C3D18DE51580020471C /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F0C3C3B18DE51580020471C /* Parse.framework */; };
 		9F3173CB18E2977800E2FD1A /* HangOutJoinButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F3173CA18E2977800E2FD1A /* HangOutJoinButton.m */; };
 		9F3173D118E2AEC000E2FD1A /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F3173D018E2AEC000E2FD1A /* DetailsViewController.m */; };
+		9F3173D318E2CDC600E2FD1A /* cell.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F3173D218E2CDC600E2FD1A /* cell.png */; };
 		9F9F982B18E128DA00093545 /* FriendsTimelinePFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F9F982A18E128DA00093545 /* FriendsTimelinePFViewController.m */; };
 		9FA0BFEE18DE6AB200005283 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA0BFED18DE6AB200005283 /* SettingsViewController.m */; };
 		9FE1D5E318DEBABA00D44C41 /* MyLaunchImage-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FE1D5E218DEBABA00D44C41 /* MyLaunchImage-568h@2x.png */; };
@@ -199,6 +200,7 @@
 		931BB7A918BC0DA70001AF27 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9F3173D218E2CDC600E2FD1A /* cell.png */,
 				931BB7AA18BC0DA70001AF27 /* HangOut-Info.plist */,
 				931BB7AB18BC0DA70001AF27 /* InfoPlist.strings */,
 				931BB7AE18BC0DA70001AF27 /* main.m */,
@@ -303,6 +305,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				931BB7BB18BC0DA70001AF27 /* Images.xcassets in Resources */,
+				9F3173D318E2CDC600E2FD1A /* cell.png in Resources */,
 				931BB7AD18BC0DA70001AF27 /* InfoPlist.strings in Resources */,
 				9FE1D5E318DEBABA00D44C41 /* MyLaunchImage-568h@2x.png in Resources */,
 				931BB7B618BC0DA70001AF27 /* Main.storyboard in Resources */,

@@ -153,28 +153,6 @@ UserModel *userModel; // singleton class UserModel
  }
  */
 
-
-- (IBAction)detailsButtonClicked:(UIButton *)sender{
-    NSLog(@"detailsButton was clicked!");
-    
-    // Get information about which detailsButton was pressed
-    //UIButton *button1 = (UIButton*)sender;
-    //int selectedRow = sender.tag;
-    //NSLog(@"Selected row: %d", selectedRow);
-    
-    UIViewController *myController = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailsViewController"];
-    [self.navigationController pushViewController: myController animated:YES];
-}
-
-
-
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if([segue.identifier isEqualToString:@"detailsIdentifier"]){
-        // Send some data over
-    }
-}
-
-
  // Override to customize the look of a cell representing an object. The default is to display
  // a UITableViewCellStyleDefault style cell with the label being the textKey in the object,
  // and the imageView being the imageKey in the object.
@@ -195,8 +173,11 @@ UserModel *userModel; // singleton class UserModel
      
      
      // Add actions for details button
-     UIButton *detailsButton = (UIButton *)[cell viewWithTag:6];
-     [detailsButton addTarget:self action:@selector(detailsButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+//     HangOutDetailsButton *details = (HangOutDetailsButton *)[cell viewWithTag:6];
+//     details.object = object;
+//     [details addTarget:self action:@selector(detailsButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+//     UIButton *detailsButton = (UIButton *)[cell viewWithTag:6];
+//     [detailsButton addTarget:self action:@selector(detailsButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
      
      
      PFUser *theUser = [object objectForKey:@"User"];
@@ -249,6 +230,47 @@ UserModel *userModel; // singleton class UserModel
     
     [activity saveInBackground];
 }
+
+
+- (IBAction)detailsButtonClicked:(id)sender{
+    NSLog(@"detailsButton was clicked!");
+    
+    // -- begin reference:
+    // Open source code from: http://stackoverflow.com/questions/7504421/getting-row-of-uitableview-cell-on-button-press
+    CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableView];
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
+    // -- end reference
+    
+    // -- begin reference:
+    // open source code from: http://stackoverflow.com/questions/2384435/how-can-i-get-a-uitableviewcell-by-indexpath
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    // -- end reference
+    
+    UILabel *title = (UILabel *)[cell viewWithTag:10];
+    NSString *wishTitle = title.text;
+    NSLog(@"Wish title: %@", wishTitle);
+    
+    UILabel *username = (UILabel *)[cell viewWithTag:20];
+    NSString *wishOwner = username.text;
+    NSLog(@"Wish owner: %@", wishOwner);
+
+    //[self performSegueWithIdentifier:@"detailsSegue" sender:sender];
+}
+
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    // Send some data over
+    NSLog(@"Prepare for segue...");
+    
+    if([segue.identifier isEqualToString:@"detailsSegue"]){
+        
+        
+        
+        //UIViewController *myController = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailsViewController"];
+        //[self.navigationController pushViewController: myController animated:YES];
+    }
+}
+
 
 /*
  // Override if you need to change the ordering of objects in the table.

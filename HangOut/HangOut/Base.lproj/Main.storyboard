@@ -553,7 +553,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                             </state>
                                             <connections>
                                                 <action selector="detailsButtonClicked:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="8Tf-gb-Gs6"/>
-                                                <segue destination="KDE-Hf-Bre" kind="push" identifier="detailsIdentifier" id="4mS-1F-KqG"/>
+                                                <segue destination="KDE-Hf-Bre" kind="push" identifier="detailsSegue" id="0q6-7u-1lM"/>
                                             </connections>
                                         </button>
                                         <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CmX-gY-Gbh" customClass="PFImageView">

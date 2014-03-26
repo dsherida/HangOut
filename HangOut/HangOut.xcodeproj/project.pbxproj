@@ -26,11 +26,11 @@
 		9366132818C82DA400612F92 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9366132718C82DA400612F92 /* MobileCoreServices.framework */; };
 		9366132A18C82DAF00612F92 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9366132918C82DAF00612F92 /* QuartzCore.framework */; };
 		9366132C18C82DB700612F92 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9366132B18C82DB700612F92 /* Security.framework */; };
-		93C4C56418E29ABC008F1F76 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C4C56318E29ABC008F1F76 /* DetailsViewController.m */; };
 		93DCA2E118E1003E0001A4BF /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 93DCA2E018E1003E0001A4BF /* UserModel.m */; };
 		9F0C3C3C18DE51580020471C /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F0C3C3A18DE51580020471C /* FacebookSDK.framework */; };
 		9F0C3C3D18DE51580020471C /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F0C3C3B18DE51580020471C /* Parse.framework */; };
 		9F3173CB18E2977800E2FD1A /* HangOutJoinButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F3173CA18E2977800E2FD1A /* HangOutJoinButton.m */; };
+		9F3173D118E2AEC000E2FD1A /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F3173D018E2AEC000E2FD1A /* DetailsViewController.m */; };
 		9F9F982B18E128DA00093545 /* FriendsTimelinePFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F9F982A18E128DA00093545 /* FriendsTimelinePFViewController.m */; };
 		9FA0BFEE18DE6AB200005283 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA0BFED18DE6AB200005283 /* SettingsViewController.m */; };
 		9FE1D5E318DEBABA00D44C41 /* MyLaunchImage-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FE1D5E218DEBABA00D44C41 /* MyLaunchImage-568h@2x.png */; };
@@ -74,13 +74,14 @@
 		9366132718C82DA400612F92 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		9366132918C82DAF00612F92 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		9366132B18C82DB700612F92 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		93C4C56318E29ABC008F1F76 /* DetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 		93DCA2DF18E1003E0001A4BF /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
 		93DCA2E018E1003E0001A4BF /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
 		9F0C3C3A18DE51580020471C /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		9F0C3C3B18DE51580020471C /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		9F3173C918E2977800E2FD1A /* HangOutJoinButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HangOutJoinButton.h; sourceTree = "<group>"; };
 		9F3173CA18E2977800E2FD1A /* HangOutJoinButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HangOutJoinButton.m; sourceTree = "<group>"; };
+		9F3173CF18E2AEC000E2FD1A /* DetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
+		9F3173D018E2AEC000E2FD1A /* DetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 		9F9F982918E128DA00093545 /* FriendsTimelinePFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FriendsTimelinePFViewController.h; path = ../FriendsTimelinePFViewController.h; sourceTree = "<group>"; };
 		9F9F982A18E128DA00093545 /* FriendsTimelinePFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FriendsTimelinePFViewController.m; path = ../FriendsTimelinePFViewController.m; sourceTree = "<group>"; };
 		9FA0BFEC18DE6AB200005283 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
@@ -127,6 +128,8 @@
 			isa = PBXGroup;
 			children = (
 				9FE1D5E218DEBABA00D44C41 /* MyLaunchImage-568h@2x.png */,
+				9F3173CF18E2AEC000E2FD1A /* DetailsViewController.h */,
+				9F3173D018E2AEC000E2FD1A /* DetailsViewController.m */,
 				931BB7A818BC0DA70001AF27 /* HangOut */,
 				931BB7C718BC0DA70001AF27 /* HangOutTests */,
 				931BB7A118BC0DA70001AF27 /* Frameworks */,
@@ -318,11 +321,11 @@
 			files = (
 				9F9F982B18E128DA00093545 /* FriendsTimelinePFViewController.m in Sources */,
 				931BB7AF18BC0DA70001AF27 /* main.m in Sources */,
+				9F3173D118E2AEC000E2FD1A /* DetailsViewController.m in Sources */,
 				931BB7B318BC0DA70001AF27 /* HangOutAppDelegate.m in Sources */,
 				9321515218DFFF480054CAC0 /* ProfileViewController.m in Sources */,
 				9FE1D5E618DFC18D00D44C41 /* AddForFriendsTableViewController.m in Sources */,
 				9FE1D5E918DFCE4400D44C41 /* HangOutConstants.m in Sources */,
-				93C4C56418E29ABC008F1F76 /* DetailsViewController.m in Sources */,
 				93DCA2E118E1003E0001A4BF /* UserModel.m in Sources */,
 				9F3173CB18E2977800E2FD1A /* HangOutJoinButton.m in Sources */,
 				9FA0BFEE18DE6AB200005283 /* SettingsViewController.m in Sources */,

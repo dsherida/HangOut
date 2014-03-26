@@ -158,16 +158,16 @@ UserModel *userModel; // singleton class UserModel
  // a UITableViewCellStyleDefault style cell with the label being the textKey in the object,
  // and the imageView being the imageKey in the object.
  - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object {
- static NSString *CellIdentifier = @"wishBox";
+     static NSString *CellIdentifier = @"wishBox";
  
- PFTableViewCell *cell = (PFTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
- if (cell == nil) {
- cell = [[PFTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
- }
+     PFTableViewCell *cell = (PFTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+     if (cell == nil) {
+         cell = [[PFTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+     }
  
- // Configure the cell
- UILabel *title = (UILabel *)[cell viewWithTag:10];
- title.text = [object objectForKey:self.wishTitle];
+     // Configure the cell
+     UILabel *title = (UILabel *)[cell viewWithTag:10];
+     title.text = [object objectForKey:self.wishTitle];
      
      UILabel *message = (UILabel *)[cell viewWithTag:3];
      message.text = [object objectForKey:self.message];

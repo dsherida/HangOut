@@ -140,25 +140,4 @@
     NSLog(@"setName: %@", self.userName);
 }
 
-
-/*
-    getProfilePicture
-        - get the current user's profile picture
-*/
-- (void) getProfilePicture {
-    // Open Source code from: https://parse.com/questions/how-can-i-get-the-facebook-id-of-a-user-logged-in-with-facebook
-    [FBRequestConnection
-     startForMeWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
-         if (!error) {
-             NSString *facebookId = [result objectForKey:@"id"];
-             NSURL *profilePictureURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large", [[PFUser currentUser] objectForKey:facebookId]]];
-             NSURLRequest *profilePictureURLRequest = [NSURLRequest requestWithURL:profilePictureURL cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10.0f]; // Facebook profile picture cache policy: Expires in 2 weeks
-             [NSURLConnection connectionWithRequest:profilePictureURLRequest delegate:self];
-         }
-     }];
-}
-
-
-
-
 @end

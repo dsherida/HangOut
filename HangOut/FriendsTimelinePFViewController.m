@@ -184,6 +184,17 @@ UserModel *userModel; // singleton class UserModel
          PFImageView *image = (PFImageView *)[cell viewWithTag:2];
          image.file = [theUser objectForKey:@"profilePic"];
          [image loadInBackground];
+         
+         UILabel *place = (UILabel *)[cell viewWithTag:7];
+         place.text = [object objectForKey:kWishPlaceKey];
+         
+         UILabel *date = (UILabel *)[cell viewWithTag:8];
+         NSDate *theDate = [object objectForKey:kWishDateKey];
+         
+         // http://stackoverflow.com/questions/576265/convert-nsdate-to-nsstring
+         date.text = [NSDateFormatter localizedStringFromDate:theDate
+                                                    dateStyle:NSDateFormatterShortStyle
+                                                    timeStyle:NSDateFormatterFullStyle];
      }];
       
       

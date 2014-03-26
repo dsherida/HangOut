@@ -154,6 +154,27 @@ UserModel *userModel; // singleton class UserModel
  */
 
 
+- (IBAction)detailsButtonClicked:(UIButton *)sender{
+    NSLog(@"detailsButton was clicked!");
+    
+    // Get information about which detailsButton was pressed
+    //UIButton *button1 = (UIButton*)sender;
+    //int selectedRow = sender.tag;
+    //NSLog(@"Selected row: %d", selectedRow);
+    
+    UIViewController *myController = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailsViewController"];
+    [self.navigationController pushViewController: myController animated:YES];
+}
+
+
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if([segue.identifier isEqualToString:@"detailsIdentifier"]){
+        // Send some data over
+    }
+}
+
+
  // Override to customize the look of a cell representing an object. The default is to display
  // a UITableViewCellStyleDefault style cell with the label being the textKey in the object,
  // and the imageView being the imageKey in the object.
@@ -171,6 +192,11 @@ UserModel *userModel; // singleton class UserModel
      
      UILabel *message = (UILabel *)[cell viewWithTag:3];
      message.text = [object objectForKey:self.message];
+     
+     
+     // Add actions for details button
+     UIButton *detailsButton = (UIButton *)[cell viewWithTag:6];
+     [detailsButton addTarget:self action:@selector(detailsButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
      
      
      PFUser *theUser = [object objectForKey:@"User"];
@@ -268,5 +294,6 @@ UserModel *userModel; // singleton class UserModel
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [super tableView:tableView didSelectRowAtIndexPath:indexPath];
 }
+
 
 @end

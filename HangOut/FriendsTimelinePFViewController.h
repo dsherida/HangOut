@@ -17,4 +17,6 @@ PFSignUpViewControllerDelegate>
 @property (nonatomic,weak) NSString *message;
 @property (nonatomic,weak) NSString *profilePic;
 
+- (IBAction)detailsButtonClicked:(UIButton *)sender;
+
 @end

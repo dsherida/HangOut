@@ -318,7 +318,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <!--Details View Controller-->
         <scene sceneID="P30-hx-GJr">
             <objects>
-                <tableViewController id="KDE-Hf-Bre" customClass="DetailsViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="DetailsViewController" id="KDE-Hf-Bre" customClass="DetailsViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="218" sectionHeaderHeight="22" sectionFooterHeight="22" id="J6U-r1-p1O">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -513,7 +513,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e2l-6F-ibo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1812" y="-883"/>
+            <point key="canvasLocation" x="1836" y="-883"/>
         </scene>
         <!--Friends TimelinePF View Controller - Friends-->
         <scene sceneID="ufC-wZ-h7g">
@@ -552,7 +552,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <connections>
-                                                <segue destination="KDE-Hf-Bre" kind="push" id="4mS-1F-KqG"/>
+                                                <action selector="detailsButtonClicked:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="8Tf-gb-Gs6"/>
+                                                <segue destination="KDE-Hf-Bre" kind="push" identifier="detailsIdentifier" id="4mS-1F-KqG"/>
                                             </connections>
                                         </button>
                                         <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CmX-gY-Gbh" customClass="PFImageView">

@@ -221,12 +221,34 @@ UserModel *userModel; // singleton class UserModel
          date.text = [NSDateFormatter localizedStringFromDate:theDate
                                                     dateStyle:NSDateFormatterShortStyle
                                                     timeStyle:NSDateFormatterFullStyle];
+         
+         HangOutJoinButton *join = (HangOutJoinButton *)[cell viewWithTag:4];
+         join.object = object;
+         [join addTarget:self action:@selector(joinButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+         
      }];
       
       
  
  return cell;
  }
+
+-(void)joinButtonClicked:(HangOutJoinButton*)sender
+{
+    // Create Wish Object
+    PFObject *activity = [PFObject objectWithClassName:kActivityClassKey];
+    activity[@"fromUser"] = [PFUser currentUser];
+    activity[@"toUser"] = [sender.object objectForKey:@"User"];
+    activity[@"type"] = @"going";
+    activity[@"wish"] = sender.object;
+
+    // Wishes are public, but only the creator can modify it
+    PFACL *activityACL = [PFACL ACLWithUser:[PFUser currentUser]];
+    [activityACL setPublicReadAccess:YES];
+    activity.ACL = activityACL;
+    
+    [activity saveInBackground];
+}
 
 /*
  // Override if you need to change the ordering of objects in the table.

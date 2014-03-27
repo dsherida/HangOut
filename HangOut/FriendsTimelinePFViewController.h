@@ -11,6 +11,7 @@
 #import "UserModel.h"
 #import "HangOutConstants.h"
 #import "HangOutJoinButton.h"
+#import "TTTTimeIntervalFormatter.h"
 
 @interface FriendsTimelinePFViewController : PFQueryTableViewController <PFLogInViewControllerDelegate,
 PFSignUpViewControllerDelegate>

@@ -34,6 +34,7 @@
 		9F3173D318E2CDC600E2FD1A /* cell.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F3173D218E2CDC600E2FD1A /* cell.png */; };
 		9F9F982B18E128DA00093545 /* FriendsTimelinePFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F9F982A18E128DA00093545 /* FriendsTimelinePFViewController.m */; };
 		9FA0BFEE18DE6AB200005283 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA0BFED18DE6AB200005283 /* SettingsViewController.m */; };
+		9FD9082618E3A20700D0011C /* TTTTimeIntervalFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FD9082518E3A20700D0011C /* TTTTimeIntervalFormatter.m */; };
 		9FE1D5E318DEBABA00D44C41 /* MyLaunchImage-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FE1D5E218DEBABA00D44C41 /* MyLaunchImage-568h@2x.png */; };
 		9FE1D5E618DFC18D00D44C41 /* AddForFriendsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FE1D5E518DFC18D00D44C41 /* AddForFriendsTableViewController.m */; };
 		9FE1D5E918DFCE4400D44C41 /* HangOutConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FE1D5E818DFCE4400D44C41 /* HangOutConstants.m */; };
@@ -88,6 +89,8 @@
 		9F9F982A18E128DA00093545 /* FriendsTimelinePFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FriendsTimelinePFViewController.m; path = ../FriendsTimelinePFViewController.m; sourceTree = "<group>"; };
 		9FA0BFEC18DE6AB200005283 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		9FA0BFED18DE6AB200005283 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		9FD9082418E3A20700D0011C /* TTTTimeIntervalFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTTimeIntervalFormatter.h; sourceTree = "<group>"; };
+		9FD9082518E3A20700D0011C /* TTTTimeIntervalFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTTimeIntervalFormatter.m; sourceTree = "<group>"; };
 		9FE1D5E218DEBABA00D44C41 /* MyLaunchImage-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MyLaunchImage-568h@2x.png"; sourceTree = "<group>"; };
 		9FE1D5E418DFC18D00D44C41 /* AddForFriendsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddForFriendsTableViewController.h; path = ../AddForFriendsTableViewController.h; sourceTree = "<group>"; };
 		9FE1D5E518DFC18D00D44C41 /* AddForFriendsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddForFriendsTableViewController.m; path = ../AddForFriendsTableViewController.m; sourceTree = "<group>"; };
@@ -170,6 +173,8 @@
 		931BB7A818BC0DA70001AF27 /* HangOut */ = {
 			isa = PBXGroup;
 			children = (
+				9FD9082418E3A20700D0011C /* TTTTimeIntervalFormatter.h */,
+				9FD9082518E3A20700D0011C /* TTTTimeIntervalFormatter.m */,
 				9F9F982918E128DA00093545 /* FriendsTimelinePFViewController.h */,
 				9F9F982A18E128DA00093545 /* FriendsTimelinePFViewController.m */,
 				9F3173C918E2977800E2FD1A /* HangOutJoinButton.h */,
@@ -333,6 +338,7 @@
 				93DCA2E118E1003E0001A4BF /* UserModel.m in Sources */,
 				9F3173CB18E2977800E2FD1A /* HangOutJoinButton.m in Sources */,
 				9FA0BFEE18DE6AB200005283 /* SettingsViewController.m in Sources */,
+				9FD9082618E3A20700D0011C /* TTTTimeIntervalFormatter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

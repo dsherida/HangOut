@@ -181,6 +181,15 @@ UserModel *userModel; // singleton class UserModel
          UILabel *username = (UILabel *)[cell viewWithTag:20];
          username.text = [theUser objectForKey:@"username"];
          
+         UILabel *timeAgo = (UILabel *)[cell viewWithTag:21];
+         TTTTimeIntervalFormatter *timeFormatter;
+         timeFormatter = [[TTTTimeIntervalFormatter alloc] init];
+         NSDate *currentDate = [[NSDate alloc] init];
+         NSDate *postDate = [object objectForKey:kWishDateKey];
+         timeAgo.text = [timeFormatter stringForTimeIntervalFromDate:currentDate toDate:postDate];
+         NSLog(@"CURRENT: %@", currentDate);
+         NSLog(@"POST: %@", postDate);
+         
          PFImageView *image = (PFImageView *)[cell viewWithTag:2];
          image.file = [theUser objectForKey:@"profilePic"];
          [image loadInBackground];

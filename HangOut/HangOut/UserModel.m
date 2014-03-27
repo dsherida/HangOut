@@ -51,8 +51,12 @@
             
             NSString *facebookID = userData[@"id"];
             self.facebookID = facebookID;
+            
             self.userName = userData[@"name"];
             [self setName];
+            
+            self.objectId = userData[@"objectId"];
+            [self getAndSetWishArray];
             
             // Other userData fields (not needed [yet?])
             //NSString *location = userData[@"location"][@"name"];
@@ -87,6 +91,7 @@
     // Upload the picture to our Parse DB
     PFFile *newImageFile = [PFFile fileWithName:@"profilePic.png" data:self.profilePictureData];
     self.profilePictureFile = newImageFile;
+    self.profileUIImage = [UIImage imageWithData:self.profilePictureData];
     
     PFQuery *query = [PFQuery queryWithClassName:kUserClassKey];
     // Retrieve the object by id
@@ -103,6 +108,29 @@
     NSLog(@"Done downloading profile picture. Uploaded to Parse DB.");
 }
 
+
+- (void)getAndSetWishArray {
+    NSLog(@"Get and set wish Array");
+    PFQuery *query = [PFQuery queryWithClassName:@"wish"];
+    
+    [query whereKey:@"User" equalTo:self.currentUser];
+    
+    // Retrieve the object by id
+    [query findObjectsInBackgroundWithBlock:^(NSArray *wishes, NSError *error) {
+        NSLog(@"%@", wishes);
+        [self parseWishArray:wishes];
+    }];
+}
+     
+- (void)parseWishArray:(NSArray *)array {
+    for (id wish in array) {
+        NSLog(@"%@", wish[kWishTitleKey]);
+        NSString wishTitle = wish[kWishTitleKey];
+        NSLog(@"%@", wishTitle);
+        [self.wishArray addObject:wishTitle];
+    }
+    NSLog(@"%@", self.wishArray);
+}
 
 /*
     setCurrentUser

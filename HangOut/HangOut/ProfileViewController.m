@@ -15,35 +15,114 @@
 @implementation ProfileViewController
 
 UserModel *userModel;
-NSArray *wishListNames;
+
+- (id)initWithCoder:(NSCoder *)aCoder {
+    self = [super initWithCoder:aCoder];
+    if (self) {
+        // Customize the table
+        
+        // The className to query on
+        self.parseClassName = @"wish";
+        
+        // The key of the PFObject to display in the label of the default cell style
+//        self.wishTitle = @"title";
+//        self.message = @"info";
+//        self.profilePic = @"User";
+        
+        // Uncomment the following line to specify the key of a PFFile on the PFObject to display in the imageView of the default cell style
+        // self.imageKey = @"image";
+        
+        // Whether the built-in pull-to-refresh is enabled
+        self.pullToRefreshEnabled = YES;
+        
+        // Whether the built-in pagination is enabled
+        self.paginationEnabled = YES;
+        
+        // The number of objects to show per page
+        self.objectsPerPage = 25;
+    }
+    return self;
+}
 
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+//{
+//    return 1;
+//}
+
+
+//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+//    return [wishListNames count];
+//}
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
 {
-    return 1;
+    CGFloat height;
+
+    if(indexPath.row == 0) {
+        height = 235.0f;
+    } else {
+        height = 35.0f;
+    }
+    return height;
 }
 
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [wishListNames count];
+
+// Override to support editing the table view.
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        //add code here for when you hit delete
+//        PFTableViewCell *wishCell = (PFTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"wishCell"];
+//        UILabel *wishLabel = (UILabel *)[wishCell viewWithTag:3];
+//        NSLog(@"wishLabel: %@", wishLabel.text);
+    }
 }
 
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *CellIdentifier = @"tableView";
+// Override to customize the look of a cell representing an object. The default is to display
+// a UITableViewCellStyleDefault style cell with the label being the textKey in the object,
+// and the imageView being the imageKey in the object.
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object {
+    static NSString *profileCellIdentifier = @"profileCell";
+    static NSString *wishCellIdentifier = @"wishCell";
+
+    PFTableViewCell *profileCell = (PFTableViewCell *)[tableView dequeueReusableCellWithIdentifier:profileCellIdentifier];
+    PFTableViewCell *wishCell = (PFTableViewCell *)[tableView dequeueReusableCellWithIdentifier:wishCellIdentifier];
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    if (profileCell == nil) {
+        profileCell = [[PFTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:profileCellIdentifier];
+    }
+    if (wishCell == nil) {
+        wishCell = [[PFTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:wishCellIdentifier];
     }
     
-    // Configure the cell
-    UILabel *wishLabel = (UILabel *)[cell viewWithTag:1];
-    wishLabel.text = [wishListNames objectAtIndex:indexPath.row];
-    return cell;
+    // If we are looking at the first row
+    if (indexPath.row == 0) {
+        // Configure the profileCell
+        UIImageView *profileImage = (UIImageView *)[profileCell viewWithTag:1];
+        [profileImage setImage:userModel.profileUIImage];
+        
+        UILabel *userName = (UILabel *)[profileCell viewWithTag:2];
+        userName.text = userModel.userName;
+        
+        return profileCell;
+    } else if (indexPath.row > 0) {
+        // Configure wishCell
+        UILabel *wishLabel = (UILabel *)[wishCell viewWithTag:3];
+        //wishLabel.text = @"wish label test";
+        long i = indexPath.row - 1;
+        wishLabel.text = [userModel.wishArray objectAtIndex:i];
+        return wishCell;
+    }
+    
+    return nil;
 }
+
+
 
 
 //- (id)initWithStyle:(UITableViewStyle)style {
@@ -60,16 +139,15 @@ NSArray *wishListNames;
     [super viewDidLoad];
     userModel = [UserModel sharedUserModel];
     
-    NSLog(@"Loaded Profile View");
-    NSLog(@"Username: %@", userModel.userName);
+    //NSLog(@"Loaded Profile View");
+    //NSLog(@"Username: %@", userModel.userName);
     
-    wishListNames = [NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut", @"Starbucks Coffee", @"Vegetable Curry", @"Instant Noodle with Egg", @"Noodle with BBQ Pork", @"Japanese Noodle with Pork", @"Green Tea", @"Thai Shrimp Cake", @"Angry Birds Cake", @"Ham and Cheese Panini", nil];
-    [self.tableView reloadData];
+    //[self.tableView reloadData];
     
-    UIImage *image = [UIImage imageWithData:userModel.profilePictureData];
-    [_UIProfilePic setImage:image];
+    //UIImage *image = [UIImage imageWithData:userModel.profilePictureData];
+    //[_UIProfilePic setImage:image];
     
-    [_UINameLabel setText:userModel.userName];
+    //[_UINameLabel setText:userModel.userName];
     //UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:url]]];
     
     //PFUser *user = [PFUser currentUser];

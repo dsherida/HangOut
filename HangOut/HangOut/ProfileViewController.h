@@ -11,10 +11,11 @@
 #import <FacebookSDK/FacebookSDK.h>
 #import "UserModel.h"
 
-@interface ProfileViewController : UIViewController
+@interface ProfileViewController : PFQueryTableViewController <PFLogInViewControllerDelegate,
+PFSignUpViewControllerDelegate>
+
 
 @property (strong, nonatomic) IBOutlet UIImageView *UIProfilePic;
 @property (strong, nonatomic) IBOutlet UILabel *UINameLabel;
-@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @end

@@ -167,10 +167,9 @@ UserModel *userModel; // singleton class UserModel
  return queryWish;
  }
 
-
- // Override to customize the look of a cell representing an object. The default is to display
- // a UITableViewCellStyleDefault style cell with the label being the textKey in the object,
- // and the imageView being the imageKey in the object.
+//
+// Customized code to show only wishes from your friends
+//
  - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object {
      static NSString *CellIdentifier = @"wishBox";
  
@@ -244,6 +243,7 @@ UserModel *userModel; // singleton class UserModel
  return cell;
  }
 
+// When JOIN button is clicked, the following code performs the inclusion of a new activity on Parse
 -(void)joinButtonClicked:(HangOutJoinButton*)sender
 {
     if ([[sender currentTitle] isEqualToString:@"JOIN"]) {
@@ -285,6 +285,7 @@ UserModel *userModel; // singleton class UserModel
     }
 }
 
+// This alert view is supposed to remove the related activity on Parse
 // http://code.tutsplus.com/tutorials/ios-sdk-working-with-uialertview-and-uialertviewdelegate--mobile-3159
 - (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {

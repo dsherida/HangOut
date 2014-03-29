@@ -53,6 +53,7 @@
             self.facebookID = facebookID;
             self.userName = userData[@"name"];
             [self setName];
+            [self setFacebookID];
             
             // Other userData fields (not needed [yet?])
             //NSString *location = userData[@"location"][@"name"];
@@ -71,7 +72,36 @@
                                                                   timeoutInterval:2.0f];
             // Run network request asynchronously
             NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
-        }
+            
+            // Issue a Facebook Graph API request to get your user's friend list
+            [FBRequestConnection startForMyFriendsWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+                if (!error) {
+                    // result will contain an array with your user's friends in the "data" key
+                    NSArray *friendObjects = [result objectForKey:@"data"];
+                    NSMutableArray *friendIds;
+                    friendIds = [NSMutableArray arrayWithCapacity:friendObjects.count];
+                    // Create a list of friends' Facebook IDs
+                    for (NSDictionary *friendObject in friendObjects) {
+                        [friendIds addObject:[friendObject objectForKey:@"id"]];
+                    }
+                    
+                    // Query for all friends you have on facebook and who are using the app
+                    PFQuery *friendsQuery = [PFQuery queryWithClassName:@"_User"];
+                    [friendsQuery whereKey:@"fbID" containedIn:friendIds];
+                    
+                    self.friends = [friendsQuery findObjects];
+
+                    [self setFriends];
+                    //NSLog(@"FRIENDS: %@", self.fbIDs);
+                }
+            }];
+
+            
+                    }
+        
+        
+
+        
     }];
 }
 
@@ -136,8 +166,48 @@
     
     //[self.currentUser setObject:self.userName forKey:kUserNameKey];
     //[self.currentUser saveInBackground];
-    NSLog(@"objectId: %@", self.currentUser.objectId);
-    NSLog(@"setName: %@", self.userName);
+    //NSLog(@"objectId: %@", self.currentUser.objectId);
+    //NSLog(@"setName: %@", self.userName);
+}
+
+- (void) setFacebookID {
+    PFQuery *query = [PFQuery queryWithClassName:kUserClassKey];
+    // Retrieve the object by id
+    [query getObjectInBackgroundWithId:self.currentUser.objectId block:^(PFObject *user, NSError *error) {
+        
+        // Now let's update it with some new data. In this case, only user's name
+        // will get sent to the cloud. anything else has changed
+        user[@"fbID"] = self.facebookID;
+        [user saveInBackground];
+        
+    }];
+    
+    //[self.currentUser setObject:self.userName forKey:kUserNameKey];
+    //[self.currentUser saveInBackground];
+    //NSLog(@"objectId: %@", self.currentUser.objectId);
+    //NSLog(@"setName: %@", self.userName);
+}
+
+// http://stackoverflow.com/questions/21194267/how-to-make-parse-com-object-property-unique
+- (void) setFriends {
+    PFQuery *query = [PFQuery queryWithClassName:kActivityClassKey];
+    for (PFUser *friend in self.friends) {
+        [query whereKey:@"toUser" equalTo:friend];
+        [query whereKey:@"type" equalTo:@"follow"];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            
+            if (objects.count) {
+                NSLog(@"ALREADY FOLLOWING");
+            } else {
+                PFObject *followActivity = [PFObject objectWithClassName:kActivityClassKey];
+                followActivity[@"type"] = @"follow";
+                followActivity[@"fromUser"] = [PFUser currentUser];
+                followActivity[@"toUser"] = friend;
+                [followActivity saveInBackground];
+                NSLog(@"ADDED");
+            }
+        }];
+    }
 }
 
 @end

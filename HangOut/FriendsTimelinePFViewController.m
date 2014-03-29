@@ -6,6 +6,14 @@
 //
 //
 
+/*
+ // Query for all friends you have on facebook and who are using the app
+ PFQuery *friendsQuery = [PFQuery queryWithClassName:@"User"];
+ [friendsQuery whereKey:@"fbID" containedIn:userModel.friendIds];
+ NSArray *friendUsers = [friendsQuery findObjects];
+ NSLog(@"FRIENDS: %@", friendUsers);
+ */
+
 #import "FriendsTimelinePFViewController.h"
 
 @interface FriendsTimelinePFViewController ()
@@ -130,32 +138,38 @@ UserModel *userModel; // singleton class UserModel
     // This method is called every time objects are loaded from Parse via the PFQuery
 }
 
-/*
+
  // Override to customize what kind of query to perform on the class. The default is to query for
  // all objects ordered by createdAt descending.
  - (PFQuery *)queryForTable {
- PFQuery *query = [PFQuery queryWithClassName:self.className];
+     PFQuery *queryWish = [PFQuery queryWithClassName:kWishClassKey];
+     PFQuery *queryFriend = [PFQuery queryWithClassName:kActivityClassKey];
+     
+     [queryFriend whereKey:kActivityTypeKey equalTo:@"follow"];
+     [queryFriend whereKey:kActivityFromUserKey equalTo:[PFUser currentUser]];
+     
+     [queryWish whereKey:@"User" matchesKey:kActivityToUserKey inQuery:queryFriend];
+     
  
  // If Pull To Refresh is enabled, query against the network by default.
  if (self.pullToRefreshEnabled) {
- query.cachePolicy = kPFCachePolicyNetworkOnly;
+ queryWish.cachePolicy = kPFCachePolicyNetworkOnly;
  }
  
  // If no objects are loaded in memory, we look to the cache first to fill the table
  // and then subsequently do a query against the network.
  if (self.objects.count == 0) {
- query.cachePolicy = kPFCachePolicyCacheThenNetwork;
+ queryWish.cachePolicy = kPFCachePolicyCacheThenNetwork;
  }
  
- [query orderByDescending:@"createdAt"];
+ [queryWish orderByDescending:@"createdAt"];
  
- return query;
+ return queryWish;
  }
- */
 
- // Override to customize the look of a cell representing an object. The default is to display
- // a UITableViewCellStyleDefault style cell with the label being the textKey in the object,
- // and the imageView being the imageKey in the object.
+//
+// Customized code to show only wishes from your friends
+//
  - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object {
      static NSString *CellIdentifier = @"wishBox";
  
@@ -183,6 +197,8 @@ UserModel *userModel; // singleton class UserModel
      PFUser *theUser = [object objectForKey:@"User"];
 
      PFQuery *query = [PFQuery queryWithClassName:@"_User"];
+
+     
      [query getObjectInBackgroundWithId:[theUser objectId] block:^(PFObject *theUser, NSError *error) {
          // Do something with the returned PFObject in the gameScore variable.
          UILabel *username = (UILabel *)[cell viewWithTag:20];
@@ -194,8 +210,8 @@ UserModel *userModel; // singleton class UserModel
          NSDate *currentDate = [[NSDate alloc] init];
          NSDate *postDate = [object objectForKey:kWishDateKey];
          timeAgo.text = [timeFormatter stringForTimeIntervalFromDate:currentDate toDate:postDate];
-         NSLog(@"CURRENT: %@", currentDate);
-         NSLog(@"POST: %@", postDate);
+         //NSLog(@"CURRENT: %@", currentDate);
+         //NSLog(@"POST: %@", postDate);
          
          PFImageView *image = (PFImageView *)[cell viewWithTag:2];
          image.file = [theUser objectForKey:@"profilePic"];
@@ -216,30 +232,76 @@ UserModel *userModel; // singleton class UserModel
          join.object = object;
          [join addTarget:self action:@selector(joinButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
          
+         PFQuery *isGoing = [PFQuery queryWithClassName:kActivityClassKey];
+         
+         [isGoing whereKey:@"fromUser" equalTo:[PFUser currentUser]];
+         [isGoing whereKey:@"toUser" equalTo:[object objectForKey:@"User"]];
+         [isGoing whereKey:@"type" equalTo:@"going"];
+         [isGoing whereKey:@"wish" equalTo:object];
+         [isGoing findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+             
+             if (objects.count) {
+                 [join setTitle:@"GOING" forState:UIControlStateNormal];
+             }
+         }];
      }];
      
      cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cell.png"]];
-                            
-     
  
  return cell;
  }
 
+// When JOIN button is clicked, the following code performs the inclusion of a new activity on Parse
 -(void)joinButtonClicked:(HangOutJoinButton*)sender
 {
-    // Create Wish Object
-    PFObject *activity = [PFObject objectWithClassName:kActivityClassKey];
-    activity[@"fromUser"] = [PFUser currentUser];
-    activity[@"toUser"] = [sender.object objectForKey:@"User"];
-    activity[@"type"] = @"going";
-    activity[@"wish"] = sender.object;
+    if ([[sender currentTitle] isEqualToString:@"JOIN"]) {
+        PFQuery *query = [PFQuery queryWithClassName:kActivityClassKey];
+        
+        [query whereKey:@"fromUser" equalTo:[PFUser currentUser]];
+        [query whereKey:@"toUser" equalTo:[sender.object objectForKey:@"User"]];
+        [query whereKey:@"type" equalTo:@"going"];
+        [query whereKey:@"wish" equalTo:sender.object];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            
+            if (objects.count) {
+                NSLog(@"ALREADY GOING");
+            } else {
+                // Create Wish Object
+                PFObject *activity = [PFObject objectWithClassName:kActivityClassKey];
+                activity[@"fromUser"] = [PFUser currentUser];
+                activity[@"toUser"] = [sender.object objectForKey:@"User"];
+                activity[@"type"] = @"going";
+                activity[@"wish"] = sender.object;
+                
+                // Wishes are public, but only the creator can modify it
+                PFACL *activityACL = [PFACL ACLWithUser:[PFUser currentUser]];
+                [activityACL setPublicReadAccess:YES];
+                activity.ACL = activityACL;
+                
+                [activity saveInBackground];
+                NSLog(@"NOW GOING");
+            }
+        }];
+        [sender setTitle:@"GOING" forState:UIControlStateNormal];
+    } else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"UNJOIN?"
+                                                        message:@"You're already joined. Do you want to unjoin?"
+                                                       delegate:self
+                                              cancelButtonTitle:@"NO"
+                                              otherButtonTitles:@"YES", nil];
+        [alert show];
+    }
+}
 
-    // Wishes are public, but only the creator can modify it
-    PFACL *activityACL = [PFACL ACLWithUser:[PFUser currentUser]];
-    [activityACL setPublicReadAccess:YES];
-    activity.ACL = activityACL;
+// This alert view is supposed to remove the related activity on Parse
+// http://code.tutsplus.com/tutorials/ios-sdk-working-with-uialertview-and-uialertviewdelegate--mobile-3159
+- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
     
-    [activity saveInBackground];
+    if ([title isEqualToString:@"YES"]) {
+        // remove on Parse
+    }
 }
 
 

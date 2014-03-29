@@ -14,7 +14,7 @@
 #import "TTTTimeIntervalFormatter.h"
 
 @interface FriendsTimelinePFViewController : PFQueryTableViewController <PFLogInViewControllerDelegate,
-PFSignUpViewControllerDelegate>
+PFSignUpViewControllerDelegate, UIAlertViewDelegate>
 
 @property (nonatomic,weak) NSString *wishTitle;
 @property (nonatomic,weak) NSString *message;

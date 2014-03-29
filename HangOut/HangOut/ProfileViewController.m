@@ -56,7 +56,7 @@ int tableSize;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     int count;
-    if ([userModel.wishArray count] == 0) {
+    if ((int)[userModel.wishArray count] == 0) {
         count = 1;
     } else {
         count = (int)[userModel.wishArray count] + 1;
@@ -121,12 +121,11 @@ int tableSize;
     } else if (indexPath.row > 0) {
         // Configure wishCell
         NSLog(@"indexPath row: %ld", (long)indexPath.row);
-        NSLog(@"wishArray: %@", userModel.wishArray);
         
         UILabel *wishLabel = (UILabel *)[wishCell viewWithTag:3];
         //wishLabel.text = @"wish label test";
         long i = indexPath.row - 1;
-        if ([userModel.wishArray count] > 0) {
+        if ((int)[userModel.wishArray count] > 0) {
             if (i < [userModel.wishArray count]) {
                 wishLabel.text = [userModel.wishArray objectAtIndex:i];
             }

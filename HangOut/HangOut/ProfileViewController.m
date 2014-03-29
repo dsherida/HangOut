@@ -126,9 +126,10 @@ int tableSize;
         UILabel *wishLabel = (UILabel *)[wishCell viewWithTag:3];
         //wishLabel.text = @"wish label test";
         long i = indexPath.row - 1;
-        if (i < [userModel.wishArray count]) {
-            
-            wishLabel.text = [userModel.wishArray objectAtIndex:i];
+        if ([userModel.wishArray count] > 0) {
+            if (i < [userModel.wishArray count]) {
+                wishLabel.text = [userModel.wishArray objectAtIndex:i];
+            }
         }
         return wishCell;
     }
@@ -153,7 +154,6 @@ int tableSize;
     [super viewDidLoad];
     NSLog(@"Profile view did load");
     userModel = [UserModel sharedUserModel];
-    NSLog(@"%@", userModel.wishArray);
     
 //    [userModel getAndSetWishArray];
 //    tableSize = [userModel.wishArray count] + 1;

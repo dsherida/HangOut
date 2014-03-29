@@ -27,6 +27,7 @@
 + (UserModel *) sharedUserModel;
 - (void)parseWishArray:(NSArray *)array;
 - (void) requestAndSetFacebookUserData;
+- (void)getAndSetWishArray;
 - (void) setCurrentUser;
 - (void) setName;
 

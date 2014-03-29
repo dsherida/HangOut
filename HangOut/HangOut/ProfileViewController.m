@@ -15,6 +15,7 @@
 @implementation ProfileViewController
 
 UserModel *userModel;
+int tableSize;
 
 - (id)initWithCoder:(NSCoder *)aCoder {
     self = [super initWithCoder:aCoder];
@@ -49,12 +50,12 @@ UserModel *userModel;
 
 //- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 //{
-//    return 1;
+//    return [userModel.wishArray count];
 //}
 
 
 //- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//    return [wishListNames count];
+//    return tableSize;
 //}
 
 
@@ -87,6 +88,7 @@ UserModel *userModel;
 // a UITableViewCellStyleDefault style cell with the label being the textKey in the object,
 // and the imageView being the imageKey in the object.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object {
+    NSLog(@"Building table view...");
     static NSString *profileCellIdentifier = @"profileCell";
     static NSString *wishCellIdentifier = @"wishCell";
 
@@ -112,10 +114,15 @@ UserModel *userModel;
         return profileCell;
     } else if (indexPath.row > 0) {
         // Configure wishCell
+        NSLog(@"indexPath row: %ld", (long)indexPath.row);
+        NSLog(@"wishArray: %@", userModel.wishArray);
+        
         UILabel *wishLabel = (UILabel *)[wishCell viewWithTag:3];
         //wishLabel.text = @"wish label test";
         long i = indexPath.row - 1;
-        wishLabel.text = [userModel.wishArray objectAtIndex:i];
+        if (i < [userModel.wishArray count]) {
+            wishLabel.text = [userModel.wishArray objectAtIndex:i];
+        }
         return wishCell;
     }
     
@@ -137,7 +144,10 @@ UserModel *userModel;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSLog(@"Profile view did load");
     userModel = [UserModel sharedUserModel];
+//    [userModel getAndSetWishArray];
+//    tableSize = [userModel.wishArray count] + 1;
     
     //NSLog(@"Loaded Profile View");
     //NSLog(@"Username: %@", userModel.userName);

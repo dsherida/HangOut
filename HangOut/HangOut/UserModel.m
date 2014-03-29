@@ -28,6 +28,7 @@
     if (self = [super init]) {
         self.currentUser = [PFUser currentUser];
         self.userName = nil;
+        self.wishArray = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -125,7 +126,7 @@
 - (void)parseWishArray:(NSArray *)array {
     for (id wish in array) {
         NSLog(@"%@", wish[kWishTitleKey]);
-        NSString wishTitle = wish[kWishTitleKey];
+        NSString *wishTitle = wish[kWishTitleKey];
         NSLog(@"%@", wishTitle);
         [self.wishArray addObject:wishTitle];
     }

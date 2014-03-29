@@ -5,36 +5,36 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>A6A32DA5-6A00-4DF0-992C-B36937D4222A</string>
+	<string>3A8726A4-39CD-4AAF-BF74-C30D38A19F1A</string>
 	<key>IDESourceControlProjectName</key>
 	<string>HangOut</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>6F0003F9-7050-4973-9C46-73DBCC447296</key>
-		<string>https://github.com/dsherida/HangOut</string>
+		<key>074DEDF2-83AB-4CD7-8C0A-DB06C2D299F4</key>
+		<string>https://github.com/dsherida/HangOut.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>HangOut/HangOut.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>6F0003F9-7050-4973-9C46-73DBCC447296</key>
+		<key>074DEDF2-83AB-4CD7-8C0A-DB06C2D299F4</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/dsherida/HangOut</string>
+	<string>https://github.com/dsherida/HangOut.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>6F0003F9-7050-4973-9C46-73DBCC447296</string>
+	<string>074DEDF2-83AB-4CD7-8C0A-DB06C2D299F4</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>6F0003F9-7050-4973-9C46-73DBCC447296</string>
+			<string>074DEDF2-83AB-4CD7-8C0A-DB06C2D299F4</string>
 			<key>IDESourceControlWCCName</key>
-			<string>ian</string>
+			<string>HangOut</string>
 		</dict>
 	</array>
 </dict>

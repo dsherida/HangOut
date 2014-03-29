@@ -40,7 +40,7 @@ int tableSize;
         self.paginationEnabled = YES;
         
         // The number of objects to show per page
-        self.objectsPerPage = 25;
+        //self.objectsPerPage = 25;
     }
     return self;
 }
@@ -48,15 +48,21 @@ int tableSize;
 
 #pragma mark - Table view data source
 
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-//{
-//    return [userModel.wishArray count];
-//}
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
 
 
-//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//    return tableSize;
-//}
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    int count;
+    if ([userModel.wishArray count] == 0) {
+        count = 1;
+    } else {
+        count = (int)[userModel.wishArray count] + 1;
+    }
+    return count;
+}
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
@@ -121,6 +127,7 @@ int tableSize;
         //wishLabel.text = @"wish label test";
         long i = indexPath.row - 1;
         if (i < [userModel.wishArray count]) {
+            
             wishLabel.text = [userModel.wishArray objectAtIndex:i];
         }
         return wishCell;
@@ -146,6 +153,8 @@ int tableSize;
     [super viewDidLoad];
     NSLog(@"Profile view did load");
     userModel = [UserModel sharedUserModel];
+    NSLog(@"%@", userModel.wishArray);
+    
 //    [userModel getAndSetWishArray];
 //    tableSize = [userModel.wishArray count] + 1;
     

@@ -186,7 +186,15 @@ UserModel *userModel; // singleton class UserModel
      message.text = [object objectForKey:self.message];
      
      
-     PFObject *theUser = [object objectForKey:@"User"];
+     // Add actions for details button
+//     HangOutDetailsButton *details = (HangOutDetailsButton *)[cell viewWithTag:6];
+//     details.object = object;
+//     [details addTarget:self action:@selector(detailsButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+//     UIButton *detailsButton = (UIButton *)[cell viewWithTag:6];
+//     [detailsButton addTarget:self action:@selector(detailsButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+     
+     
+     PFUser *theUser = [object objectForKey:@"User"];
 
      PFQuery *query = [PFQuery queryWithClassName:@"_User"];
 
@@ -296,6 +304,47 @@ UserModel *userModel; // singleton class UserModel
     }
 }
 
+
+- (IBAction)detailsButtonClicked:(id)sender{
+    NSLog(@"detailsButton was clicked!");
+    
+    // -- begin reference:
+    // Open source code from: http://stackoverflow.com/questions/7504421/getting-row-of-uitableview-cell-on-button-press
+    CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableView];
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
+    // -- end reference
+    
+    // -- begin reference:
+    // open source code from: http://stackoverflow.com/questions/2384435/how-can-i-get-a-uitableviewcell-by-indexpath
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    // -- end reference
+    
+    UILabel *title = (UILabel *)[cell viewWithTag:10];
+    NSString *wishTitle = title.text;
+    NSLog(@"Wish title: %@", wishTitle);
+    
+    UILabel *username = (UILabel *)[cell viewWithTag:20];
+    NSString *wishOwner = username.text;
+    NSLog(@"Wish owner: %@", wishOwner);
+
+    //[self performSegueWithIdentifier:@"detailsSegue" sender:sender];
+}
+
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    // Send some data over
+    NSLog(@"Prepare for segue...");
+    
+    if([segue.identifier isEqualToString:@"detailsSegue"]){
+        
+        
+        
+        //UIViewController *myController = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailsViewController"];
+        //[self.navigationController pushViewController: myController animated:YES];
+    }
+}
+
+
 /*
  // Override if you need to change the ordering of objects in the table.
  - (PFObject *)objectAtIndex:(NSIndexPath *)indexPath {
@@ -362,5 +411,6 @@ UserModel *userModel; // singleton class UserModel
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [super tableView:tableView didSelectRowAtIndexPath:indexPath];
 }
+
 
 @end

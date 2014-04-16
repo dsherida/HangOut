@@ -10,7 +10,7 @@
 #import <Parse/Parse.h>
 #import "HangOutConstants.h"
 
-@interface AddForFriendsTableViewController : UITableViewController
+@interface AddWishTableViewController : UITableViewController
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;
 @property (weak, nonatomic) IBOutlet UITextView *messageTextField;
 @property (weak, nonatomic) IBOutlet UITextField *placeTextField;

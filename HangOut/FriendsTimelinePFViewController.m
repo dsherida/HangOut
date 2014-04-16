@@ -324,9 +324,6 @@ UserModel *userModel; // singleton class UserModel
         }];            
     }
 }
-        
-    
-
 
 
 - (IBAction)detailsButtonClicked:(id)sender{

@@ -103,7 +103,7 @@
                     
                     self.friends = [friendsQuery findObjects];
 
-                    [self setFriends];
+                    //[self setFriends];
                     //NSLog(@"FRIENDS: %@", self.fbIDs);
                 }
             }];

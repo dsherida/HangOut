@@ -6,13 +6,13 @@
 //
 //
 
-#import "AddForFriendsTableViewController.h"
+#import "AddWishTableViewController.h"
 
-@interface AddForFriendsTableViewController ()
+@interface AddWishTableViewController ()
 
 @end
 
-@implementation AddForFriendsTableViewController
+@implementation AddWishTableViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {

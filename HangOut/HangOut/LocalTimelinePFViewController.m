@@ -1,26 +1,18 @@
 //
-//  FriendsTimelinePFViewController.m
+//  LocalTimelinePFViewController.m
 //  HangOut
 //
-//  Created by Ian Ferreira dos Santos on 3/24/14.
+//  Created by Ian Ferreira dos Santos on 3/29/14.
 //
 //
 
-/*
- // Query for all friends you have on facebook and who are using the app
- PFQuery *friendsQuery = [PFQuery queryWithClassName:@"User"];
- [friendsQuery whereKey:@"fbID" containedIn:userModel.friendIds];
- NSArray *friendUsers = [friendsQuery findObjects];
- NSLog(@"FRIENDS: %@", friendUsers);
- */
+#import "LocalTimelinePFViewController.h"
 
-#import "FriendsTimelinePFViewController.h"
-
-@interface FriendsTimelinePFViewController ()
+@interface LocalTimelinePFViewController ()
 
 @end
 
-@implementation FriendsTimelinePFViewController
+@implementation LocalTimelinePFViewController
 
 UserModel *userModel; // singleton class UserModel
 
@@ -29,7 +21,6 @@ UserModel *userModel; // singleton class UserModel
     self = [super initWithCoder:aCoder];
     if (self) {
         // Customize the table
-        
         
         // The className to query on
         self.parseClassName = @"wish";
@@ -84,7 +75,7 @@ UserModel *userModel; // singleton class UserModel
     [super viewDidAppear:animated];
     
     if (![PFUser currentUser]) { // No user logged in
-        HangOutLoginViewController *login = [[HangOutLoginViewController alloc] init];
+        PFLogInViewController *login = [[PFLogInViewController alloc] init];
         login.fields = PFLogInFieldsFacebook;
         login.delegate = self;
         login.signUpController.delegate = self;
@@ -140,125 +131,130 @@ UserModel *userModel; // singleton class UserModel
 }
 
 
- // Override to customize what kind of query to perform on the class. The default is to query for
- // all objects ordered by createdAt descending.
- - (PFQuery *)queryForTable {
-
-     PFQuery *queryWish;
-     
-     if ([PFUser currentUser]) {
-         queryWish = [PFQuery queryWithClassName:kWishClassKey];
-         PFQuery *queryFriend = [PFQuery queryWithClassName:kActivityClassKey];
-         [queryFriend whereKey:kActivityTypeKey equalTo:@"follow"];
-         [queryFriend whereKey:kActivityFromUserKey equalTo:[PFUser currentUser]];
-         
-         [queryWish whereKey:@"User" matchesKey:kActivityToUserKey inQuery:queryFriend];
-         
-         
-         // If Pull To Refresh is enabled, query against the network by default.
-         if (self.pullToRefreshEnabled) {
-             queryWish.cachePolicy = kPFCachePolicyNetworkOnly;
-         }
-         
-         // If no objects are loaded in memory, we look to the cache first to fill the table
-         // and then subsequently do a query against the network.
-         if (self.objects.count == 0) {
-             queryWish.cachePolicy = kPFCachePolicyCacheThenNetwork;
-         }
-         
-         [queryWish orderByDescending:@"createdAt"];
-     }
-         
-         return queryWish;
-
- }
+// Override to customize what kind of query to perform on the class. The default is to query for
+// all objects ordered by createdAt descending.
+- (PFQuery *)queryForTable {
+    
+    PFQuery *queryWish;
+    
+    if ([PFUser currentUser]) {
+        queryWish = [PFQuery queryWithClassName:kWishClassKey];
+        PFQuery *queryFriend = [PFQuery queryWithClassName:kActivityClassKey];
+        [queryFriend whereKey:kActivityTypeKey equalTo:@"follow"];
+        [queryFriend whereKey:kActivityFromUserKey equalTo:[PFUser currentUser]];
+        
+        [queryWish whereKey:@"User" doesNotMatchKey:kActivityToUserKey inQuery:queryFriend];
+        [queryWish whereKey:@"User" notEqualTo:[PFUser currentUser]];
+        
+        
+        // If Pull To Refresh is enabled, query against the network by default.
+        if (self.pullToRefreshEnabled) {
+            queryWish.cachePolicy = kPFCachePolicyNetworkOnly;
+        }
+        
+        // If no objects are loaded in memory, we look to the cache first to fill the table
+        // and then subsequently do a query against the network.
+        if (self.objects.count == 0) {
+            queryWish.cachePolicy = kPFCachePolicyCacheThenNetwork;
+        }
+        
+        [queryWish orderByDescending:@"createdAt"];
+    }
+    
+    return queryWish;
+    
+}
 
 //
 // Customized code to show only wishes from your friends
 //
- - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object {
-     static NSString *CellIdentifier = @"wishBox";
- 
-     PFTableViewCell *cell = (PFTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-     
-     if ([PFUser currentUser]) {
-     if (cell == nil) {
-         cell = [[PFTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-     }
- 
-     // Configure the cell
-     UILabel *title = (UILabel *)[cell viewWithTag:10];
-     title.text = [object objectForKey:self.wishTitle];
-     
-     UILabel *message = (UILabel *)[cell viewWithTag:3];
-     message.text = [object objectForKey:self.message];
-     
-     
-     // Add actions for details button
-//     HangOutDetailsButton *details = (HangOutDetailsButton *)[cell viewWithTag:6];
-//     details.object = object;
-//     [details addTarget:self action:@selector(detailsButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-//     UIButton *detailsButton = (UIButton *)[cell viewWithTag:6];
-//     [detailsButton addTarget:self action:@selector(detailsButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-     
-     
-     PFUser *theUser = [object objectForKey:@"User"];
-
-     PFQuery *query = [PFQuery queryWithClassName:@"_User"];
-
-     
-     [query getObjectInBackgroundWithId:[theUser objectId] block:^(PFObject *theUser, NSError *error) {
-         // Do something with the returned PFObject in the gameScore variable.
-         UILabel *username = (UILabel *)[cell viewWithTag:20];
-         username.text = [theUser objectForKey:@"username"];
-         
-         UILabel *timeAgo = (UILabel *)[cell viewWithTag:21];
-         TTTTimeIntervalFormatter *timeFormatter;
-         timeFormatter = [[TTTTimeIntervalFormatter alloc] init];
-         NSDate *currentDate = [[NSDate alloc] init];
-         NSDate *postDate = [object objectForKey:kWishDateKey];
-         timeAgo.text = [timeFormatter stringForTimeIntervalFromDate:currentDate toDate:postDate];
-         //NSLog(@"CURRENT: %@", currentDate);
-         //NSLog(@"POST: %@", postDate);
-         
-         PFImageView *image = (PFImageView *)[cell viewWithTag:2];
-         image.file = [theUser objectForKey:@"profilePic"];
-         [image loadInBackground];
-         
-         UILabel *place = (UILabel *)[cell viewWithTag:7];
-         place.text = [object objectForKey:kWishPlaceKey];
-         
-         UILabel *date = (UILabel *)[cell viewWithTag:8];
-         NSDate *theDate = [object objectForKey:kWishDateKey];
-         
-         // http://stackoverflow.com/questions/576265/convert-nsdate-to-nsstring
-         date.text = [NSDateFormatter localizedStringFromDate:theDate
-                                                    dateStyle:NSDateFormatterShortStyle
-                                                    timeStyle:NSDateFormatterFullStyle];
-         
-         HangOutJoinButton *join = (HangOutJoinButton *)[cell viewWithTag:4];
-         join.object = object;
-         [join addTarget:self action:@selector(joinButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-         
-         PFQuery *isGoing = [PFQuery queryWithClassName:kActivityClassKey];
-         
-         [isGoing whereKey:@"fromUser" equalTo:[PFUser currentUser]];
-         [isGoing whereKey:@"toUser" equalTo:[object objectForKey:@"User"]];
-         [isGoing whereKey:@"type" equalTo:@"going"];
-         [isGoing whereKey:@"wish" equalTo:object];
-         [isGoing findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-             
-             if (objects.count) {
-                 [join setTitle:@"GOING" forState:UIControlStateNormal];
-             }
-         }];
-     }];
-     
-     
-     }
-     cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cell.png"]];
- return cell;
- }
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object {
+    static NSString *CellIdentifier = @"wishBoxLocal";
+    
+    PFTableViewCell *cell = (PFTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    if ([PFUser currentUser]) {
+        if (cell == nil) {
+            cell = [[PFTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        }
+        
+        // Configure the cell
+        UILabel *title = (UILabel *)[cell viewWithTag:10];
+        title.text = [object objectForKey:self.wishTitle];
+        
+        UILabel *message = (UILabel *)[cell viewWithTag:3];
+        message.text = [object objectForKey:self.message];
+        
+        
+        // Add actions for details button
+        //     HangOutDetailsButton *details = (HangOutDetailsButton *)[cell viewWithTag:6];
+        //     details.object = object;
+        //     [details addTarget:self action:@selector(detailsButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+        //     UIButton *detailsButton = (UIButton *)[cell viewWithTag:6];
+        //     [detailsButton addTarget:self action:@selector(detailsButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+        
+        
+        PFUser *theUser = [object objectForKey:@"User"];
+        
+        PFQuery *query = [PFQuery queryWithClassName:@"_User"];
+        
+        
+        [query getObjectInBackgroundWithId:[theUser objectId] block:^(PFObject *theUser, NSError *error) {
+            // Do something with the returned PFObject in the gameScore variable.
+            UILabel *username = (UILabel *)[cell viewWithTag:20];
+            username.text = [theUser objectForKey:@"username"];
+            
+            UILabel *timeAgo = (UILabel *)[cell viewWithTag:21];
+            TTTTimeIntervalFormatter *timeFormatter;
+            timeFormatter = [[TTTTimeIntervalFormatter alloc] init];
+            NSDate *currentDate = [[NSDate alloc] init];
+            NSDate *postDate = [object objectForKey:kWishDateKey];
+            timeAgo.text = [timeFormatter stringForTimeIntervalFromDate:currentDate toDate:postDate];
+            //NSLog(@"CURRENT: %@", currentDate);
+            //NSLog(@"POST: %@", postDate);
+            
+            PFImageView *image = (PFImageView *)[cell viewWithTag:2];
+            image.file = [theUser objectForKey:@"profilePic"];
+            [image loadInBackground];
+            
+            UILabel *location = (UILabel *)[cell viewWithTag:17];
+            location.text = [NSString stringWithFormat:@"Distance: %.2f km", [userModel.location distanceInKilometersTo:[theUser objectForKey:@"location"]]];
+            
+            
+            UILabel *place = (UILabel *)[cell viewWithTag:7];
+            place.text = [object objectForKey:kWishPlaceKey];
+            
+            UILabel *date = (UILabel *)[cell viewWithTag:8];
+            NSDate *theDate = [object objectForKey:kWishDateKey];
+            
+            // http://stackoverflow.com/questions/576265/convert-nsdate-to-nsstring
+            date.text = [NSDateFormatter localizedStringFromDate:theDate
+                                                       dateStyle:NSDateFormatterShortStyle
+                                                       timeStyle:NSDateFormatterFullStyle];
+            
+            HangOutJoinButton *join = (HangOutJoinButton *)[cell viewWithTag:4];
+            join.object = object;
+            [join addTarget:self action:@selector(joinButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+            
+            PFQuery *isGoing = [PFQuery queryWithClassName:kActivityClassKey];
+            
+            [isGoing whereKey:@"fromUser" equalTo:[PFUser currentUser]];
+            [isGoing whereKey:@"toUser" equalTo:[object objectForKey:@"User"]];
+            [isGoing whereKey:@"type" equalTo:@"going"];
+            [isGoing whereKey:@"wish" equalTo:object];
+            [isGoing findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                
+                if (objects.count) {
+                    [join setTitle:@"GOING" forState:UIControlStateNormal];
+                }
+            }];
+        }];
+        
+        
+    }
+    cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cell.png"]];
+    return cell;
+}
 
 // When JOIN button is clicked, the following code performs the inclusion of a new activity on Parse
 -(void)joinButtonClicked:(HangOutJoinButton*)sender
@@ -293,40 +289,25 @@ UserModel *userModel; // singleton class UserModel
         }];
         [sender setTitle:@"GOING" forState:UIControlStateNormal];
     } else {
-        HangOutAlertView *alert = [[HangOutAlertView alloc] initWithTitle:@"UNJOIN?"
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"UNJOIN?"
                                                         message:@"You're already joined. Do you want to unjoin?"
                                                        delegate:self
                                               cancelButtonTitle:@"NO"
                                               otherButtonTitles:@"YES", nil];
-        alert.object = sender.object;
-        alert.button = sender;
         [alert show];
     }
 }
 
 // This alert view is supposed to remove the related activity on Parse
 // http://code.tutsplus.com/tutorials/ios-sdk-working-with-uialertview-and-uialertviewdelegate--mobile-3159
-- (void) alertView:(HangOutAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
     
     if ([title isEqualToString:@"YES"]) {
         // remove on Parse
-        PFQuery *query = [PFQuery queryWithClassName:kActivityClassKey];
-        [query whereKey:@"fromUser" equalTo:[PFUser currentUser]];
-        [query whereKey:@"toUser" equalTo:[alertView.object objectForKey:@"User"]];
-        [query whereKey:@"type" equalTo:@"going"];
-        [query whereKey:@"wish" equalTo:alertView.object];
-        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-            PFObject *object = [objects firstObject];
-            [object deleteEventually];
-            [alertView.button setTitle:@"JOIN" forState:UIControlStateNormal];
-        }];            
     }
 }
-        
-    
-
 
 
 - (IBAction)detailsButtonClicked:(id)sender{
@@ -350,7 +331,7 @@ UserModel *userModel; // singleton class UserModel
     UILabel *username = (UILabel *)[cell viewWithTag:20];
     NSString *wishOwner = username.text;
     NSLog(@"Wish owner: %@", wishOwner);
-
+    
     //[self performSegueWithIdentifier:@"detailsSegue" sender:sender];
 }
 

@@ -30,6 +30,12 @@
         self.userName = nil;
         self.wishArray = [[NSMutableArray alloc] init];
     }
+    
+    // https://parse.com/tutorials/geolocations
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
+    [[self locationManager] startUpdatingLocation];
+    
     return self;
 }
 
@@ -56,6 +62,7 @@
             self.userName = userData[@"name"];
             [self setName];
             [self setFacebookID];
+            //[self setLocation];
             
             self.objectId = userData[@"objectId"];
             [self getAndSetWishArray];
@@ -237,6 +244,31 @@
             }
         }];
     }
+}
+
+/*
+- (void) setLocation {
+    PFQuery *query = [PFQuery queryWithClassName:kUserClassKey];
+    // Retrieve the object by id
+    [query getObjectInBackgroundWithId:self.currentUser.objectId block:^(PFObject *user, NSError *error) {
+        
+        // Now let's update it with some new data. In this case, only user's name
+        // will get sent to the cloud. anything else has changed
+        self.locationM = self.locationManager.location;
+        CLLocationCoordinate2D coordinate = [self.locationM coordinate];
+        PFGeoPoint *geoPoint = [PFGeoPoint geoPointWithLatitude:coordinate.latitude
+                                                      longitude:coordinate.longitude];
+        //NSLog(@"location: %f %f", coordinate.latitude, coordinate.longitude);
+        user[@"location"] = geoPoint;
+        [user saveInBackground];
+        
+    }];
+}
+ */
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+{
+    self.locationM = newLocation;
 }
 
 @end

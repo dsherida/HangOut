@@ -125,7 +125,7 @@ int tableSize;
         UILabel *wishLabel = (UILabel *)[wishCell viewWithTag:3];
         //wishLabel.text = @"wish label test";
         long i = indexPath.row - 1;
-        if ((int)[userModel.wishArray count] > 0) {
+        if ((((int)[userModel.wishArray count]) > 0)) {
             if (i < [userModel.wishArray count]) {
                 wishLabel.text = [userModel.wishArray objectAtIndex:i];
             }

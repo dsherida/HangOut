@@ -12,8 +12,9 @@
 #import <FacebookSDK/FacebookSDK.h>
 #import <Parse/Parse.h>
 #import "HangOutConstants.h"
+#include <CoreLocation/CoreLocation.h>
 
-@interface UserModel : NSObject <NSURLConnectionDelegate>
+@interface UserModel : NSObject <NSURLConnectionDelegate, CLLocationManagerDelegate>
 
 @property (strong, nonatomic) PFUser *currentUser;     // the current user
 @property (strong, nonatomic) NSString *userName;   // current user's facebook name or username
@@ -24,6 +25,9 @@
 @property (strong, nonatomic) NSMutableArray *wishArray;
 @property (strong, nonatomic) UIImage *profileUIImage;
 @property (strong, nonatomic) NSString *objectId;
+@property (strong, nonatomic) PFGeoPoint *location;
+@property (strong, nonatomic) CLLocationManager *locationManager;
+@property (strong, nonatomic) CLLocation *locationM;
 
 + (UserModel *) sharedUserModel;
 - (void)parseWishArray:(NSArray *)array;

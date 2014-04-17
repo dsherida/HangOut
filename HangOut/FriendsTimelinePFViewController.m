@@ -365,6 +365,10 @@ UserModel *userModel; // singleton class UserModel
     }
 }
 
+-(void) viewWillAppear:(BOOL)animated
+{
+    [self loadObjects];
+}
 
 /*
  // Override if you need to change the ordering of objects in the table.

@@ -31,6 +31,9 @@
 		9F04204F18FF1F6D001EB443 /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F04204E18FF1F6D001EB443 /* SettingsTableViewController.m */; };
 		9F04205218FF2155001EB443 /* FollowFriendsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F04205118FF2155001EB443 /* FollowFriendsTableViewController.m */; };
 		9F04205518FF3041001EB443 /* HangOutFollowButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F04205418FF3041001EB443 /* HangOutFollowButton.m */; };
+		9F04205818FF3F20001EB443 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F04205618FF3F20001EB443 /* settings.png */; };
+		9F04205918FF3F20001EB443 /* settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F04205718FF3F20001EB443 /* settings@2x.png */; };
+		9F04205B18FF5D09001EB443 /* heyletsfollow.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F04205A18FF5D09001EB443 /* heyletsfollow.png */; };
 		9F0C3C3C18DE51580020471C /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F0C3C3A18DE51580020471C /* FacebookSDK.framework */; };
 		9F0C3C3D18DE51580020471C /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F0C3C3B18DE51580020471C /* Parse.framework */; };
 		9F3173CB18E2977800E2FD1A /* HangOutJoinButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F3173CA18E2977800E2FD1A /* HangOutJoinButton.m */; };
@@ -101,6 +104,9 @@
 		9F04205118FF2155001EB443 /* FollowFriendsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FollowFriendsTableViewController.m; sourceTree = "<group>"; };
 		9F04205318FF3041001EB443 /* HangOutFollowButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HangOutFollowButton.h; sourceTree = "<group>"; };
 		9F04205418FF3041001EB443 /* HangOutFollowButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HangOutFollowButton.m; sourceTree = "<group>"; };
+		9F04205618FF3F20001EB443 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
+		9F04205718FF3F20001EB443 /* settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings@2x.png"; sourceTree = "<group>"; };
+		9F04205A18FF5D09001EB443 /* heyletsfollow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heyletsfollow.png; sourceTree = "<group>"; };
 		9F0C3C3A18DE51580020471C /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		9F0C3C3B18DE51580020471C /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		9F3173C918E2977800E2FD1A /* HangOutJoinButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HangOutJoinButton.h; sourceTree = "<group>"; };
@@ -248,6 +254,9 @@
 		931BB7A918BC0DA70001AF27 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9F04205A18FF5D09001EB443 /* heyletsfollow.png */,
+				9F04205618FF3F20001EB443 /* settings.png */,
+				9F04205718FF3F20001EB443 /* settings@2x.png */,
 				9FD9084318F339E400D0011C /* local.png */,
 				9FD9084418F339E400D0011C /* local@2x.png */,
 				9FD9083F18F3370600D0011C /* friends.png */,
@@ -366,12 +375,15 @@
 				9FD9084518F339E400D0011C /* local.png in Resources */,
 				931BB7AD18BC0DA70001AF27 /* InfoPlist.strings in Resources */,
 				9FD9083E18F3348200D0011C /* profile@2x.png in Resources */,
+				9F04205818FF3F20001EB443 /* settings.png in Resources */,
 				9FD9083D18F3348200D0011C /* profile.png in Resources */,
+				9F04205B18FF5D09001EB443 /* heyletsfollow.png in Resources */,
 				9FD9083518E7AA5E00D0011C /* logo.png in Resources */,
 				9FD9084618F339E400D0011C /* local@2x.png in Resources */,
 				9FE1D5E318DEBABA00D44C41 /* MyLaunchImage-568h@2x.png in Resources */,
 				931BB7B618BC0DA70001AF27 /* Main.storyboard in Resources */,
 				9FD9082B18E6B92000D0011C /* cell.png in Resources */,
+				9F04205918FF3F20001EB443 /* settings@2x.png in Resources */,
 				9FD9084218F3370600D0011C /* friends@2x.png in Resources */,
 				9FD9084118F3370600D0011C /* friends.png in Resources */,
 			);

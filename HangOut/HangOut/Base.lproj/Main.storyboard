@@ -584,7 +584,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Friends" id="ryd-Ia-UT5">
-                        <barButtonItem key="leftBarButtonItem" title="Settings" style="plain" id="eIa-rr-e20">
+                        <barButtonItem key="leftBarButtonItem" image="settings.png" style="plain" id="eIa-rr-e20">
                             <connections>
                                 <segue destination="dSt-as-J1l" kind="push" id="Eyq-vz-mMe"/>
                             </connections>
@@ -765,10 +765,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                             <segue destination="mo3-Oe-wlf" kind="push" id="IiC-2b-Ut7"/>
                                         </connections>
                                     </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                            <tableViewSection id="0AX-wR-Yax">
-                                <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="vKE-OQ-m3K">
                                         <rect key="frame" x="0.0" y="108" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -861,6 +857,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <image name="friends.png" width="30" height="30"/>
         <image name="local.png" width="30" height="30"/>
         <image name="profile.png" width="30" height="30"/>
+        <image name="settings.png" width="30" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

@@ -253,7 +253,16 @@ UserModel *userModel; // singleton class UserModel
              }
          }];
      }];
-     
+         
+         UIButton *attendees = (UIButton *)[cell viewWithTag:54];
+         
+         PFQuery *attendeesQuery = [PFQuery queryWithClassName:kActivityClassKey];
+         [attendeesQuery whereKey:@"type" equalTo:@"going"];
+         [attendeesQuery whereKey:@"wish" equalTo:object];
+         
+         [attendeesQuery countObjectsInBackgroundWithBlock:^(int number, NSError *error) {
+             [attendees setTitle:[NSString stringWithFormat:@"%d", number] forState:UIControlStateNormal];
+         }];
      
      }
      cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cell.png"]];

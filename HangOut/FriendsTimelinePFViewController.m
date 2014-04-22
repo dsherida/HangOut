@@ -215,11 +215,10 @@ UserModel *userModel; // singleton class UserModel
          UILabel *timeAgo = (UILabel *)[cell viewWithTag:21];
          TTTTimeIntervalFormatter *timeFormatter;
          timeFormatter = [[TTTTimeIntervalFormatter alloc] init];
+         
          NSDate *currentDate = [[NSDate alloc] init];
-         NSDate *postDate = [object objectForKey:kWishDateKey];
-         timeAgo.text = [timeFormatter stringForTimeIntervalFromDate:currentDate toDate:postDate];
-         //NSLog(@"CURRENT: %@", currentDate);
-         //NSLog(@"POST: %@", postDate);
+         
+         timeAgo.text = [timeFormatter stringForTimeIntervalFromDate:[object createdAt] toDate:currentDate];
          
          PFImageView *image = (PFImageView *)[cell viewWithTag:2];
          image.file = [theUser objectForKey:@"profilePic"];
@@ -234,7 +233,7 @@ UserModel *userModel; // singleton class UserModel
          // http://stackoverflow.com/questions/576265/convert-nsdate-to-nsstring
          date.text = [NSDateFormatter localizedStringFromDate:theDate
                                                     dateStyle:NSDateFormatterShortStyle
-                                                    timeStyle:NSDateFormatterFullStyle];
+                                                    timeStyle:NSDateFormatterShortStyle];
          
          HangOutJoinButton *join = (HangOutJoinButton *)[cell viewWithTag:4];
          join.object = object;

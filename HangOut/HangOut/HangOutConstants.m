@@ -45,5 +45,5 @@ NSString *const kWishTitleKey = @"title";
 NSString *const kWishUserKey = @"user";
 NSString *const kWishPlaceKey = @"place";
 NSString *const kWishDateKey = @"date";
-NSString *const kWishTimeKey = @"time";
+NSString *const kWishTimeKey = @"createdAt";
 NSString *const kWishPrivacyKey = @"privacy";

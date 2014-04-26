@@ -143,22 +143,14 @@
      PFQuery *query = [PFQuery queryWithClassName:@"_User"];
      [query whereKey:@"objectId" equalTo:[attendee objectId]];
      
-     /*
-     [query getObjectInBackgroundWithId:[attendee objectId]
-                                  block:^(PFObject *object, NSError *error) {
-                                      cell.textLabel.text = [object objectForKey:@"username"];
-                                      //cell.imageView.file = [object objectForKey:@"profilePic"];
-                                  }];
-     */
+     PFImageView *imageView = (PFImageView*)[cell viewWithTag:4];
+     UILabel *name = (UILabel*)[cell viewWithTag:17];
      
      [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
-         cell.textLabel.text = [object objectForKey:@"username"];
-         cell.imageView.file = [object objectForKey:@"profilePic"];
-         [cell.imageView loadInBackground];
+         name.text = [object objectForKey:@"username"];
+         imageView.file = [object objectForKey:@"profilePic"];
+         [imageView loadInBackground];
      }];
-     
- //cell.textLabel.text = [object objectForKey:@"type"];
- //cell.imageView.file = [object objectForKey:self.imageKey];
  
  return cell;
  }

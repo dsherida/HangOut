@@ -14,6 +14,8 @@
 #import "TTTTimeIntervalFormatter.h"
 #import "HangOutLoginViewController.h"
 #import "HangOutAlertView.h"
+#import "HangOutDetailsButton.h"
+#import "ListOfAttendeesPFViewController.h"
 
 @interface FriendsTimelinePFViewController : PFQueryTableViewController <PFLogInViewControllerDelegate,
 PFSignUpViewControllerDelegate, UIAlertViewDelegate>
@@ -22,6 +24,6 @@ PFSignUpViewControllerDelegate, UIAlertViewDelegate>
 @property (nonatomic,weak) NSString *message;
 @property (nonatomic,weak) NSString *profilePic;
 
-- (IBAction)detailsButtonClicked:(UIButton *)sender;
+- (IBAction)detailsButtonClicked:(HangOutDetailsButton *)sender;
 
 @end

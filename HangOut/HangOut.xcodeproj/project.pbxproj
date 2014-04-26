@@ -38,6 +38,7 @@
 		9F0C3C3D18DE51580020471C /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F0C3C3B18DE51580020471C /* Parse.framework */; };
 		9F3173CB18E2977800E2FD1A /* HangOutJoinButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F3173CA18E2977800E2FD1A /* HangOutJoinButton.m */; };
 		9F3173D318E2CDC600E2FD1A /* (null) in Resources */ = {isa = PBXBuildFile; };
+		9F60BB6A190651B900A455CD /* ListOfAttendeesPFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F60BB69190651B900A455CD /* ListOfAttendeesPFViewController.m */; };
 		9F9F982B18E128DA00093545 /* FriendsTimelinePFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F9F982A18E128DA00093545 /* FriendsTimelinePFViewController.m */; };
 		9FD9082618E3A20700D0011C /* TTTTimeIntervalFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FD9082518E3A20700D0011C /* TTTTimeIntervalFormatter.m */; };
 		9FD9082B18E6B92000D0011C /* cell.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FD9082A18E6B92000D0011C /* cell.png */; };
@@ -111,6 +112,8 @@
 		9F0C3C3B18DE51580020471C /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		9F3173C918E2977800E2FD1A /* HangOutJoinButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HangOutJoinButton.h; sourceTree = "<group>"; };
 		9F3173CA18E2977800E2FD1A /* HangOutJoinButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HangOutJoinButton.m; sourceTree = "<group>"; };
+		9F60BB68190651B900A455CD /* ListOfAttendeesPFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListOfAttendeesPFViewController.h; sourceTree = "<group>"; };
+		9F60BB69190651B900A455CD /* ListOfAttendeesPFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListOfAttendeesPFViewController.m; sourceTree = "<group>"; };
 		9F9F982918E128DA00093545 /* FriendsTimelinePFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FriendsTimelinePFViewController.h; path = ../FriendsTimelinePFViewController.h; sourceTree = "<group>"; };
 		9F9F982A18E128DA00093545 /* FriendsTimelinePFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FriendsTimelinePFViewController.m; path = ../FriendsTimelinePFViewController.m; sourceTree = "<group>"; };
 		9FD9082418E3A20700D0011C /* TTTTimeIntervalFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTTimeIntervalFormatter.h; sourceTree = "<group>"; };
@@ -229,6 +232,8 @@
 				931BB7B118BC0DA70001AF27 /* HangOutAppDelegate.h */,
 				931BB7B218BC0DA70001AF27 /* HangOutAppDelegate.m */,
 				931BB7B418BC0DA70001AF27 /* Main.storyboard */,
+				9F60BB68190651B900A455CD /* ListOfAttendeesPFViewController.h */,
+				9F60BB69190651B900A455CD /* ListOfAttendeesPFViewController.m */,
 				9FD9083618F3302300D0011C /* HangoutTabBarViewController.h */,
 				9FD9083718F3302300D0011C /* HangoutTabBarViewController.m */,
 				9FD9083118E7A88F00D0011C /* HangOutLoginViewController.h */,
@@ -417,6 +422,7 @@
 				9FD9083318E7A88F00D0011C /* HangOutLoginViewController.m in Sources */,
 				9F04205218FF2155001EB443 /* FollowFriendsTableViewController.m in Sources */,
 				93DCA2E118E1003E0001A4BF /* UserModel.m in Sources */,
+				9F60BB6A190651B900A455CD /* ListOfAttendeesPFViewController.m in Sources */,
 				9F3173CB18E2977800E2FD1A /* HangOutJoinButton.m in Sources */,
 				9F04204F18FF1F6D001EB443 /* SettingsTableViewController.m in Sources */,
 				9FD9082618E3A20700D0011C /* TTTTimeIntervalFormatter.m in Sources */,

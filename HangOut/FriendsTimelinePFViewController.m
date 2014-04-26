@@ -253,7 +253,8 @@ UserModel *userModel; // singleton class UserModel
          }];
      }];
          
-         UIButton *attendees = (UIButton *)[cell viewWithTag:54];
+         HangOutDetailsButton *attendees = (HangOutDetailsButton *)[cell viewWithTag:54];
+         attendees.object = object;
          
          PFQuery *attendeesQuery = [PFQuery queryWithClassName:kActivityClassKey];
          [attendeesQuery whereKey:@"type" equalTo:@"going"];
@@ -359,7 +360,7 @@ UserModel *userModel; // singleton class UserModel
     //[self performSegueWithIdentifier:@"detailsSegue" sender:sender];
 }
 
-
+/*
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     // Send some data over
     NSLog(@"Prepare for segue...");
@@ -372,6 +373,7 @@ UserModel *userModel; // singleton class UserModel
         //[self.navigationController pushViewController: myController animated:YES];
     }
 }
+ */
 
 -(void) viewWillAppear:(BOOL)animated
 {
@@ -445,5 +447,12 @@ UserModel *userModel; // singleton class UserModel
     [super tableView:tableView didSelectRowAtIndexPath:indexPath];
 }
 
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"Attendees"]) {
+        ListOfAttendeesPFViewController *list = [segue destinationViewController];
+        HangOutDetailsButton *button = (HangOutDetailsButton*) sender;
+        list.object = button.object;
+    }
+}
 
 @end

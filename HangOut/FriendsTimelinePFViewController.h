@@ -16,6 +16,7 @@
 #import "HangOutAlertView.h"
 #import "HangOutDetailsButton.h"
 #import "ListOfAttendeesPFViewController.h"
+#import "CommentsPFViewController.h"
 
 @interface FriendsTimelinePFViewController : PFQueryTableViewController <PFLogInViewControllerDelegate,
 PFSignUpViewControllerDelegate, UIAlertViewDelegate>

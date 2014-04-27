@@ -26,6 +26,7 @@
 		9366132818C82DA400612F92 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9366132718C82DA400612F92 /* MobileCoreServices.framework */; };
 		9366132A18C82DAF00612F92 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9366132918C82DAF00612F92 /* QuartzCore.framework */; };
 		9366132C18C82DB700612F92 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9366132B18C82DB700612F92 /* Security.framework */; };
+		938F3F4C190CE71C00C2DB38 /* profile_page_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 938F3F4B190CE71C00C2DB38 /* profile_page_background.png */; };
 		93C4C56718E2C154008F1F76 /* HangOutDetailsButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C4C56618E2C154008F1F76 /* HangOutDetailsButton.m */; };
 		93DCA2E118E1003E0001A4BF /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 93DCA2E018E1003E0001A4BF /* UserModel.m */; };
 		9F04204F18FF1F6D001EB443 /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F04204E18FF1F6D001EB443 /* SettingsTableViewController.m */; };
@@ -95,6 +96,7 @@
 		9366132718C82DA400612F92 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		9366132918C82DAF00612F92 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		9366132B18C82DB700612F92 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		938F3F4B190CE71C00C2DB38 /* profile_page_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile_page_background.png; sourceTree = "<group>"; };
 		93C4C56518E2C154008F1F76 /* HangOutDetailsButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HangOutDetailsButton.h; sourceTree = "<group>"; };
 		93C4C56618E2C154008F1F76 /* HangOutDetailsButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HangOutDetailsButton.m; sourceTree = "<group>"; };
 		93DCA2DF18E1003E0001A4BF /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
@@ -259,6 +261,7 @@
 		931BB7A918BC0DA70001AF27 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				938F3F4B190CE71C00C2DB38 /* profile_page_background.png */,
 				9F04205A18FF5D09001EB443 /* heyletsfollow.png */,
 				9F04205618FF3F20001EB443 /* settings.png */,
 				9F04205718FF3F20001EB443 /* settings@2x.png */,
@@ -380,6 +383,7 @@
 				9FD9084518F339E400D0011C /* local.png in Resources */,
 				931BB7AD18BC0DA70001AF27 /* InfoPlist.strings in Resources */,
 				9FD9083E18F3348200D0011C /* profile@2x.png in Resources */,
+				938F3F4C190CE71C00C2DB38 /* profile_page_background.png in Resources */,
 				9F04205818FF3F20001EB443 /* settings.png in Resources */,
 				9FD9083D18F3348200D0011C /* profile.png in Resources */,
 				9F04205B18FF5D09001EB443 /* heyletsfollow.png in Resources */,

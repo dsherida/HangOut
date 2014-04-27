@@ -18,4 +18,9 @@ PFSignUpViewControllerDelegate>
 @property (strong, nonatomic) IBOutlet UIImageView *UIProfilePic;
 @property (strong, nonatomic) IBOutlet UILabel *UINameLabel;
 
+@property (nonatomic, strong) NSDictionary *object;
+@property (nonatomic,weak) NSString *wishTitle;
+@property (nonatomic,weak) NSArray *keyArray;
+@property (nonatomic) BOOL doneLoading;
+
 @end

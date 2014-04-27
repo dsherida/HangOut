@@ -335,7 +335,7 @@ UserModel *userModel; // singleton class UserModel
 }
 
 
-- (IBAction)detailsButtonClicked:(id)sender{
+- (IBAction)detailsButtonClicked:(id)sender {
     NSLog(@"detailsButton was clicked!");
     
     // -- begin reference:

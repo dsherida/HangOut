@@ -256,12 +256,23 @@ UserModel *userModel; // singleton class UserModel
          HangOutDetailsButton *attendees = (HangOutDetailsButton *)[cell viewWithTag:54];
          attendees.object = object;
          
+         HangOutDetailsButton *comments = (HangOutDetailsButton *)[cell viewWithTag:108];
+         comments.object = object;
+         
          PFQuery *attendeesQuery = [PFQuery queryWithClassName:kActivityClassKey];
          [attendeesQuery whereKey:@"type" equalTo:@"going"];
          [attendeesQuery whereKey:@"wish" equalTo:object];
          
          [attendeesQuery countObjectsInBackgroundWithBlock:^(int number, NSError *error) {
              [attendees setTitle:[NSString stringWithFormat:@"%d", number] forState:UIControlStateNormal];
+         }];
+         
+         PFQuery *commentsQuery = [PFQuery queryWithClassName:kActivityClassKey];
+         [commentsQuery whereKey:@"type" equalTo:@"comment"];
+         [commentsQuery whereKey:@"wish" equalTo:object];
+         
+         [commentsQuery countObjectsInBackgroundWithBlock:^(int number, NSError *error) {
+             [comments setTitle:[NSString stringWithFormat:@"%d", number] forState:UIControlStateNormal];
          }];
      
      }
@@ -452,6 +463,12 @@ UserModel *userModel; // singleton class UserModel
         ListOfAttendeesPFViewController *list = [segue destinationViewController];
         HangOutDetailsButton *button = (HangOutDetailsButton*) sender;
         list.object = button.object;
+    }
+    if ([segue.identifier isEqualToString:@"Comments"]) {
+        CommentsPFViewController *list = [segue destinationViewController];
+        HangOutDetailsButton *button = (HangOutDetailsButton*) sender;
+        list.object = button.object;
+        
     }
 }
 

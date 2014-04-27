@@ -28,7 +28,7 @@
     if (self = [super init]) {
         self.currentUser = [PFUser currentUser];
         self.userName = nil;
-        self.wishArray = [[NSMutableArray alloc] init];
+//        self.wishArray = [[NSMutableArray alloc] init];
     }
     
     // https://parse.com/tutorials/geolocations
@@ -65,7 +65,7 @@
             //[self setLocation];
             
             self.objectId = userData[@"objectId"];
-            [self getAndSetWishArray];
+            //[self getAndSetWishArray];
             
             // Other userData fields (not needed [yet?])
             //NSString *location = userData[@"location"][@"name"];
@@ -147,28 +147,28 @@
 }
 
 
-- (void)getAndSetWishArray {
-    NSLog(@"Get and set wish Array");
-    PFQuery *query = [PFQuery queryWithClassName:@"wish"];
-    
-    [query whereKey:@"User" equalTo:self.currentUser];
-    
-    // Retrieve the object by id
-    [query findObjectsInBackgroundWithBlock:^(NSArray *wishes, NSError *error) {
-        NSLog(@"%@", wishes);
-        [self parseWishArray:wishes];
-    }];
-}
-     
-- (void)parseWishArray:(NSArray *)array {
-    for (id wish in array) {
-        NSLog(@"%@", wish[kWishTitleKey]);
-        NSString *wishTitle = wish[kWishTitleKey];
-        NSLog(@"%@", wishTitle);
-        [self.wishArray addObject:wishTitle];
-    }
-    NSLog(@"%@", self.wishArray);
-}
+//- (void)getAndSetWishArray {
+//    NSLog(@"Get and set wish Array");
+//    PFQuery *query = [PFQuery queryWithClassName:@"wish"];
+//    
+//    [query whereKey:@"User" equalTo:self.currentUser];
+//    
+//    // Retrieve the object by id
+//    [query findObjectsInBackgroundWithBlock:^(NSArray *wishes, NSError *error) {
+//        NSLog(@"%@", wishes);
+//        [self parseWishArray:wishes];
+//    }];
+//}
+
+//- (void)parseWishArray:(NSArray *)array {
+//    for (id wish in array) {
+//        NSLog(@"%@", wish[kWishTitleKey]);
+//        NSString *wishTitle = wish[kWishTitleKey];
+//        NSLog(@"%@", wishTitle);
+//        [self.wishArray addObject:wishTitle];
+//    }
+//    NSLog(@"%@", self.wishArray);
+//}
 
 /*
     setCurrentUser
@@ -264,7 +264,7 @@
         
     }];
 }
- */
+*/
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
 {

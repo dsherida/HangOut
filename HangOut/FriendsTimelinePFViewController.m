@@ -169,8 +169,7 @@ UserModel *userModel; // singleton class UserModel
          [queryWish orderByDescending:@"createdAt"];
      }
          
-         return queryWish;
-
+     return queryWish;
  }
 
 //
@@ -182,77 +181,77 @@ UserModel *userModel; // singleton class UserModel
      PFTableViewCell *cell = (PFTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
      
      if ([PFUser currentUser]) {
-     if (cell == nil) {
-         cell = [[PFTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-     }
- 
-     // Configure the cell
-     UILabel *title = (UILabel *)[cell viewWithTag:10];
-     title.text = [object objectForKey:self.wishTitle];
+         if (cell == nil) {
+             cell = [[PFTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+         }
      
-     UILabel *message = (UILabel *)[cell viewWithTag:3];
-     message.text = [object objectForKey:self.message];
-     
-     
-     // Add actions for details button
-//     HangOutDetailsButton *details = (HangOutDetailsButton *)[cell viewWithTag:6];
-//     details.object = object;
-//     [details addTarget:self action:@selector(detailsButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-//     UIButton *detailsButton = (UIButton *)[cell viewWithTag:6];
-//     [detailsButton addTarget:self action:@selector(detailsButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-     
-     
-     PFUser *theUser = [object objectForKey:@"User"];
+         // Configure the cell
+         UILabel *title = (UILabel *)[cell viewWithTag:10];
+         title.text = [object objectForKey:self.wishTitle];
+         
+         UILabel *message = (UILabel *)[cell viewWithTag:3];
+         message.text = [object objectForKey:self.message];
+         
+         
+         // Add actions for details button
+    //     HangOutDetailsButton *details = (HangOutDetailsButton *)[cell viewWithTag:6];
+    //     details.object = object;
+    //     [details addTarget:self action:@selector(detailsButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    //     UIButton *detailsButton = (UIButton *)[cell viewWithTag:6];
+    //     [detailsButton addTarget:self action:@selector(detailsButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+         
+         
+         PFUser *theUser = [object objectForKey:@"User"];
 
-     PFQuery *query = [PFQuery queryWithClassName:@"_User"];
+         PFQuery *query = [PFQuery queryWithClassName:@"_User"];
 
-     
-     [query getObjectInBackgroundWithId:[theUser objectId] block:^(PFObject *theUser, NSError *error) {
-         // Do something with the returned PFObject in the gameScore variable.
-         UILabel *username = (UILabel *)[cell viewWithTag:20];
-         username.text = [theUser objectForKey:@"username"];
          
-         UILabel *timeAgo = (UILabel *)[cell viewWithTag:21];
-         TTTTimeIntervalFormatter *timeFormatter;
-         timeFormatter = [[TTTTimeIntervalFormatter alloc] init];
-         
-         NSDate *currentDate = [[NSDate alloc] init];
-         
-         timeAgo.text = [timeFormatter stringForTimeIntervalFromDate:[object createdAt] toDate:currentDate];
-         
-         PFImageView *image = (PFImageView *)[cell viewWithTag:2];
-         image.file = [theUser objectForKey:@"profilePic"];
-         [image loadInBackground];
-         
-         UILabel *place = (UILabel *)[cell viewWithTag:7];
-         place.text = [object objectForKey:kWishPlaceKey];
-         
-         UILabel *date = (UILabel *)[cell viewWithTag:8];
-         NSDate *theDate = [object objectForKey:kWishDateKey];
-         
-         // http://stackoverflow.com/questions/576265/convert-nsdate-to-nsstring
-         date.text = [NSDateFormatter localizedStringFromDate:theDate
-                                                    dateStyle:NSDateFormatterShortStyle
-                                                    timeStyle:NSDateFormatterShortStyle];
-         
-         HangOutJoinButton *join = (HangOutJoinButton *)[cell viewWithTag:4];
-         join.object = object;
-         [join addTarget:self action:@selector(joinButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-         
-         PFQuery *isGoing = [PFQuery queryWithClassName:kActivityClassKey];
-         
-         [isGoing whereKey:@"fromUser" equalTo:[PFUser currentUser]];
-         [isGoing whereKey:@"toUser" equalTo:[object objectForKey:@"User"]];
-         [isGoing whereKey:@"type" equalTo:@"going"];
-         [isGoing whereKey:@"wish" equalTo:object];
-         [isGoing findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+         [query getObjectInBackgroundWithId:[theUser objectId] block:^(PFObject *theUser, NSError *error) {
+             // Do something with the returned PFObject in the gameScore variable.
+             UILabel *username = (UILabel *)[cell viewWithTag:20];
+             username.text = [theUser objectForKey:@"username"];
              
-             if (objects.count) {
-                 [join setTitle:@"GOING" forState:UIControlStateNormal];
-             }
+             UILabel *timeAgo = (UILabel *)[cell viewWithTag:21];
+             TTTTimeIntervalFormatter *timeFormatter;
+             timeFormatter = [[TTTTimeIntervalFormatter alloc] init];
+             
+             NSDate *currentDate = [[NSDate alloc] init];
+             
+             timeAgo.text = [timeFormatter stringForTimeIntervalFromDate:[object createdAt] toDate:currentDate];
+             
+             PFImageView *image = (PFImageView *)[cell viewWithTag:2];
+             image.file = [theUser objectForKey:@"profilePic"];
+             [image loadInBackground];
+             
+             UILabel *place = (UILabel *)[cell viewWithTag:7];
+             place.text = [object objectForKey:kWishPlaceKey];
+             
+             UILabel *date = (UILabel *)[cell viewWithTag:8];
+             NSDate *theDate = [object objectForKey:kWishDateKey];
+             
+             // http://stackoverflow.com/questions/576265/convert-nsdate-to-nsstring
+             date.text = [NSDateFormatter localizedStringFromDate:theDate
+                                                        dateStyle:NSDateFormatterShortStyle
+                                                        timeStyle:NSDateFormatterShortStyle];
+             
+             HangOutJoinButton *join = (HangOutJoinButton *)[cell viewWithTag:4];
+             join.object = object;
+             [join addTarget:self action:@selector(joinButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+             
+             PFQuery *isGoing = [PFQuery queryWithClassName:kActivityClassKey];
+             
+             [isGoing whereKey:@"fromUser" equalTo:[PFUser currentUser]];
+             [isGoing whereKey:@"toUser" equalTo:[object objectForKey:@"User"]];
+             [isGoing whereKey:@"type" equalTo:@"going"];
+             [isGoing whereKey:@"wish" equalTo:object];
+             [isGoing findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                 
+                 if (objects.count) {
+                     [join setTitle:@"GOING" forState:UIControlStateNormal];
+                 }
+             }];
          }];
-     }];
-         
+             
          HangOutDetailsButton *attendees = (HangOutDetailsButton *)[cell viewWithTag:54];
          attendees.object = object;
          
@@ -274,10 +273,10 @@ UserModel *userModel; // singleton class UserModel
          [commentsQuery countObjectsInBackgroundWithBlock:^(int number, NSError *error) {
              [comments setTitle:[NSString stringWithFormat:@"%d", number] forState:UIControlStateNormal];
          }];
-     
+         
      }
      cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cell.png"]];
- return cell;
+     return cell;
  }
 
 // When JOIN button is clicked, the following code performs the inclusion of a new activity on Parse
@@ -468,7 +467,6 @@ UserModel *userModel; // singleton class UserModel
         CommentsPFViewController *list = [segue destinationViewController];
         HangOutDetailsButton *button = (HangOutDetailsButton*) sender;
         list.object = button.object;
-        
     }
 }
 

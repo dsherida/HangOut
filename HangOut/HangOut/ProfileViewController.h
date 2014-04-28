@@ -10,6 +10,9 @@
 #import <Parse/Parse.h>
 #import <FacebookSDK/FacebookSDK.h>
 #import "UserModel.h"
+#import "HangOutDetailsButton.h"
+#import "ListOfAttendeesPFViewController.h"
+#import "CommentsPFViewController.h"
 
 @interface ProfileViewController : PFQueryTableViewController <PFLogInViewControllerDelegate,
 PFSignUpViewControllerDelegate>
@@ -22,5 +25,7 @@ PFSignUpViewControllerDelegate>
 @property (nonatomic,weak) NSString *wishTitle;
 @property (nonatomic,weak) NSArray *keyArray;
 @property (nonatomic) BOOL doneLoading;
+
+- (IBAction)detailsButtonClicked:(HangOutDetailsButton *)sender;
 
 @end

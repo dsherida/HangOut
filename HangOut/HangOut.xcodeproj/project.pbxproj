@@ -40,6 +40,8 @@
 		9F3173CB18E2977800E2FD1A /* HangOutJoinButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F3173CA18E2977800E2FD1A /* HangOutJoinButton.m */; };
 		9F3173D318E2CDC600E2FD1A /* (null) in Resources */ = {isa = PBXBuildFile; };
 		9F37F401190CBA6F00DA6466 /* CommentsPFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F37F400190CBA6F00DA6466 /* CommentsPFViewController.m */; };
+		9F37F403190EE0D800DA6466 /* comment.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F37F402190EE0D800DA6466 /* comment.png */; };
+		9F37F405190EE89A00DA6466 /* going.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F37F404190EE89A00DA6466 /* going.png */; };
 		9F60BB6A190651B900A455CD /* ListOfAttendeesPFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F60BB69190651B900A455CD /* ListOfAttendeesPFViewController.m */; };
 		9F9F982B18E128DA00093545 /* FriendsTimelinePFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F9F982A18E128DA00093545 /* FriendsTimelinePFViewController.m */; };
 		9FD9082618E3A20700D0011C /* TTTTimeIntervalFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FD9082518E3A20700D0011C /* TTTTimeIntervalFormatter.m */; };
@@ -117,6 +119,8 @@
 		9F3173CA18E2977800E2FD1A /* HangOutJoinButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HangOutJoinButton.m; sourceTree = "<group>"; };
 		9F37F3FF190CBA6F00DA6466 /* CommentsPFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentsPFViewController.h; sourceTree = "<group>"; };
 		9F37F400190CBA6F00DA6466 /* CommentsPFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentsPFViewController.m; sourceTree = "<group>"; };
+		9F37F402190EE0D800DA6466 /* comment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = comment.png; sourceTree = "<group>"; };
+		9F37F404190EE89A00DA6466 /* going.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = going.png; sourceTree = "<group>"; };
 		9F60BB68190651B900A455CD /* ListOfAttendeesPFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListOfAttendeesPFViewController.h; sourceTree = "<group>"; };
 		9F60BB69190651B900A455CD /* ListOfAttendeesPFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListOfAttendeesPFViewController.m; sourceTree = "<group>"; };
 		9F9F982918E128DA00093545 /* FriendsTimelinePFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FriendsTimelinePFViewController.h; path = ../FriendsTimelinePFViewController.h; sourceTree = "<group>"; };
@@ -266,6 +270,8 @@
 		931BB7A918BC0DA70001AF27 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9F37F404190EE89A00DA6466 /* going.png */,
+				9F37F402190EE0D800DA6466 /* comment.png */,
 				938F3F4B190CE71C00C2DB38 /* profile_page_background.png */,
 				9F04205A18FF5D09001EB443 /* heyletsfollow.png */,
 				9F04205618FF3F20001EB443 /* settings.png */,
@@ -385,6 +391,7 @@
 				931BB7BB18BC0DA70001AF27 /* Images.xcassets in Resources */,
 				9F3173D318E2CDC600E2FD1A /* (null) in Resources */,
 				9FD9083018E7A75400D0011C /* backgroundLogin.png in Resources */,
+				9F37F403190EE0D800DA6466 /* comment.png in Resources */,
 				9FD9084518F339E400D0011C /* local.png in Resources */,
 				931BB7AD18BC0DA70001AF27 /* InfoPlist.strings in Resources */,
 				9FD9083E18F3348200D0011C /* profile@2x.png in Resources */,
@@ -397,6 +404,7 @@
 				9FE1D5E318DEBABA00D44C41 /* MyLaunchImage-568h@2x.png in Resources */,
 				931BB7B618BC0DA70001AF27 /* Main.storyboard in Resources */,
 				9FD9082B18E6B92000D0011C /* cell.png in Resources */,
+				9F37F405190EE89A00DA6466 /* going.png in Resources */,
 				9F04205918FF3F20001EB443 /* settings@2x.png in Resources */,
 				9FD9084218F3370600D0011C /* friends@2x.png in Resources */,
 				9FD9084118F3370600D0011C /* friends.png in Resources */,

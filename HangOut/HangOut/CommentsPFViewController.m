@@ -153,6 +153,7 @@
     
     UITextView *comment = (UITextView*)[cell viewWithTag:40];
     comment.text = [object objectForKey:@"info"];
+    [comment setTextColor:[UIColor whiteColor]];
     
     [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
         name.text = [object objectForKey:@"username"];
@@ -160,6 +161,7 @@
         [imageView loadInBackground];
     }];
     
+    cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"comment.png"]];
     return cell;
 }
 

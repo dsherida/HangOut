@@ -152,6 +152,7 @@
          [imageView loadInBackground];
      }];
  
+     cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"going.png"]];
  return cell;
  }
 

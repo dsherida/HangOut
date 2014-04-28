@@ -27,6 +27,8 @@
 		9366132A18C82DAF00612F92 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9366132918C82DAF00612F92 /* QuartzCore.framework */; };
 		9366132C18C82DB700612F92 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9366132B18C82DB700612F92 /* Security.framework */; };
 		938F3F4C190CE71C00C2DB38 /* profile_page_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 938F3F4B190CE71C00C2DB38 /* profile_page_background.png */; };
+		938F3F4E190CEEE100C2DB38 /* heart.png in Resources */ = {isa = PBXBuildFile; fileRef = 938F3F4D190CEEE100C2DB38 /* heart.png */; };
+		938F3F50190CF3A700C2DB38 /* bubble.png in Resources */ = {isa = PBXBuildFile; fileRef = 938F3F4F190CF3A700C2DB38 /* bubble.png */; };
 		93C4C56718E2C154008F1F76 /* HangOutDetailsButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C4C56618E2C154008F1F76 /* HangOutDetailsButton.m */; };
 		93DCA2E118E1003E0001A4BF /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 93DCA2E018E1003E0001A4BF /* UserModel.m */; };
 		9F04204F18FF1F6D001EB443 /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F04204E18FF1F6D001EB443 /* SettingsTableViewController.m */; };
@@ -98,6 +100,8 @@
 		9366132918C82DAF00612F92 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		9366132B18C82DB700612F92 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		938F3F4B190CE71C00C2DB38 /* profile_page_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile_page_background.png; sourceTree = "<group>"; };
+		938F3F4D190CEEE100C2DB38 /* heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart.png; sourceTree = "<group>"; };
+		938F3F4F190CF3A700C2DB38 /* bubble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bubble.png; sourceTree = "<group>"; };
 		93C4C56518E2C154008F1F76 /* HangOutDetailsButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HangOutDetailsButton.h; sourceTree = "<group>"; };
 		93C4C56618E2C154008F1F76 /* HangOutDetailsButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HangOutDetailsButton.m; sourceTree = "<group>"; };
 		93DCA2DF18E1003E0001A4BF /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
@@ -222,8 +226,6 @@
 			children = (
 				9FD9082418E3A20700D0011C /* TTTTimeIntervalFormatter.h */,
 				9FD9082518E3A20700D0011C /* TTTTimeIntervalFormatter.m */,
-				9F9F982918E128DA00093545 /* FriendsTimelinePFViewController.h */,
-				9F9F982A18E128DA00093545 /* FriendsTimelinePFViewController.m */,
 				9FD9084718F5DFDC00D0011C /* HangOutAlertView.h */,
 				9FD9084818F5DFDC00D0011C /* HangOutAlertView.m */,
 				93C4C56518E2C154008F1F76 /* HangOutDetailsButton.h */,
@@ -236,7 +238,6 @@
 				9FE1D5E818DFCE4400D44C41 /* HangOutConstants.m */,
 				931BB7B118BC0DA70001AF27 /* HangOutAppDelegate.h */,
 				931BB7B218BC0DA70001AF27 /* HangOutAppDelegate.m */,
-				931BB7B418BC0DA70001AF27 /* Main.storyboard */,
 				9F37F3FF190CBA6F00DA6466 /* CommentsPFViewController.h */,
 				9F37F400190CBA6F00DA6466 /* CommentsPFViewController.m */,
 				9F60BB68190651B900A455CD /* ListOfAttendeesPFViewController.h */,
@@ -255,8 +256,11 @@
 				9F04205118FF2155001EB443 /* FollowFriendsTableViewController.m */,
 				9F04205318FF3041001EB443 /* HangOutFollowButton.h */,
 				9F04205418FF3041001EB443 /* HangOutFollowButton.m */,
+				9F9F982918E128DA00093545 /* FriendsTimelinePFViewController.h */,
+				9F9F982A18E128DA00093545 /* FriendsTimelinePFViewController.m */,
 				9321515018DFFF480054CAC0 /* ProfileViewController.h */,
 				9321515118DFFF480054CAC0 /* ProfileViewController.m */,
+				931BB7B418BC0DA70001AF27 /* Main.storyboard */,
 				931BB7BA18BC0DA70001AF27 /* Images.xcassets */,
 				931BB7A918BC0DA70001AF27 /* Supporting Files */,
 			);
@@ -266,6 +270,8 @@
 		931BB7A918BC0DA70001AF27 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				938F3F4F190CF3A700C2DB38 /* bubble.png */,
+				938F3F4D190CEEE100C2DB38 /* heart.png */,
 				938F3F4B190CE71C00C2DB38 /* profile_page_background.png */,
 				9F04205A18FF5D09001EB443 /* heyletsfollow.png */,
 				9F04205618FF3F20001EB443 /* settings.png */,
@@ -398,6 +404,8 @@
 				931BB7B618BC0DA70001AF27 /* Main.storyboard in Resources */,
 				9FD9082B18E6B92000D0011C /* cell.png in Resources */,
 				9F04205918FF3F20001EB443 /* settings@2x.png in Resources */,
+				938F3F4E190CEEE100C2DB38 /* heart.png in Resources */,
+				938F3F50190CF3A700C2DB38 /* bubble.png in Resources */,
 				9FD9084218F3370600D0011C /* friends@2x.png in Resources */,
 				9FD9084118F3370600D0011C /* friends.png in Resources */,
 			);

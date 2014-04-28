@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="wtW-B0-bxP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="wtW-B0-bxP">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -785,7 +785,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             </objects>
             <point key="canvasLocation" x="522" y="-30"/>
         </scene>
-        <!--CommentsPF View Controller-->
+        <!--CommentsPF View Controller - Comments-->
         <scene sceneID="Aao-Jp-4a8">
             <objects>
                 <tableViewController id="cPZ-lS-MHd" customClass="CommentsPFViewController" sceneMemberID="viewController">
@@ -857,7 +857,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             <outlet property="delegate" destination="cPZ-lS-MHd" id="MVT-AP-AoK"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="j3y-Fe-fyc"/>
+                    <navigationItem key="navigationItem" title="Comments" id="j3y-Fe-fyc"/>
                     <connections>
                         <outlet property="commentTextField" destination="ML3-Ch-IVX" id="XhY-jC-cnZ"/>
                     </connections>
@@ -866,7 +866,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             </objects>
             <point key="canvasLocation" x="1535" y="-288"/>
         </scene>
-        <!--List Of AttendeesPF View Controller-->
+        <!--List Of AttendeesPF View Controller - Attendees-->
         <scene sceneID="VbO-0h-18e">
             <objects>
                 <tableViewController id="zcH-g3-o6N" customClass="ListOfAttendeesPFViewController" sceneMemberID="viewController">
@@ -902,7 +902,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             <outlet property="delegate" destination="zcH-g3-o6N" id="25i-wX-aPj"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Bau-ZK-JKf"/>
+                    <navigationItem key="navigationItem" title="Attendees" id="Bau-ZK-JKf"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9jh-YX-GZb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

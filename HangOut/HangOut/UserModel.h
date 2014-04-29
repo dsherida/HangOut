@@ -28,6 +28,7 @@
 @property (strong, nonatomic) PFGeoPoint *location;
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) CLLocation *userLocation;
+@property (assign, nonatomic) BOOL isLocationReady;
 
 + (UserModel *) sharedUserModel;
 //- (void)parseWishArray:(NSArray *)array;

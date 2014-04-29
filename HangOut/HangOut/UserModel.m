@@ -29,16 +29,17 @@
         self.currentUser = [PFUser currentUser];
         self.userName = nil;
 //        self.wishArray = [[NSMutableArray alloc] init];
+        // https://parse.com/tutorials/geolocations
+        if (!self.locationManager) {
+            self.locationManager = [[CLLocationManager alloc] init];
+            self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+            self.locationManager.delegate = self;
+        }
+        [self.locationManager startUpdatingLocation];
+        //[self.locationManager startMonitoringSignificantLocationChanges];
+        [self setIsLocationReady:NO];
     }
     
-    // https://parse.com/tutorials/geolocations
-    if (!self.locationManager) {
-        self.locationManager = [[CLLocationManager alloc] init];
-        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-        self.locationManager.delegate = self;
-    }
-    [self.locationManager startUpdatingLocation];
-    //[self.locationManager startMonitoringSignificantLocationChanges];
     
     return self;
 }
@@ -261,6 +262,7 @@
 {
     self.userLocation = [locations lastObject];
     [self setLocation];
+    [self setIsLocationReady:YES];
 }
 
 @end

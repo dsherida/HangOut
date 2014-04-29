@@ -6,15 +6,10 @@
 //
 //
 
-#import <Parse/Parse.h>
-#import <FacebookSDK/FacebookSDK.h>
+#import "TimelineViewController.h"
 #import "UserModel.h"
-#import "HangOutConstants.h"
-#import "HangOutJoinButton.h"
-#import "TTTTimeIntervalFormatter.h"
 
-@interface LocalTimelinePFViewController : PFQueryTableViewController <PFLogInViewControllerDelegate,
-PFSignUpViewControllerDelegate, UIAlertViewDelegate>
+@interface LocalTimelinePFViewController : TimelineViewController
 
 @property (nonatomic,weak) NSString *wishTitle;
 @property (nonatomic,weak) NSString *message;

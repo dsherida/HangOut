@@ -44,6 +44,7 @@
 		9F37F401190CBA6F00DA6466 /* CommentsPFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F37F400190CBA6F00DA6466 /* CommentsPFViewController.m */; };
 		9F37F403190EE0D800DA6466 /* comment.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F37F402190EE0D800DA6466 /* comment.png */; };
 		9F37F405190EE89A00DA6466 /* going.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F37F404190EE89A00DA6466 /* going.png */; };
+		9F37F40819104A2F00DA6466 /* TimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F37F40719104A2F00DA6466 /* TimelineViewController.m */; };
 		9F60BB6A190651B900A455CD /* ListOfAttendeesPFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F60BB69190651B900A455CD /* ListOfAttendeesPFViewController.m */; };
 		9F9F982B18E128DA00093545 /* FriendsTimelinePFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F9F982A18E128DA00093545 /* FriendsTimelinePFViewController.m */; };
 		9FD9082618E3A20700D0011C /* TTTTimeIntervalFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FD9082518E3A20700D0011C /* TTTTimeIntervalFormatter.m */; };
@@ -125,6 +126,8 @@
 		9F37F400190CBA6F00DA6466 /* CommentsPFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentsPFViewController.m; sourceTree = "<group>"; };
 		9F37F402190EE0D800DA6466 /* comment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = comment.png; sourceTree = "<group>"; };
 		9F37F404190EE89A00DA6466 /* going.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = going.png; sourceTree = "<group>"; };
+		9F37F40619104A2F00DA6466 /* TimelineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineViewController.h; sourceTree = "<group>"; };
+		9F37F40719104A2F00DA6466 /* TimelineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineViewController.m; sourceTree = "<group>"; };
 		9F60BB68190651B900A455CD /* ListOfAttendeesPFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListOfAttendeesPFViewController.h; sourceTree = "<group>"; };
 		9F60BB69190651B900A455CD /* ListOfAttendeesPFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListOfAttendeesPFViewController.m; sourceTree = "<group>"; };
 		9F9F982918E128DA00093545 /* FriendsTimelinePFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FriendsTimelinePFViewController.h; path = ../FriendsTimelinePFViewController.h; sourceTree = "<group>"; };
@@ -262,6 +265,8 @@
 				9F04205418FF3041001EB443 /* HangOutFollowButton.m */,
 				9F9F982918E128DA00093545 /* FriendsTimelinePFViewController.h */,
 				9F9F982A18E128DA00093545 /* FriendsTimelinePFViewController.m */,
+				9F37F40619104A2F00DA6466 /* TimelineViewController.h */,
+				9F37F40719104A2F00DA6466 /* TimelineViewController.m */,
 				9321515018DFFF480054CAC0 /* ProfileViewController.h */,
 				9321515118DFFF480054CAC0 /* ProfileViewController.m */,
 				931BB7B418BC0DA70001AF27 /* Main.storyboard */,
@@ -441,6 +446,7 @@
 				9FE1D5E618DFC18D00D44C41 /* AddWishTableViewController.m in Sources */,
 				9FD9082E18E75C3600D0011C /* LocalTimelinePFViewController.m in Sources */,
 				9FE1D5E918DFCE4400D44C41 /* HangOutConstants.m in Sources */,
+				9F37F40819104A2F00DA6466 /* TimelineViewController.m in Sources */,
 				93C4C56718E2C154008F1F76 /* HangOutDetailsButton.m in Sources */,
 				9FD9083318E7A88F00D0011C /* HangOutLoginViewController.m in Sources */,
 				9F37F401190CBA6F00DA6466 /* CommentsPFViewController.m in Sources */,

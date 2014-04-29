@@ -6,25 +6,12 @@
 //
 //
 
-#import <Parse/Parse.h>
-#import <FacebookSDK/FacebookSDK.h>
-#import "UserModel.h"
-#import "HangOutConstants.h"
-#import "HangOutJoinButton.h"
-#import "TTTTimeIntervalFormatter.h"
-#import "HangOutLoginViewController.h"
-#import "HangOutAlertView.h"
-#import "HangOutDetailsButton.h"
-#import "ListOfAttendeesPFViewController.h"
-#import "CommentsPFViewController.h"
+#import "TimelineViewController.h"
 
-@interface FriendsTimelinePFViewController : PFQueryTableViewController <PFLogInViewControllerDelegate,
-PFSignUpViewControllerDelegate, UIAlertViewDelegate>
+@interface FriendsTimelinePFViewController : TimelineViewController
 
 @property (nonatomic,weak) NSString *wishTitle;
 @property (nonatomic,weak) NSString *message;
 @property (nonatomic,weak) NSString *profilePic;
-
-- (IBAction)detailsButtonClicked:(HangOutDetailsButton *)sender;
 
 @end

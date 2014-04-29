@@ -27,7 +27,7 @@
 @property (strong, nonatomic) NSString *objectId;
 @property (strong, nonatomic) PFGeoPoint *location;
 @property (strong, nonatomic) CLLocationManager *locationManager;
-@property (strong, nonatomic) CLLocation *locationM;
+@property (strong, nonatomic) CLLocation *userLocation;
 
 + (UserModel *) sharedUserModel;
 //- (void)parseWishArray:(NSArray *)array;

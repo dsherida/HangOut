@@ -60,10 +60,10 @@
 
 - (IBAction)doneButtonClicked:(id)sender
 {
-    NSLog(@"%@", self.titleTextField.text);
-    NSLog(@"%@", self.messageTextField.text);
-    NSLog(@"%@", self.placeTextField.text);
-    NSLog(@"%@", self.dateTextField.date);
+    //NSLog(@"%@", self.titleTextField.text);
+    //NSLog(@"%@", self.messageTextField.text);
+    //NSLog(@"%@", self.placeTextField.text);
+    //NSLog(@"%@", self.dateTextField.date);
     
     if (!self.titleTextField.hasText || !self.messageTextField.hasText || !self.placeTextField.hasText) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Couldn't post your wish"
@@ -98,7 +98,29 @@
     [wishACL setPublicReadAccess:YES];
     wish.ACL = wishACL;
     
-    [wish saveInBackground];
+    CLGeocoder *geoCoder = [[CLGeocoder alloc] init];
+    [geoCoder geocodeAddressString:self.placeTextField.text completionHandler:^(NSArray *placemarks, NSError *error) {
+        if (error) {
+            NSLog(@"Geocode failed with error: %@", error);
+            return;
+        }
+        
+        if (placemarks && placemarks.count > 0)
+        {
+            CLPlacemark *placemark = placemarks[0];
+            CLLocation *location = placemark.location;
+            CLLocationCoordinate2D coordinate = [location coordinate];
+            PFGeoPoint *geoPoint = [PFGeoPoint geoPointWithLatitude:coordinate.latitude
+                                                          longitude:coordinate.longitude];
+            
+            wish[@"location"] = geoPoint;
+            [wish saveInBackground];
+            
+            
+        }
+    }];
+    
+    //[wish saveInBackground];
     
     [[self navigationController] popViewControllerAnimated:YES];
 }

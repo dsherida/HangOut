@@ -32,9 +32,13 @@
     }
     
     // https://parse.com/tutorials/geolocations
-    self.locationManager = [[CLLocationManager alloc] init];
-    self.locationManager.delegate = self;
-    [[self locationManager] startUpdatingLocation];
+    if (!self.locationManager) {
+        self.locationManager = [[CLLocationManager alloc] init];
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+        self.locationManager.delegate = self;
+    }
+    [self.locationManager startUpdatingLocation];
+    //[self.locationManager startMonitoringSignificantLocationChanges];
     
     return self;
 }
@@ -246,29 +250,17 @@
     }
 }
 
-/*
 - (void) setLocation {
-    PFQuery *query = [PFQuery queryWithClassName:kUserClassKey];
-    // Retrieve the object by id
-    [query getObjectInBackgroundWithId:self.currentUser.objectId block:^(PFObject *user, NSError *error) {
-        
-        // Now let's update it with some new data. In this case, only user's name
-        // will get sent to the cloud. anything else has changed
-        self.locationM = self.locationManager.location;
-        CLLocationCoordinate2D coordinate = [self.locationM coordinate];
+        CLLocationCoordinate2D coordinate = [self.userLocation coordinate];
         PFGeoPoint *geoPoint = [PFGeoPoint geoPointWithLatitude:coordinate.latitude
                                                       longitude:coordinate.longitude];
-        //NSLog(@"location: %f %f", coordinate.latitude, coordinate.longitude);
-        user[@"location"] = geoPoint;
-        [user saveInBackground];
-        
-    }];
+    self.location = geoPoint;
 }
-*/
 
-- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+- (void) locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
-    self.locationM = newLocation;
+    self.userLocation = [locations lastObject];
+    [self setLocation];
 }
 
 @end

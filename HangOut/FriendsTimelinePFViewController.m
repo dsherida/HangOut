@@ -169,7 +169,8 @@ UserModel *userModel; // singleton class UserModel
          [queryWish orderByDescending:@"createdAt"];
      }
          
-     return queryWish;
+         return queryWish;
+
  }
 
 //

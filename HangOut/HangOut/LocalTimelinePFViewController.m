@@ -144,8 +144,9 @@ UserModel *userModel; // singleton class UserModel
         [queryFriend whereKey:kActivityFromUserKey equalTo:[PFUser currentUser]];
         
         [queryWish whereKey:@"User" doesNotMatchKey:kActivityToUserKey inQuery:queryFriend];
-        [queryWish whereKey:@"User" notEqualTo:[PFUser currentUser]];
+        //[queryWish whereKey:@"User" notEqualTo:[PFUser currentUser]];
         
+        [queryWish whereKey:@"location" nearGeoPoint:userModel.location withinKilometers:3000];
         
         // If Pull To Refresh is enabled, query against the network by default.
         if (self.pullToRefreshEnabled) {
@@ -218,7 +219,9 @@ UserModel *userModel; // singleton class UserModel
             [image loadInBackground];
             
             UILabel *location = (UILabel *)[cell viewWithTag:17];
-            location.text = [NSString stringWithFormat:@"Distance: %.2f km", [userModel.location distanceInKilometersTo:[theUser objectForKey:@"location"]]];
+            location.text = [NSString stringWithFormat:@"Distance: %.2f km", [userModel.location distanceInKilometersTo:[object objectForKey:@"location"]]];
+            NSLog(@"My Location: %@", userModel.location);
+            NSLog(@"Event Location: %@", [object objectForKey:@"location"]);
             
             
             UILabel *place = (UILabel *)[cell viewWithTag:7];

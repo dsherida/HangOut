@@ -27,8 +27,8 @@
 		9366132A18C82DAF00612F92 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9366132918C82DAF00612F92 /* QuartzCore.framework */; };
 		9366132C18C82DB700612F92 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9366132B18C82DB700612F92 /* Security.framework */; };
 		938F3F4C190CE71C00C2DB38 /* profile_page_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 938F3F4B190CE71C00C2DB38 /* profile_page_background.png */; };
-		938F3F4E190CEEE100C2DB38 /* heart.png in Resources */ = {isa = PBXBuildFile; fileRef = 938F3F4D190CEEE100C2DB38 /* heart.png */; };
-		938F3F50190CF3A700C2DB38 /* bubble.png in Resources */ = {isa = PBXBuildFile; fileRef = 938F3F4F190CF3A700C2DB38 /* bubble.png */; };
+		93C086431910AD82009AC005 /* bubble.png in Resources */ = {isa = PBXBuildFile; fileRef = 93C086411910AD82009AC005 /* bubble.png */; };
+		93C086441910AD82009AC005 /* heart.png in Resources */ = {isa = PBXBuildFile; fileRef = 93C086421910AD82009AC005 /* heart.png */; };
 		93C4C56718E2C154008F1F76 /* HangOutDetailsButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C4C56618E2C154008F1F76 /* HangOutDetailsButton.m */; };
 		93DCA2E118E1003E0001A4BF /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 93DCA2E018E1003E0001A4BF /* UserModel.m */; };
 		9F04204F18FF1F6D001EB443 /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F04204E18FF1F6D001EB443 /* SettingsTableViewController.m */; };
@@ -104,8 +104,8 @@
 		9366132918C82DAF00612F92 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		9366132B18C82DB700612F92 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		938F3F4B190CE71C00C2DB38 /* profile_page_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile_page_background.png; sourceTree = "<group>"; };
-		938F3F4D190CEEE100C2DB38 /* heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart.png; sourceTree = "<group>"; };
-		938F3F4F190CF3A700C2DB38 /* bubble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bubble.png; sourceTree = "<group>"; };
+		93C086411910AD82009AC005 /* bubble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bubble.png; sourceTree = "<group>"; };
+		93C086421910AD82009AC005 /* heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart.png; sourceTree = "<group>"; };
 		93C4C56518E2C154008F1F76 /* HangOutDetailsButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HangOutDetailsButton.h; sourceTree = "<group>"; };
 		93C4C56618E2C154008F1F76 /* HangOutDetailsButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HangOutDetailsButton.m; sourceTree = "<group>"; };
 		93DCA2DF18E1003E0001A4BF /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
@@ -194,6 +194,8 @@
 		931BB79618BC0DA70001AF27 = {
 			isa = PBXGroup;
 			children = (
+				93C086411910AD82009AC005 /* bubble.png */,
+				93C086421910AD82009AC005 /* heart.png */,
 				9FE1D5E218DEBABA00D44C41 /* MyLaunchImage-568h@2x.png */,
 				931BB7A818BC0DA70001AF27 /* HangOut */,
 				931BB7C718BC0DA70001AF27 /* HangOutTests */,
@@ -400,6 +402,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93C086431910AD82009AC005 /* bubble.png in Resources */,
+				93C086441910AD82009AC005 /* heart.png in Resources */,
 				931BB7BB18BC0DA70001AF27 /* Images.xcassets in Resources */,
 				9F3173D318E2CDC600E2FD1A /* (null) in Resources */,
 				9FD9083018E7A75400D0011C /* backgroundLogin.png in Resources */,
@@ -419,8 +423,6 @@
 				9FD9082B18E6B92000D0011C /* cell.png in Resources */,
 				9F37F405190EE89A00DA6466 /* going.png in Resources */,
 				9F04205918FF3F20001EB443 /* settings@2x.png in Resources */,
-				938F3F4E190CEEE100C2DB38 /* heart.png in Resources */,
-				938F3F50190CF3A700C2DB38 /* bubble.png in Resources */,
 				9FD9084218F3370600D0011C /* friends@2x.png in Resources */,
 				9FD9084118F3370600D0011C /* friends.png in Resources */,
 			);

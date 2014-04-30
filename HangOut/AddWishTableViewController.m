@@ -117,6 +117,11 @@
             [wish saveInBackground];
             
             
+        } else {
+            UserModel *userModel = [UserModel sharedUserModel];
+            
+            wish[@"location"] = [userModel location];
+            [wish saveInBackground];
         }
     }];
     

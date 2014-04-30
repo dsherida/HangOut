@@ -10,6 +10,7 @@
 #import <Parse/Parse.h>
 #import "HangOutConstants.h"
 #import <Mapkit/MapKit.h>
+#import "UserModel.h"
 
 @interface AddWishTableViewController : UITableViewController
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;

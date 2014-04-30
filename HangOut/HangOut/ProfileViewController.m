@@ -189,7 +189,7 @@ int tableSize;
             
             PFQuery *followersQuery = [PFQuery queryWithClassName:kActivityClassKey];
             [followersQuery whereKey:@"type" equalTo:@"follow"];
-            [followersQuery whereKey:@"toUser" notEqualTo:[PFUser currentUser]];
+            [followersQuery whereKey:@"toUser" equalTo:[PFUser currentUser]];
             
             [followersQuery countObjectsInBackgroundWithBlock:^(int number, NSError *error) {
                 followers.text = [NSString stringWithFormat:@"%d", number];

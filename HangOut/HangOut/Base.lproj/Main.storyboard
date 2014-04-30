@@ -838,8 +838,16 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Local" id="oiG-0B-063">
-                        <barButtonItem key="leftBarButtonItem" image="settings.png" id="scK-mS-zQH"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="9JJ-2k-1CP"/>
+                        <barButtonItem key="leftBarButtonItem" image="settings.png" id="scK-mS-zQH">
+                            <connections>
+                                <segue destination="dSt-as-J1l" kind="push" id="wwl-K1-Mnk"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="9JJ-2k-1CP">
+                            <connections>
+                                <segue destination="KXm-du-Q1B" kind="push" id="N75-81-hdA"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oBK-ZL-xyG" sceneMemberID="firstResponder"/>
@@ -880,7 +888,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Ull-I2-ZiP"/>
+        <segue reference="wwl-K1-Mnk"/>
+        <segue reference="N75-81-hdA"/>
         <segue reference="Y8P-hO-P1v"/>
+        <segue reference="Ull-I2-ZiP"/>
     </inferredMetricsTieBreakers>
 </document>

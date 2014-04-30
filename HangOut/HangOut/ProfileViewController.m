@@ -184,6 +184,29 @@ int tableSize;
             UILabel *userName = (UILabel *)[profileCell viewWithTag:2];
             userName.text = userModel.userName;
             
+            UILabel *followers = (UILabel *)[profileCell viewWithTag:4];
+            UILabel *following = (UILabel *)[profileCell viewWithTag:5];
+            
+            PFQuery *followersQuery = [PFQuery queryWithClassName:kActivityClassKey];
+            [followersQuery whereKey:@"type" equalTo:@"follow"];
+            [followersQuery whereKey:@"toUser" notEqualTo:[PFUser currentUser]];
+            
+            [followersQuery countObjectsInBackgroundWithBlock:^(int number, NSError *error) {
+                followers.text = [NSString stringWithFormat:@"%d", number];
+                //following.text = [following.text stringByAppendingString:@"\nfollowers"];
+            }];
+            
+            PFQuery *followingQuery = [PFQuery queryWithClassName:kActivityClassKey];
+            [followingQuery whereKey:@"type" equalTo:@"follow"];
+            [followingQuery whereKey:@"fromUser" equalTo:[PFUser currentUser]];
+            
+            [followingQuery countObjectsInBackgroundWithBlock:^(int number, NSError *error) {
+                following.text = [NSString stringWithFormat:@"%d", number];
+                //following.text = [following.text stringByAppendingString:@"\nfollowing"];
+            }];
+            
+            profileCell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"profilecell.png"]];
+            
             return profileCell;
         } else  {
             // Configure wishCell

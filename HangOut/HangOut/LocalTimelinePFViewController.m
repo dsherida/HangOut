@@ -28,12 +28,12 @@
         [queryFriend whereKey:kActivityFromUserKey equalTo:[PFUser currentUser]];
         
         [queryWish whereKey:@"User" doesNotMatchKey:kActivityToUserKey inQuery:queryFriend];
-        //[queryWish whereKey:@"User" notEqualTo:[PFUser currentUser]];
+        [queryWish whereKey:@"User" notEqualTo:[PFUser currentUser]];
         
         UserModel *userModel = [UserModel sharedUserModel];
         
         if ([userModel isLocationReady]) {
-            [queryWish whereKey:@"location" nearGeoPoint:userModel.location withinKilometers:3000];
+            [queryWish whereKey:@"location" nearGeoPoint:userModel.location withinKilometers:100];
         }
         
         // If Pull To Refresh is enabled, query against the network by default.

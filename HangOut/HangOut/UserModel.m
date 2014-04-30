@@ -88,7 +88,8 @@
                                                                       cachePolicy:NSURLRequestUseProtocolCachePolicy
                                                                   timeoutInterval:2.0f];
             // Run network request asynchronously
-            NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
+            NSURLConnection *urlConnection;
+            urlConnection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
             
             // Issue a Facebook Graph API request to get your user's friend list
             [FBRequestConnection startForMyFriendsWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {

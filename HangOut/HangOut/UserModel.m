@@ -10,9 +10,7 @@
 
 #import "UserModel.h"
 
-
 @implementation UserModel
-
 
 + (UserModel *) sharedUserModel {
     static UserModel *sharedUserModel = nil;
@@ -28,18 +26,16 @@
     if (self = [super init]) {
         self.currentUser = [PFUser currentUser];
         self.userName = nil;
-//        self.wishArray = [[NSMutableArray alloc] init];
-        // https://parse.com/tutorials/geolocations
+        
+        // open-source: https://parse.com/tutorials/geolocations
         if (!self.locationManager) {
             self.locationManager = [[CLLocationManager alloc] init];
             self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
             self.locationManager.delegate = self;
         }
         [self.locationManager startUpdatingLocation];
-        //[self.locationManager startMonitoringSignificantLocationChanges];
         [self setIsLocationReady:NO];
     }
-    
     
     return self;
 }
@@ -70,13 +66,6 @@
             //[self setLocation];
             
             self.objectId = userData[@"objectId"];
-            //[self getAndSetWishArray];
-            
-            // Other userData fields (not needed [yet?])
-            //NSString *location = userData[@"location"][@"name"];
-            //NSString *gender = userData[@"gender"];
-            //NSString *birthday = userData[@"birthday"];
-            //NSString *relationship = userData[@"relationship_status"];
             
             // Download the user's facebook profile picture
             self.profilePictureData = [[NSMutableData alloc] init]; // the data will be loaded in here
@@ -108,18 +97,9 @@
                     [friendsQuery whereKey:@"fbID" containedIn:friendIds];
                     
                     self.friends = [friendsQuery findObjects];
-
-                    //[self setFriends];
-                    //NSLog(@"FRIENDS: %@", self.fbIDs);
                 }
             }];
-
-            
-                    }
-        
-        
-
-        
+        }
     }];
 }
 
@@ -147,34 +127,9 @@
         [user saveInBackground];
         
     }];
-    //[self.currentUser setObject:self.profilePictureData forKey:kUserProfilePicMediumKey];
-    //[self.currentUser saveInBackground];
+
     NSLog(@"Done downloading profile picture. Uploaded to Parse DB.");
 }
-
-
-//- (void)getAndSetWishArray {
-//    NSLog(@"Get and set wish Array");
-//    PFQuery *query = [PFQuery queryWithClassName:@"wish"];
-//    
-//    [query whereKey:@"User" equalTo:self.currentUser];
-//    
-//    // Retrieve the object by id
-//    [query findObjectsInBackgroundWithBlock:^(NSArray *wishes, NSError *error) {
-//        NSLog(@"%@", wishes);
-//        [self parseWishArray:wishes];
-//    }];
-//}
-
-//- (void)parseWishArray:(NSArray *)array {
-//    for (id wish in array) {
-//        NSLog(@"%@", wish[kWishTitleKey]);
-//        NSString *wishTitle = wish[kWishTitleKey];
-//        NSLog(@"%@", wishTitle);
-//        [self.wishArray addObject:wishTitle];
-//    }
-//    NSLog(@"%@", self.wishArray);
-//}
 
 /*
     setCurrentUser
@@ -205,11 +160,6 @@
         [user saveInBackground];
         
     }];
-    
-    //[self.currentUser setObject:self.userName forKey:kUserNameKey];
-    //[self.currentUser saveInBackground];
-    //NSLog(@"objectId: %@", self.currentUser.objectId);
-    //NSLog(@"setName: %@", self.userName);
 }
 
 - (void) setFacebookID {
@@ -221,16 +171,10 @@
         // will get sent to the cloud. anything else has changed
         user[@"fbID"] = self.facebookID;
         [user saveInBackground];
-        
     }];
-    
-    //[self.currentUser setObject:self.userName forKey:kUserNameKey];
-    //[self.currentUser saveInBackground];
-    //NSLog(@"objectId: %@", self.currentUser.objectId);
-    //NSLog(@"setName: %@", self.userName);
 }
 
-// http://stackoverflow.com/questions/21194267/how-to-make-parse-com-object-property-unique
+// open-source: http://stackoverflow.com/questions/21194267/how-to-make-parse-com-object-property-unique
 - (void) setFriends {
     PFQuery *query = [PFQuery queryWithClassName:kActivityClassKey];
     for (PFUser *friend in self.friends) {

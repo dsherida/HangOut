@@ -31,9 +31,6 @@ UserModel *userModel; // singleton class UserModel
         self.message = @"info";
         self.profilePic = @"User";
         
-        // Uncomment the following line to specify the key of a PFFile on the PFObject to display in the imageView of the default cell style
-        // self.imageKey = @"image";
-        
         // Whether the built-in pull-to-refresh is enabled
         self.pullToRefreshEnabled = YES;
         
@@ -49,8 +46,6 @@ UserModel *userModel; // singleton class UserModel
 - (void)didReceiveMemoryWarning {
     // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
 }
 
 
@@ -58,18 +53,10 @@ UserModel *userModel; // singleton class UserModel
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)viewDidUnload {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -121,19 +108,14 @@ UserModel *userModel; // singleton class UserModel
 
 - (void)objectsWillLoad {
     [super objectsWillLoad];
-    
-    // This method is called before a PFQuery is fired to get more objects
 }
 
 - (void)objectsDidLoad:(NSError *)error {
     [super objectsDidLoad:error];
-    
-    // This method is called every time objects are loaded from Parse via the PFQuery
 }
 
-//
+
 // Customized code to show only wishes from your friends
-//
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object {
     static NSString *CellIdentifier = @"wishBox";
     
@@ -150,15 +132,6 @@ UserModel *userModel; // singleton class UserModel
         
         UILabel *message = (UILabel *)[cell viewWithTag:3];
         message.text = [object objectForKey:self.message];
-        
-        
-        // Add actions for details button
-        //     HangOutDetailsButton *details = (HangOutDetailsButton *)[cell viewWithTag:6];
-        //     details.object = object;
-        //     [details addTarget:self action:@selector(detailsButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-        //     UIButton *detailsButton = (UIButton *)[cell viewWithTag:6];
-        //     [detailsButton addTarget:self action:@selector(detailsButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-        
         
         PFUser *theUser = [object objectForKey:@"User"];
         
@@ -326,90 +299,14 @@ UserModel *userModel; // singleton class UserModel
     UILabel *username = (UILabel *)[cell viewWithTag:20];
     NSString *wishOwner = username.text;
     NSLog(@"Wish owner: %@", wishOwner);
-    
-    //[self performSegueWithIdentifier:@"detailsSegue" sender:sender];
 }
-
-/*
- -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
- // Send some data over
- NSLog(@"Prepare for segue...");
- 
- if([segue.identifier isEqualToString:@"detailsSegue"]){
- 
- 
- 
- //UIViewController *myController = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailsViewController"];
- //[self.navigationController pushViewController: myController animated:YES];
- }
- }
- */
 
 -(void) viewWillAppear:(BOOL)animated
 {
     [self loadObjects];
 }
 
-/*
- // Override if you need to change the ordering of objects in the table.
- - (PFObject *)objectAtIndex:(NSIndexPath *)indexPath {
- return [self.objects objectAtIndex:indexPath.row];
- }
- */
-
-/*
- // Override to customize the look of the cell that allows the user to load the next page of objects.
- // The default implementation is a UITableViewCellStyleDefault cell with simple labels.
- - (UITableViewCell *)tableView:(UITableView *)tableView cellForNextPageAtIndexPath:(NSIndexPath *)indexPath {
- static NSString *CellIdentifier = @"NextPage";
- 
- UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
- 
- if (cell == nil) {
- cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
- }
- 
- cell.selectionStyle = UITableViewCellSelectionStyleNone;
- cell.textLabel.text = @"Load more...";
- 
- return cell;
- }
- */
-
 #pragma mark - UITableViewDataSource
-
-/*
- // Override to support conditional editing of the table view.
- - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
- // Return NO if you do not want the specified item to be editable.
- return YES;
- }
- */
-
-/*
- // Override to support editing the table view.
- - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
- if (editingStyle == UITableViewCellEditingStyleDelete) {
- // Delete the object from Parse and reload the table view
- } else if (editingStyle == UITableViewCellEditingStyleInsert) {
- // Create a new instance of the appropriate class, and save it to Parse
- }
- }
- */
-
-/*
- // Override to support rearranging the table view.
- - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
- }
- */
-
-/*
- // Override to support conditional rearranging of the table view.
- - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
- // Return NO if you do not want the item to be re-orderable.
- return YES;
- }
- */
 
 #pragma mark - UITableViewDelegate
 

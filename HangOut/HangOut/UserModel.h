@@ -22,7 +22,6 @@
 @property (strong, nonatomic) NSMutableData *profilePictureData; // store the user's profile picture image data
 @property (strong, nonatomic) PFFile *profilePictureFile;   // store the PFFile that was created from the picture data
 @property (strong, nonatomic) NSArray *friends;
-//@property (strong, nonatomic) NSMutableArray *wishArray;
 @property (strong, nonatomic) UIImage *profileUIImage;
 @property (strong, nonatomic) NSString *objectId;
 @property (strong, nonatomic) PFGeoPoint *location;
@@ -31,9 +30,7 @@
 @property (assign, nonatomic) BOOL isLocationReady;
 
 + (UserModel *) sharedUserModel;
-//- (void)parseWishArray:(NSArray *)array;
 - (void) requestAndSetFacebookUserData;
-//- (void) getAndSetWishArray;
 - (void) setCurrentUser;
 - (void) setName;
 - (void) setFacebookID;

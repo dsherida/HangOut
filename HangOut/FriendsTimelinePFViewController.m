@@ -6,14 +6,6 @@
 //
 //
 
-/*
- // Query for all friends you have on facebook and who are using the app
- PFQuery *friendsQuery = [PFQuery queryWithClassName:@"User"];
- [friendsQuery whereKey:@"fbID" containedIn:userModel.friendIds];
- NSArray *friendUsers = [friendsQuery findObjects];
- NSLog(@"FRIENDS: %@", friendUsers);
- */
-
 #import "FriendsTimelinePFViewController.h"
 
 @interface FriendsTimelinePFViewController ()
@@ -51,8 +43,7 @@
          [queryWish orderByDescending:@"createdAt"];
      }
 
-         return queryWish;
-
+     return queryWish;
  }
 
 @end

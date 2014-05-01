@@ -27,8 +27,6 @@ int tableSize;
         
         // The key of the PFObject to display in the label of the default cell style
         self.wishTitle = @"title";
-//        self.message = @"info";
-//        self.profilePic = @"User";
         
         // Whether the built-in pull-to-refresh is enabled
         self.pullToRefreshEnabled = YES;
@@ -44,7 +42,6 @@ int tableSize;
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)viewDidLoad
@@ -55,7 +52,6 @@ int tableSize;
 
 - (void)viewDidUnload {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -85,14 +81,11 @@ int tableSize;
 - (void)objectsWillLoad {
     [super objectsWillLoad];
     _doneLoading = NO;
-    // This method is called before a PFQuery is fired to get more objects
 }
 
 - (void)objectsDidLoad:(NSError *)error {
     [super objectsDidLoad:error];
     _doneLoading = YES;
-    
-    // This method is called every time objects are loaded from Parse via the PFQuery
 }
 
 #pragma mark - Table view data source
@@ -159,7 +152,6 @@ int tableSize;
 // a UITableViewCellStyleDefault style cell with the label being the textKey in the object,
 // and the imageView being the imageKey in the object.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object {
-//    NSLog(@"Building table view...");
     static NSString *profileCellIdentifier = @"profileCell";
     static NSString *wishCellIdentifier = @"wishCell";
 
@@ -193,7 +185,6 @@ int tableSize;
             
             [followersQuery countObjectsInBackgroundWithBlock:^(int number, NSError *error) {
                 followers.text = [NSString stringWithFormat:@"%d", number];
-                //following.text = [following.text stringByAppendingString:@"\nfollowers"];
             }];
             
             PFQuery *followingQuery = [PFQuery queryWithClassName:kActivityClassKey];
@@ -202,16 +193,12 @@ int tableSize;
             
             [followingQuery countObjectsInBackgroundWithBlock:^(int number, NSError *error) {
                 following.text = [NSString stringWithFormat:@"%d", number];
-                //following.text = [following.text stringByAppendingString:@"\nfollowing"];
             }];
             
             profileCell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"profilecell.png"]];
             
             return profileCell;
         } else  {
-            // Configure wishCell
-//            NSLog(@"indexPath row: %ld", (long)indexPath.row);
-            
             UILabel *wishLabel = (UILabel *)[wishCell viewWithTag:3];
             wishLabel.text = [object objectForKey:@"title"];
             
@@ -238,7 +225,6 @@ int tableSize;
             [commentsQuery countObjectsInBackgroundWithBlock:^(int number, NSError *error) {
                 [comments setTitle:[NSString stringWithFormat:@"%d", number] forState:UIControlStateNormal];
             }];
-            
             return wishCell;
         }
     }
